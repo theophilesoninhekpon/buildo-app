@@ -9,8 +9,8 @@ import { UserNoticeComponent } from './user-notice/user-notice.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ChatbotComponent,
-    UserNoticeComponent
+    UserNoticeComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
