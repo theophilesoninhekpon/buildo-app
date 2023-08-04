@@ -1,0 +1,44 @@
+Composant chatbot | formulaire 
+
+Template
+ 
+- paragraphe
+- select
+- paragraphe
+- select avec une option personnalisée à la fin
+- input text
+- input text
+- paragraphe
+- input text
+- paragraphe
+
+- 3 carousels de template avec radio 
+paragraphe
+- 3 groupes de radios équivalent à chaque catégorie de couleur
+(options avec background correspondant à la couleur  ou
+affichage de la couleur primaire 
+au choix la couleur suivante apparaît)
+
+Toolbar (groupe de boutons à la fin)
+bouton de modification : Modifier
+bouton de réinitialisation: Recommencer ou Reprendre
+bouton de soumission: Créer le template ou générer le template
+
+
+
+Composant contact
+formulaire: 
+
+input text: nom
+input text: prénom
+input email: email
+button submit: Envoyer ou recevoir mon template
+
+Composant de 
+paragraphe: Template généré avec succés! Veuillez vérifier votre email 
+Recueillir les avis  5 divs avec des étoiles pour les avis
+Notes             textarea
+button de soumission 
+ 
+ 
+bouton vers le haut
