@@ -59,6 +59,11 @@ Nav
     margin-right: 1.5rem;
     
 }
+ span.icon:hover,
+ span.icon:focus {
+  color: #ff9e00;
+    
+}
 
 
 
@@ -107,27 +112,45 @@ MAIN LAYOUT
     font-family: 'Poppins';
     font-size: 6rem;
     font-weight: 900;
-    margin-top: 0;
 }
 .hero-container {
   
     margin-inline: 25rem;
 }
 .hero-container p{
-    line-height: 2.5rem;
+    line-height: 3rem;
      font-size: 1.5rem; 
      color: rgba(255, 255, 255, 0.7);  
 }
 
 .button{
     color: white;
-    border: 1px solid black;
     border-radius: 50px;
     background-color: black;
-    padding: 1rem ;
-    font-size: 1.5rem;
+    padding: .8rem 2rem;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: 900;
     font-family: Poppins;
+    letter-spacing: 0.1rem;
+    transition: all 1s;
     
+}
+
+button:hover,
+button:focus{
+    background-color: #ff9e00;
+    color: black;
+    cursor: pointer;
+}
+
+button i:hover{
+    color: white;
+}
+
+i:hover,
+i:focus{
+    color: #ff9e00;
 }
 
 
