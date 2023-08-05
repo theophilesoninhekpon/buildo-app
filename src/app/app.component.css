@@ -24,45 +24,47 @@ GENERALITIES
 ***************************************************************** */
 /* Le corps du document */
 .container {
-    margin: 0;
     width: 100%;
     height: auto;
-    padding: 1.5rem ;
+    margin: 0;
+    padding: 1.5rem;
+
     line-height: 1.3;
-    font-family:Montserrat;
+    font-family: Montserrat;
 }
 
 /* *****************************************************************
 CONTAINER
 ***************************************************************** */
 
-/* Background */
+/* Background couleur, l'image, l'origine et la taille, ou la méthode de répétition*/
 .BgroundImage {
-    background-image: url(../assets/maquette-main/background.png);
-    /* padding: 10px; */
-    background-position: center;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 17rem;
+
+    background: url(../assets/maquette-main/background.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 17rem ;
-    width: 100%;
-    
+
 }
 
 
 /* ***************************************************************
 Nav
 ***************************************************************** */
- span.icon {
-    color: white;
-    font-size: 2rem;
+span.icon {
     margin-right: 1.5rem;
     
+    font-size: 2rem;
+    color: white;
 }
- span.icon:hover,
- span.icon:focus {
-  color: #ff9e00;
-    
+
+span.icon:hover,
+span.icon:focus {
+    color: #ff9e00;
+
 }
 
 
@@ -94,17 +96,18 @@ LES CLASSES UTILITAIRES
 /* *****************************************************************
 MAIN LAYOUT
 ***************************************************************** */
-.hero span{
-    color:#ff9e00 ;
+.hero span {
+    color: #ff9e00;
 }
-.hero{
+
+.hero {
     color: white;
-  
+
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-   
+
 }
 
 
@@ -113,43 +116,48 @@ MAIN LAYOUT
     font-size: 6rem;
     font-weight: 900;
 }
+
 .hero-container {
-  
+
     margin-inline: 25rem;
 }
-.hero-container p{
+
+.hero-container p {
     line-height: 3rem;
-     font-size: 1.5rem; 
-     color: rgba(255, 255, 255, 0.7);  
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.button{
-    color: white;
-    border-radius: 50px;
-    background-color: black;
+.button {
     padding: .8rem 2rem;
     margin-top: 1.5rem;
+    border-radius: 50px;
+
+    color: white;
+    background-color: black;
+
     font-size: 2rem;
     font-weight: 900;
     font-family: Poppins;
     letter-spacing: 0.1rem;
-    transition: all 1s;
     
+    transition: all 1s;
+
 }
 
 button:hover,
-button:focus{
+button:focus {
     background-color: #ff9e00;
     color: black;
     cursor: pointer;
 }
 
-button i:hover{
+button i:hover {
     color: white;
 }
 
 i:hover,
-i:focus{
+i:focus {
     color: #ff9e00;
 }
 

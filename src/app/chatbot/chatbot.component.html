@@ -1,47 +1,61 @@
-<div>
+<div class="wraper">
 
     <form action="">
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisir la catégorie de ton site</p>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>Choisir la catégorie de ton site</p>
+            </div>
         </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
+        <div class="flex-left">
             <select name="" id="" required>
                 <option value="">Catégories</option>
             </select>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>A présent, renseigne moi le thème de ton site</p>
-        </div>
-        <div>
             <div><span class="fas fa-user-circle"></span></div>
-            <select name="" id="" required>
-                <option value="">Thèmes</option>
-            </select>
+        </div>
+        <div>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>A présent, renseigne moi le thème de ton site</p>
+            </div>
+            
+        </div>
+        <div class="flex-left-colum">
+            <div class="flex">
+                <select name="" id="" required>
+                    <option value="">Thèmes</option>
+                </select>
+                <span class="fas fa-user-circle"></span>
+            </div>
             <div>
-                <input type="text" required>
+                <input type="text" width="80%" required>
                 <button><span class="fa fa-send"></span></button>
+                <span class="fas fa-user-circle"></span>
             </div>
         </div>
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Quel est le nom de ton site</p>
-            <div>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>Quel est le nom de ton site</p>
+            </div>
+            
+            <div class="flex-left">
                 <input type="text" required>
                 <button><span class="fa fa-send"></span></button>
+                <span class="fas fa-user-circle"></span>
             </div>
         </div>
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisir à présent ton template</p>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>Choisir à présent ton template</p>
+            </div>
         </div>
-        <div>
-
+        
+        
+        <div class="carousel">
             <!-- Carousel -->
-
-            <div><span class="fas fa-user-circle"></span></div>
+           <span class="fas fa-user-circle"></span>
             <div>
                 <input type="radio" required>
                 <div class="parent">
@@ -68,8 +82,10 @@
             </div>
         </div>
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisis les trois couleurs principales du template</p>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>Choisis les trois couleurs principales du template</p>
+            </div>
         </div>
         <div>
             <div>
@@ -88,43 +104,51 @@
                 <div class="secondary-colors">
                     <div> <!-- ngFor pour la génération de couleurs  -->
                         <input type="radio" name="secondary" required>
-                        <div>secondary-color</div> <!-- Utilisation d'un attribut style avec bind de donées de angular-->
+                        <div>secondary-color</div>
+                        <!-- Utilisation d'un attribut style avec bind de donées de angular-->
                     </div>
                 </div>
                 <div class="tertiary-colors">
                     <div> <!-- ngFor pour la génération de couleurs  -->
                         <input type="radio" name="Tertiare" required>
-                        <div>tertiaire-color</div> <!-- Utilisation d'un attribut style avec bind de donées de angular-->
+                        <div>tertiaire-color</div>
+                        <!-- Utilisation d'un attribut style avec bind de donées de angular-->
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton nom</p>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>renseigne moi ton nom</p>
+            </div>
         </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
+        <div class="flex-left">
             <input type="text" required>
             <button><span class="fa fa-send"></span></button>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton prénom</p>
-        </div>
-        <div>
             <div><span class="fas fa-user-circle"></span></div>
+        </div>
+        <div>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>renseigne moi ton prénom</p>
+            </div>
+        </div>
+        <div class="flex-left">
             <input type="text" required>
             <button><span class="fa fa-send"></span></button>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton email!</p>
-        </div>
-        <div>
             <div><span class="fas fa-user-circle"></span></div>
+        </div>
+        <div>
+            <div class="flex">
+                <span class="fas fa-robot"></span>
+                <p>renseigne moi ton email!</p>
+            </div>
+        </div>
+        <div class="flex-left">
             <input type="email" required>
             <button><span class="fa fa-send"></span></button>
+            <div><span class="fas fa-user-circle"></span></div>
         </div>
 
         <div> <!-- Toolbar -->
