@@ -10,7 +10,7 @@ html {
 body {
     margin: 0;
     line-height: 1.5;
-    font-size: 1.6rem;
+    
     background-color: #e3e3e3;
 }
 
@@ -57,9 +57,13 @@ CONTAINER
 ********************************************************************************/
 .container {
     position: relative;
-    max-width: 680px;
+    max-width: 980px;
+    height: 265rem;
     margin-inline: auto;
-    background-color:#f9f9f9;
+    font-size: 1.6rem;
+    background-image: linear-gradient(to right, #e3e3e3 2%, #f9f9f9 10%, #f9f9f9 70%, #f9f9f9 80%, #e3e3e3 100%);
+  
+    /* overflow: auto; */
 }
 
 
@@ -68,14 +72,21 @@ MAIN CONTENT
 ********************************************************************************/
 
 button {
+    font-size: 1.6rem;
     border: none;
+}
+
+input {
+    padding : 1rem 7rem;
+    border: none;
+    border-radius: 15px;
 }
 
 /* Définission du style des cercles */
 div.circle {
-    width: 35px;
+    width: 45px;
     aspect-ratio: 1;
-    border: 5px dashed blue;
+    border: 10px dashed blue;
     background-color: white;
     border-radius: 50%;
     animation: rotation 3s linear 2s 1;
@@ -111,20 +122,25 @@ div.display-flex {
 }
 
 div.display-flex:nth-of-type(1) {
-    top: 8rem;
+    top: 5rem;
 
 }
 
 div.display-flex:nth-of-type(2) {
-    top: 14rem;
+    top: 7rem;
 }
 
 div.display-flex:nth-of-type(3) {
-    top: 20rem;
+    top: 12rem;
+}
+
+div.display-flex:nth-of-type(3) p {
+    top: 1rem;
+    border-bottom-left-radius: 20px;
 }
 
 div.display-flex:nth-of-type(4) {
-    top: 28rem;
+    top: 19rem;
 }
 
 
@@ -133,14 +149,19 @@ SECTION CHAT-CHOIX DE LA CATEGORIE
 ************************************************ */
 
 /* div - Parent du button d'acceptation */
-div.button-accept {
-    top: 36rem;
-    left: 30rem;
+button.button-accept {
+    top: 24rem;
+    right: 8rem;
+
+    box-shadow: 0px 1px 3px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    padding: .5rem 1rem;
 }
 
 /* Message d'acceptation de l'utilisateur */
 div.user-acceptation-text {
-    top: 40rem;
+    top: 30rem;
     right: 8rem;
 }
 
@@ -151,24 +172,27 @@ SECTION CHAT-CHOIX DE LA CATEGORIE
 
 /* Message du bot */
 div.categorie-chat-1 {
-    top: 46rem;
+    top: 36rem;
 }
 
 div.categorie-chat-2{
-    top: 52rem;
+    top: 42rem;
 }
 
 /* Action de l'utilisateur */
 select.position-absolute {
     display: block;
-    top: 60rem;
+    top: 49rem;
     right: 8rem;
 
-    padding-inline: 10rem;
+    padding : 1rem 10rem;
+    border: none;
+    border-radius: 15px;
+
 }
 
 button.choix-categorie {
-    top: 66rem;
+    top: 55rem;
     right: 8rem;
 }
 
@@ -177,12 +201,12 @@ button.choix-categorie {
 SECTION CHAT-CHOIX DU THEME
 ************************************************** */
 div.theme-1 {
-    top: 70rem;
+    top: 60rem;
 }
 
 /* Action utilisateur */
 div.theme-2 {
-    top: 78rem;
+    top: 68rem;
     right: 8rem;
 }
 
@@ -194,7 +218,7 @@ div.theme-2 div {
 
 /* Affichage du thème choisi par l'utilisateur */
 div.theme-3 {
-    top: 89rem;
+    top: 79rem;
 }
 
 
@@ -202,14 +226,15 @@ div.theme-3 {
 SECTION CHAT-CHOIX DU NOM DU SITE WEB 
 **************************************************** */
 div.nom_site1 {
-    top: 98rem;
+    top: 85rem;
 }
 
 /* Action utilisateur */
 div.nom_site2 {
-    top: 106rem;
+    top: 95rem;
     right: 8rem;
 }
+
 
 div.nom_site2 div {
     position: absolute;
@@ -223,21 +248,21 @@ SECTION CHAT-CHOIX DU TEMPLATE
 ****************************************************** */
 
 div.choix_template_1 {
-    top: 116rem;
+    top: 106rem;
 }
 
 div.choix_template_2{
-    top: 122rem;
+    top: 112rem;
 }
 
 div.choix_template_3{
-    top: 128rem;
+    top: 118rem;
 }
 
 /* Carousel */
 
 div.carousel {
-    top: 135rem;
+    top: 130rem;
     left: 18rem;
     column-gap: 2rem;
     text-align: center;
@@ -248,16 +273,16 @@ div.carousel {
 SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
 ******************************************************* */
 div.choix_couleur1 {
-    top: 147rem;
+    top: 142rem;
 }
 
 div.choix_couleur2 {
-    top: 154rem;
+    top: 148rem;
 }
 
 /* Button pour le choix */
 div.choix_couleur_button {
-    top: 163rem;
+    top: 155rem;
     right: 8rem;
 }
 
@@ -269,18 +294,18 @@ div.choix_couleur_button button {
 }
 
 button.choix_couleur_button_1 {
-    top: 168rem;
+    top: 160rem;
     right: 8rem;
 }
 
 /* Chat - texte d'introduction au choix */
 div.choix_couleur3 {
-    top: 174rem;
+    top: 168rem;
 }
 
 /* Case à choix de couleur */
 div.case_a_couleur {
-    top: 182rem;
+    top: 176rem;
     left: 14rem;
     column-gap: 3rem;
 }
@@ -288,8 +313,8 @@ div.case_a_couleur {
 
 /* Case à choix de couleur personnel*/
 div.choix_couleur_perso {
-    top: 192rem;
-    left: 22rem;
+    top: 195rem;
+    left: 21rem;
 }
 
 
@@ -297,25 +322,35 @@ div.choix_couleur_perso {
 SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
 ******************************************************* */
 div.formulaire_1 {
-    top: 198rem;
+    top: 206rem;
 }
 
 div.formulaire_2 {
-    top: 204rem;
+    top: 212rem;
 }
 
 div.formulaire_3 {
-    top: 210rem;
+    top: 218rem;
 }
 
 div.formulaire_4 {
-    top: 216rem;
+    top: 224rem;
 }
 
 
 /* Formulaie */
 form {
-    top: 220rem;
-    margin-inline: auto;
+    padding: 1.5rem 2rem;
+    top: 240rem;
+    left: 16rem;
+
+    background-color: #0119ff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+form button {
+    background-color: #58ce20;
+    color: white;
 }
 
