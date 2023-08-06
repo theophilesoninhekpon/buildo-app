@@ -2,7 +2,7 @@
 
 <div class="BgroundImage container">
   <div class="flex">
-    <a href=""><img src="../assets/maquette-main/logo2.png" alt="logo" width="400" height="60" ></a>
+    <a href=""><img class="logo" src="../assets/maquette-main/logo2.png" alt="logo" ></a>
 
     <div class="flex-gap">
       <a href=""><span class="icon fab fa-facebook"></span></a>
@@ -19,9 +19,9 @@
         laborum
         delectus quod quidem maxime dignissimos quaerat dolor exercitationem enim architecto nemo recusandae sapiente
         assumenda dicta!</p>
-      <button type="button" class="button">Commencer <i class='fas fa-caret-down'></i> </button>
+      <a href="#chatbot" class="button" (click)="isLaunched = true">Commencer <span class='fas fa-caret-down'></span></a> 
     </div>
   </div>
 </div>
 
-<app-chatbot></app-chatbot>
+<app-chatbot [start]="isLaunched"></app-chatbot>

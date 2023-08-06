@@ -46,8 +46,16 @@ CLASSES UTILITAIRES
     align-items: center;
 }
 
-.position-absolute {
-    position: absolute;
+.bot-message{
+    margin-left: 1rem;
+}
+
+
+.ready-btn{
+    margin-left: 15rem;
+    padding: .7rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 .user-style {
@@ -55,17 +63,35 @@ CLASSES UTILITAIRES
     color: white;
     background-color:#0119ff;
     border-radius: 20px;
+    margin-left: auto;
 }
 
+button{
+    font-family: Manrope;
+}
+
+select{
+    margin-left: auto;
+}
 
 /* ******************************************************************************
 CONTAINER
 ********************************************************************************/
-.container {
+
+.message-container{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin-left: -2rem;
+    width: 100%;
+}
+
+.chat-container {
     position: relative;
     max-width: 680px;
     margin-inline: auto;
     background-color:#f9f9f9;
+    font-family: Manrope;
 }
 
 
@@ -79,16 +105,27 @@ button {
 
 /* Définission du style des cercles */
 div.circle {
-    width: 35px;
+    width: 50px;
     aspect-ratio: 1;
-    border: 5px dashed blue;
+    border: 7.5px dashed blue;
     background-color: white;
     border-radius: 50%;
-    animation: rotation 3s linear 2s 1;
-
-    z-index: 1;
 }
     
+/* Définition de l'animation de chaque cercle */
+div.circle-1{
+    animation: rotation 2s linear 2s;
+}
+div.circle-2{
+    animation: rotation 2s linear 4s;
+}
+div.circle-3{
+    animation: rotation 2s linear 6s;
+}
+div.circle-4{
+    animation: rotation 2s linear 8s;
+}
+
 @keyframes rotation {
 0% {transform: rotate(0deg);}
 100% {transform: rotate(306deg);}
@@ -97,24 +134,22 @@ div.circle {
 
 /* Les bulles de discussion du chat */
 div.circle ~ p {
-    position: relative;
-    left: -1.5rem;
-    padding: .5rem 3rem .5rem 2rem;
+    padding: .5rem 3rem .5rem .5rem;
     background-color:#d9d9d9;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-    z-index: 0;
+    border-radius: 20px;
+    background-image: linear-gradient( rgb(249, 249, 249) 20%, rgb(217, 217, 217));
+    margin-left: .5rem;
 }
+
 
 /* ***********************************************
 SECTION CHAT-INTRODUCTION 
 *********************************************** */
-div.display-flex {
+/* div.display-flex {
     position: absolute;
     left : -2rem;
     /* top : 8rem; */
-}
+/* }
 
 div.display-flex:nth-of-type(1) {
     top: 8rem;
@@ -131,24 +166,13 @@ div.display-flex:nth-of-type(3) {
 
 div.display-flex:nth-of-type(4) {
     top: 28rem;
-}
+} */ */
 
 
 /* ************************************************
 SECTION CHAT-CHOIX DE LA CATEGORIE 
 ************************************************ */
 
-/* div - Parent du button d'acceptation */
-div.button-accept {
-    top: 36rem;
-    left: 30rem;
-}
-
-/* Message d'acceptation de l'utilisateur */
-div.user-acceptation-text {
-    top: 40rem;
-    right: 8rem;
-}
 
 
 /* *************************************************
@@ -156,16 +180,16 @@ SECTION CHAT-CHOIX DE LA CATEGORIE
 ************************************************* */
 
 /* Message du bot */
-div.categorie-chat-1 {
+/* div.categorie-chat-1 {
     top: 46rem;
 }
 
 div.categorie-chat-2{
     top: 52rem;
-}
+} */
 
 /* Action de l'utilisateur */
-select.position-absolute {
+/* select.position-absolute {
     display: block;
     top: 60rem;
     right: 8rem;
@@ -176,18 +200,18 @@ select.position-absolute {
 button.choix-categorie {
     top: 66rem;
     right: 8rem;
-}
+} */
 
 
 /* **************************************************
 SECTION CHAT-CHOIX DU THEME
 ************************************************** */
-div.theme-1 {
+/* div.theme-1 {
     top: 70rem;
-}
+} */
 
 /* Action utilisateur */
-div.theme-2 {
+/* div.theme-2 {
     top: 78rem;
     right: 8rem;
 }
@@ -196,23 +220,23 @@ div.theme-2 div {
     position: absolute;
     right: 0;
     margin-top: 3rem;
-}
+} */
 
 /* Affichage du thème choisi par l'utilisateur */
-div.theme-3 {
+/* div.theme-3 {
     top: 89rem;
-}
+} */
 
 
 /* ****************************************************
 SECTION CHAT-CHOIX DU NOM DU SITE WEB 
 **************************************************** */
-div.nom_site1 {
+/* div.nom_site1 {
     top: 98rem;
-}
+} */
 
 /* Action utilisateur */
-div.nom_site2 {
+/* div.nom_site2 {
     top: 106rem;
     right: 8rem;
 }
@@ -221,14 +245,14 @@ div.nom_site2 div {
     position: absolute;
     right: 0;
     margin-top: 3rem;
-}
+} */
 
 
 /* ******************************************************
 SECTION CHAT-CHOIX DU TEMPLATE 
 ****************************************************** */
 
-div.choix_template_1 {
+/* div.choix_template_1 {
     top: 116rem;
 }
 
@@ -238,31 +262,31 @@ div.choix_template_2{
 
 div.choix_template_3{
     top: 128rem;
-}
+} */
 
 /* Carousel */
 
-div.carousel {
+/* div.carousel {
     top: 135rem;
     left: 18rem;
     column-gap: 2rem;
     text-align: center;
-}
+} */
 
 
 /* *******************************************************
 SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
 ******************************************************* */
-div.choix_couleur1 {
+/* div.choix_couleur1 {
     top: 147rem;
 }
 
 div.choix_couleur2 {
     top: 154rem;
-}
+} */
 
 /* Button pour le choix */
-div.choix_couleur_button {
+/* div.choix_couleur_button {
     top: 163rem;
     right: 8rem;
 }
@@ -277,32 +301,32 @@ div.choix_couleur_button button {
 button.choix_couleur_button_1 {
     top: 168rem;
     right: 8rem;
-}
+} */
 
 /* Chat - texte d'introduction au choix */
-div.choix_couleur3 {
+/* div.choix_couleur3 {
     top: 174rem;
 }
 
 /* Case à choix de couleur */
-div.case_a_couleur {
+/* div.case_a_couleur {
     top: 182rem;
     left: 14rem;
     column-gap: 3rem;
-}
+} */ */
 
 
 /* Case à choix de couleur personnel*/
-div.choix_couleur_perso {
+/* div.choix_couleur_perso {
     top: 192rem;
     left: 22rem;
-}
+} */
 
 
 /* *******************************************************
 SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
 ******************************************************* */
-div.formulaire_1 {
+/* div.formulaire_1 {
     top: 198rem;
 }
 
@@ -312,7 +336,7 @@ div.formulaire_2 {
 
 div.formulaire_3 {
     top: 210rem;
-}
+} */
 
 div.formulaire_4 {
     top: 216rem;
