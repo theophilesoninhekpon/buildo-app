@@ -20,16 +20,21 @@ export class ChatbotComponent {
   context !: CanvasRenderingContext2D | null;
   canvas !: HTMLCanvasElement;
   @Input() start!: boolean;
+  category!: string;
 
   // Valeurs d'états des réponses de l'utilisateur
+  hasAnswered!: boolean;
   ready!: boolean;
-  category!: boolean
+  categoryState!: boolean;
+  categoryShow!: boolean;
+  themeState!: boolean;
+  animation:boolean = true;
 
   ngOnInit(): void {
       this.canvas = this.myCanvas.nativeElement;
       this.context = this.canvas.getContext('2d');
       console.log("marche")
-      
+
   }
 
 
@@ -84,9 +89,29 @@ export class ChatbotComponent {
     this.ready = true;
 
     let timeOut = setTimeout(() => {
-      this.category = true;
+      this.categoryState = true;
+      this.animation = true;
       clearTimeout(timeOut);
-    }, 1500)
+    }, 1000)
+  }
+
+  getOption(event: any){
+
+    // Récupération de la catégorie sélectionnée
+    this.category = event.target.value;
+    this.categoryShow = true;
+    this.hasAnswered = true;
+
+    let timeOut = setTimeout(() => {
+      this.themeState = true;
+      clearTimeout(timeOut);
+    }, 1000)
+  }
+
+  modifyCategory(){
+    this.categoryShow = false; 
+    this.hasAnswered = false;
+    this.animation = false;
   }
 
 }
