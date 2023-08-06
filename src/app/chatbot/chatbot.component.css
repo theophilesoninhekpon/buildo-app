@@ -16,7 +16,7 @@ html {
 body {
     margin: 0;
     line-height: 1.5;
-    font-size: 1.6rem;
+    
     background-color: #e3e3e3;
 }
 
@@ -88,7 +88,8 @@ CONTAINER
 
 .chat-container {
     position: relative;
-    max-width: 680px;
+    max-width: 980px;
+    height: 265rem;
     margin-inline: auto;
     background-color:#f9f9f9;
     font-family: Manrope;
@@ -100,7 +101,14 @@ MAIN CONTENT
 ********************************************************************************/
 
 button {
+    font-size: 1.6rem;
     border: none;
+}
+
+input {
+    padding : 1rem 7rem;
+    border: none;
+    border-radius: 15px;
 }
 
 /* Définission du style des cercles */
@@ -152,16 +160,21 @@ SECTION CHAT-INTRODUCTION
 /* }
 
 div.display-flex:nth-of-type(1) {
-    top: 8rem;
+    top: 5rem;
 
 }
 
 div.display-flex:nth-of-type(2) {
-    top: 14rem;
+    top: 7rem;
 }
 
 div.display-flex:nth-of-type(3) {
-    top: 20rem;
+    top: 12rem;
+}
+
+div.display-flex:nth-of-type(3) p {
+    top: 1rem;
+    border-bottom-left-radius: 20px;
 }
 
 div.display-flex:nth-of-type(4) {
@@ -191,14 +204,17 @@ div.categorie-chat-2{
 /* Action de l'utilisateur */
 /* select.position-absolute {
     display: block;
-    top: 60rem;
+    top: 49rem;
     right: 8rem;
 
-    padding-inline: 10rem;
+    padding : 1rem 10rem;
+    border: none;
+    border-radius: 15px;
+
 }
 
 button.choix-categorie {
-    top: 66rem;
+    top: 55rem;
     right: 8rem;
 } */
 
@@ -241,6 +257,7 @@ SECTION CHAT-CHOIX DU NOM DU SITE WEB
     right: 8rem;
 }
 
+
 div.nom_site2 div {
     position: absolute;
     right: 0;
@@ -257,7 +274,7 @@ SECTION CHAT-CHOIX DU TEMPLATE
 }
 
 div.choix_template_2{
-    top: 122rem;
+    top: 112rem;
 }
 
 div.choix_template_3{
@@ -299,7 +316,7 @@ div.choix_couleur_button button {
 }
 
 button.choix_couleur_button_1 {
-    top: 168rem;
+    top: 160rem;
     right: 8rem;
 } */
 
@@ -331,7 +348,7 @@ SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE
 }
 
 div.formulaire_2 {
-    top: 204rem;
+    top: 212rem;
 }
 
 div.formulaire_3 {
@@ -339,13 +356,23 @@ div.formulaire_3 {
 } */
 
 div.formulaire_4 {
-    top: 216rem;
+    top: 224rem;
 }
 
 
 /* Formulaie */
 form {
-    top: 220rem;
-    margin-inline: auto;
+    padding: 1.5rem 2rem;
+    top: 240rem;
+    left: 16rem;
+
+    background-color: #0119ff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+form button {
+    background-color: #58ce20;
+    color: white;
 }
 
