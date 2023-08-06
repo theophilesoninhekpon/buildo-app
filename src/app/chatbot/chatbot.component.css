@@ -1,0 +1,321 @@
+
+    
+/* ******************************************************************************
+RESET
+********************************************************************************/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    background-color: #e3e3e3;
+}
+
+
+/* ******************************************************************************
+VARIABLES
+********************************************************************************/
+/* :root { */
+    /* --clr-body-backgroud : #e3e3e3; */
+    /* --clr-container-backgroud : #f9f9f9; */
+    /* --clr-chat-text-backgroud : #d9d9d9; */
+    /* --clr-blue : #0119ff; */
+/* } */
+
+
+/* ******************************************************************************
+TYPOGRAPHIE
+********************************************************************************/
+
+
+
+/* ******************************************************************************
+CLASSES UTILITAIRES
+********************************************************************************/
+.display-flex {
+    display: flex;
+    align-items: center;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.user-style {
+    padding: .5rem 1.5rem;
+    color: white;
+    background-color:#0119ff;
+    border-radius: 20px;
+}
+
+
+/* ******************************************************************************
+CONTAINER
+********************************************************************************/
+.container {
+    position: relative;
+    max-width: 680px;
+    margin-inline: auto;
+    background-color:#f9f9f9;
+}
+
+
+/* ******************************************************************************
+MAIN CONTENT
+********************************************************************************/
+
+button {
+    border: none;
+}
+
+/* Définission du style des cercles */
+div.circle {
+    width: 35px;
+    aspect-ratio: 1;
+    border: 5px dashed blue;
+    background-color: white;
+    border-radius: 50%;
+    animation: rotation 3s linear 2s 1;
+
+    z-index: 1;
+}
+    
+@keyframes rotation {
+0% {transform: rotate(0deg);}
+100% {transform: rotate(306deg);}
+}
+
+
+/* Les bulles de discussion du chat */
+div.circle ~ p {
+    position: relative;
+    left: -1.5rem;
+    padding: .5rem 3rem .5rem 2rem;
+    background-color:#d9d9d9;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    z-index: 0;
+}
+
+/* ***********************************************
+SECTION CHAT-INTRODUCTION 
+*********************************************** */
+div.display-flex {
+    position: absolute;
+    left : -2rem;
+    /* top : 8rem; */
+}
+
+div.display-flex:nth-of-type(1) {
+    top: 8rem;
+
+}
+
+div.display-flex:nth-of-type(2) {
+    top: 14rem;
+}
+
+div.display-flex:nth-of-type(3) {
+    top: 20rem;
+}
+
+div.display-flex:nth-of-type(4) {
+    top: 28rem;
+}
+
+
+/* ************************************************
+SECTION CHAT-CHOIX DE LA CATEGORIE 
+************************************************ */
+
+/* div - Parent du button d'acceptation */
+div.button-accept {
+    top: 36rem;
+    left: 30rem;
+}
+
+/* Message d'acceptation de l'utilisateur */
+div.user-acceptation-text {
+    top: 40rem;
+    right: 8rem;
+}
+
+
+/* *************************************************
+SECTION CHAT-CHOIX DE LA CATEGORIE 
+************************************************* */
+
+/* Message du bot */
+div.categorie-chat-1 {
+    top: 46rem;
+}
+
+div.categorie-chat-2{
+    top: 52rem;
+}
+
+/* Action de l'utilisateur */
+select.position-absolute {
+    display: block;
+    top: 60rem;
+    right: 8rem;
+
+    padding-inline: 10rem;
+}
+
+button.choix-categorie {
+    top: 66rem;
+    right: 8rem;
+}
+
+
+/* **************************************************
+SECTION CHAT-CHOIX DU THEME
+************************************************** */
+div.theme-1 {
+    top: 70rem;
+}
+
+/* Action utilisateur */
+div.theme-2 {
+    top: 78rem;
+    right: 8rem;
+}
+
+div.theme-2 div {
+    position: absolute;
+    right: 0;
+    margin-top: 3rem;
+}
+
+/* Affichage du thème choisi par l'utilisateur */
+div.theme-3 {
+    top: 89rem;
+}
+
+
+/* ****************************************************
+SECTION CHAT-CHOIX DU NOM DU SITE WEB 
+**************************************************** */
+div.nom_site1 {
+    top: 98rem;
+}
+
+/* Action utilisateur */
+div.nom_site2 {
+    top: 106rem;
+    right: 8rem;
+}
+
+div.nom_site2 div {
+    position: absolute;
+    right: 0;
+    margin-top: 3rem;
+}
+
+
+/* ******************************************************
+SECTION CHAT-CHOIX DU TEMPLATE 
+****************************************************** */
+
+div.choix_template_1 {
+    top: 116rem;
+}
+
+div.choix_template_2{
+    top: 122rem;
+}
+
+div.choix_template_3{
+    top: 128rem;
+}
+
+/* Carousel */
+
+div.carousel {
+    top: 135rem;
+    left: 18rem;
+    column-gap: 2rem;
+    text-align: center;
+}
+
+
+/* *******************************************************
+SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
+******************************************************* */
+div.choix_couleur1 {
+    top: 147rem;
+}
+
+div.choix_couleur2 {
+    top: 154rem;
+}
+
+/* Button pour le choix */
+div.choix_couleur_button {
+    top: 163rem;
+    right: 8rem;
+}
+
+div.choix_couleur_button button {
+    box-shadow: 0px 1px 3px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    padding: .5rem 1rem;
+}
+
+button.choix_couleur_button_1 {
+    top: 168rem;
+    right: 8rem;
+}
+
+/* Chat - texte d'introduction au choix */
+div.choix_couleur3 {
+    top: 174rem;
+}
+
+/* Case à choix de couleur */
+div.case_a_couleur {
+    top: 182rem;
+    left: 14rem;
+    column-gap: 3rem;
+}
+
+
+/* Case à choix de couleur personnel*/
+div.choix_couleur_perso {
+    top: 192rem;
+    left: 22rem;
+}
+
+
+/* *******************************************************
+SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
+******************************************************* */
+div.formulaire_1 {
+    top: 198rem;
+}
+
+div.formulaire_2 {
+    top: 204rem;
+}
+
+div.formulaire_3 {
+    top: 210rem;
+}
+
+div.formulaire_4 {
+    top: 216rem;
+}
+
+
+/* Formulaie */
+form {
+    top: 220rem;
+    margin-inline: auto;
+}
+
