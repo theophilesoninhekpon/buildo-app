@@ -1,37 +1,65 @@
-<div>
 
-    <form action="">
+<div class = "container">
+    <canvas #canvas width = "20px" [height] = "canvasHeight" style = " border : 1px solid black;" ></canvas>
+    <div class = "display-flex">
+        <div [ngClass] = "{circle : start}"  [@circleFadeInAnimation1] *ngIf = "start"></div>
+        <p [@TxtFadeInAnimation1] *ngIf = "start"> Salut ! Je m'appelle Build'o</p>
+    </div>
+
+    <div class = "display-flex">
+        <div class = "circle"></div>
+        <p>Je suis le bot constructeur de template.</p>
+    </div>
+
+    <div class = "display-flex">
+        <div class = "circle"></div>
+        <p>Je vais te demander des informations sur template <br>afin de le construire à ta convenance</p>
+    </div>
+
+    <div class = "display-flex">
+        <div class = "circle"></div>
+        <p>Alors on peut commencer ?</p>
+    </div>
+
+    <!-- Première réponse de l'utilisateur -->
+    <div class = "button-accept position-absolute"> <!-- Action utilisateur -->
+        <button>Oui Build'o</button>
+    </div> 
+    <div class = "user-acceptation-text position-absolute">
+        <p class = "user-style">Oui Build'o</p> <span></span>
+    </div>
+
+
+    <!-- Choix de la catégorie du site web -->
+    <div  class = "display-flex categorie-chat-1">
+        <div class = "circle"></div>
+        <p>Super !</p>
+    </div>
+
+    <div  class = "display-flex categorie-chat-2">
+        <div class = "circle"></div>
+        <p>Dans quel catégorie s'inscrit ton site ?</p>
+    </div>
+
+    <select name = "" id = "" class = "position-absolute"> <!-- Action utilisateur -->
+        <option value=""></option>
+    </select>
+    <div>
+        <button class = "position-absolute choix-categorie user-style">catégorie choisie</button>
+    </div>
+
+
+    <!-- Choix du thème du site web -->
+    <div  class = "display-flex theme-1">
+        <div class = "circle"></div>
+        <p>A présent renseigne moi le thème de ton site</p>
+    </div>
+
+
+    <div class  = "position-absolute theme-2">
+        <input type = "text" name = ""> <!-- Action utilisateur -->
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisir la catégorie de ton site</p>
-        </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
-            <select name="" id="" required>
-                <option value="">Catégories</option>
-            </select>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>A présent, renseigne moi le thème de ton site</p>
-        </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
-            <select name="" id="" required>
-                <option value="">Thèmes</option>
-            </select>
-            <div>
-                <input type="text" required>
-                <button><span class="fa fa-send"></span></button>
-            </div>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Quel est le nom de ton site</p>
-            <div>
-                <input type="text" required>
-                <button><span class="fa fa-send"></span></button>
-            </div>
+            <button class = "user-style">Thème de son site</button>
         </div>
     </div>
 
@@ -52,98 +80,109 @@
     <div class="position-absolute nom_site2">
         <input type = "text" name = ""> <!-- Action utilisateur -->
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisir à présent ton template</p>
+            <button class = "user-style">Nom du site web</button>
         </div>
-        <div>
+    </div>
 
-            <!-- Carousel -->
 
-            <div><span class="fas fa-user-circle"></span></div>
-            <div>
-                <input type="radio" required>
-                <div class="parent">
-                    <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-                </div>
-            </div>
-            <div>
-                <input type="radio" required>
-                <div class="parent">
-                    <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-                </div>
-            </div>
-            <div>
-                <input type="radio" required>
-                <div class="parent">
-                    <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                    <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-                </div>
-            </div>
-        </div>
+    <!-- .Carousel | choix du template -->
+    <div  class = "display-flex choix_template_1">
+        <div class = "circle"></div>
+        <p>J'aime bien ce nom !</p>
+    </div>
+
+    <div  class = "display-flex choix_template_2">
+        <div class = "circle"></div>
+        <p>On avance bien.</p>
+    </div>
+
+    <div  class = "display-flex choix_template_3">
+        <div class = "circle"></div>
+        <p>Tu vas à présent choisir le template de ton site web.</p>
+    </div>
+
+
+    <div class="carousel position-absolute display-flex">  <!-- Action utilisateur -->
+       <!-- <span class="fas fa-user-circle"></span> -->
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>Choisis les trois couleurs principales du template</p>
-        </div>
-        <div>
-            <div>
-                <div><span class="fas fa-user-circle"></span></div>
-                <div>Primaire</div>
-                <div>Secondaire</div>
-                <div>Tertiare</div>
-            </div>
-            <div>
-                <div class="primary-colors">
-                    <div> <!-- ngFor pour la génération de couleurs  -->
-                        <input type="radio" name="primaire" required>
-                        <div>primary-color</div> <!-- Utilisation d'un attribut style avec bind de donées de angular-->
-                    </div>
-                </div>
-                <div class="secondary-colors">
-                    <div> <!-- ngFor pour la génération de couleurs  -->
-                        <input type="radio" name="secondary" required>
-                        <div>secondary-color</div> <!-- Utilisation d'un attribut style avec bind de donées de angular-->
-                    </div>
-                </div>
-                <div class="tertiary-colors">
-                    <div> <!-- ngFor pour la génération de couleurs  -->
-                        <input type="radio" name="Tertiare" required>
-                        <div>tertiaire-color</div> <!-- Utilisation d'un attribut style avec bind de donées de angular-->
-                    </div>
-                </div>
+            <input type="radio" required>
+            <div class="parent">
+                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
             </div>
         </div>
         <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton nom</p>
+            <input type="radio" required>
+            <div class="parent">
+                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
+            </div>
         </div>
         <div>
-            <div><span class="fas fa-user-circle"></span></div>
-            <input type="text" required>
-            <button><span class="fa fa-send"></span></button>
+            <input type="radio" required>
+            <div class="parent">
+                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
+                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
+            </div>
         </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton prénom</p>
-        </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
-            <input type="text" required>
-            <button><span class="fa fa-send"></span></button>
-        </div>
-        <div>
-            <div><span class="fas fa-robot"></span></div>
-            <p>renseigne moi ton email!</p>
-        </div>
-        <div>
-            <div><span class="fas fa-user-circle"></span></div>
-            <input type="email" required>
-            <button><span class="fa fa-send"></span></button>
-        </div>
+    </div>
+
+
+    <!-- Choix des couleurs -->
+    <div  class = "display-flex choix_couleur1">
+        <div class = "circle"></div>
+        <p>Passons maintenant aux couleurs</p>
+    </div>
+
+    <div  class = "display-flex choix_couleur2">
+        <div class = "circle"></div>
+        <p>Voudrais-tu les choisir toi même ?</p>
+    </div>
+
+    <div class = "position-absolute choix_couleur_button"> <!-- Action utilisateur -->
+        <button>Oui</button>
+        <button>Non</button>
+    </div>
+
+    <button class = "user-style position-absolute choix_couleur_button_1">Réponse</button>
+
+    <div  class = "display-flex choix_couleur3">
+        <div class = "circle"></div>
+        <p>Choisis alors couleurs pour ton template</p>
+    </div>
+
+    <div class = "display-flex position-absolute case_a_couleur">
+        <div class = "user-style">Primaire</div>
+        <div class = "user-style">Secondaire</div>
+        <div class = "user-style">Tertiaire</div>
+    </div>
+
+
+    <div class = " position-absolute user-style choix_couleur_perso">couleurs personnalisées</div>
+
+    <!-- Formulaire -->
+    <div  class = "display-flex position-absolute formulaire_1">
+        <div class = "circle"></div>
+        <p>Merci de m'avoir fourni toutes les informations</p>
+    </div>
+
+    <div  class = "display-flex position-absolute formulaire_2">
+        <div class = "circle"></div>
+        <p>Génération du template en cours (petit loader)</p>
+    </div>
+
+    <div  class = "display-flex position-absolute formulaire_3">
+        <div class = "circle"></div>
+        <p>Template généré avec succès</p>
+    </div>
+
+    <div  class = "display-flex position-absolute formulaire_4">
+        <div class = "circle"></div>
+        <p>Pour le recevoir, je t'invite à remplir ce formulaire</p>
+    </div>
 
 
     <form action="" class = "position-absolute">
