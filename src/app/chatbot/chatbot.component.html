@@ -114,9 +114,9 @@
         </div>
 
         <!-- Carousel de templates -->
-        <div class="user-message" [@textFadeInAnimation4] = 'animation' >
+        <div class="user-message" [@textFadeInAnimation4] = 'animation' *ngIf="templateStep">
             
-            <div id="carouselExampleIndicators" class="carousel slide">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide w-75">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -124,26 +124,26 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                    <div class="row ">
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
-                                <input type="radio" name="template" value="template1" class="d-block margin-inline-auto">
+                                <input type="radio" name="template" value="template1"  (change)="onSelectTemplate($event)">
                             </div>
                             <div class="template-image">
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
-                                <input type="radio" name="template" value="template1" class="d-block margin-inline-auto">
+                                <input type="radio" name="template" value="template2" (change)="onSelectTemplate($event)">
                             </div>
                             <div class="template-image">
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
-                                <input type="radio" name="template" value="template1" class="d-block margin-inline-auto">
+                                <input type="radio" name="template" value="template3" (change)="onSelectTemplate($event)">
                             </div>
                             <div class="template-image">
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
@@ -151,12 +151,35 @@
                         </div>
                     </div>
                   </div>
-                  <div class="carousel-item">
-                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
+                  <div class="carousel-item active">
+                    <div class="row ">
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                            <div class="template-input mx-auto">
+                                <input type="radio" name="template" value="template4" (change)="onSelectTemplate($event)">
+                            </div>
+                            <div class="template-image">
+                                <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                            <div class="template-input mx-auto">
+                                <input type="radio" name="template" value="template5" (change)="onSelectTemplate($event)">
+                            </div>
+                            <div class="template-image">
+                                <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                            <div class="template-input mx-auto">
+                                <input type="radio" name="template" value="template6" (change)="onSelectTemplate($event)">
+                            </div>
+                            <div class="template-image">
+                                <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                  <div class="carousel-item">
-                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
-                  </div>
+                 
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -167,142 +190,29 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
-              
         </div>
-    </div>
-
-
-
-
-<!-- Les parties manquantes -->
-<!-- J'ajoutais au fur et à mesure que j'implémente chaque élément -->
-    
-    <!-- Première réponse de l'utilisateur -->
-    
-
-
-    
-
-    
-
-    <div  class = "display-flex theme-3">
-        <div class = "circle"></div>
-        <p>Ton site web porte donc sur le thème de (thème du site)</p>
-    </div>
-
-
-    <!-- choix du nom du site web -->
-    <div  class = "display-flex nom_site1">
-        <div class = "circle"></div>
-        <p>Quel nom donneras-tu à ton site web</p>
-    </div>
-
-
-    <div class="position-absolute nom_site2">
-        <input type = "text" name = ""> <!-- Action utilisateur -->
-        <div>
-            <button class = "user-style">Nom du site web</button>
+         <!-- Choisir les couleurs ou non -->
+         <div class = "display-flex bot-message" *ngIf = "isReadyForColorStep">
+            <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
+            <p [@textFadeInAnimation1] > Passons maintenant aux couleurs</p>
         </div>
-    </div>
 
-
-    <!-- .Carousel | choix du template -->
-    <div  class = "display-flex choix_template_1">
-        <div class = "circle"></div>
-        <p>J'aime bien ce nom !</p>
-    </div>
-
-    <div  class = "display-flex choix_template_2">
-        <div class = "circle"></div>
-        <p>On avance bien.</p>
-    </div>
-
-    <div  class = "display-flex choix_template_3">
-        <div class = "circle"></div>
-        <p>Tu vas à présent choisir le template de ton site web.</p>
-    </div>
-
-
-    <div class="carousel position-absolute display-flex">  <!-- Action utilisateur -->
-       <!-- <span class="fas fa-user-circle"></span> -->
-        <div>
-            <input type="radio" required>
-            <div class="parent">
-                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-            </div>
+         <div class = "display-flex bot-message" *ngIf = "isReadyForColorStep">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Voudrais-tu les choisir toi même ? </p>
         </div>
-        <div>
-            <input type="radio" required>
-            <div class="parent">
-                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-            </div>
+
+        <div class = "display-flex user-message"  [@textFadeInAnimation3] *ngIf = "isReadyForColorStep">
+           <div class="d-flex gap-2 ms-auto">
+                <button class="choice-btn" (click)="startColorStep(true)" >Oui </button>
+                <button class="choice-btn" (click)="startColorStep(false)" >Non </button>
+           </div>
         </div>
-        <div>
-            <input type="radio" required>
-            <div class="parent">
-                <div class="item"><img src="./instructions/ressources/images/slider-01.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-02.jpg" alt="nourriture"></div>
-                <div class="item"><img src="./instructions/ressources/images/slider-03.jpg" alt="nourriture"></div>
-            </div>
+
+        <div class = "display-flex " *ngIf="isReadyForColorStep">
+            <p class = "user-style">{{chooseOwnColors}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
         </div>
-    </div>
 
-
-    <!-- Choix des couleurs -->
-    <div  class = "display-flex choix_couleur1">
-        <div class = "circle"></div>
-        <p>Passons maintenant aux couleurs</p>
-    </div>
-
-    <div  class = "display-flex choix_couleur2">
-        <div class = "circle"></div>
-        <p>Voudrais-tu les choisir toi même ?</p>
-    </div>
-
-    <div class = "position-absolute choix_couleur_button"> <!-- Action utilisateur -->
-        <button>Oui</button>
-        <button>Non</button>
-    </div>
-
-    <button class = "user-style position-absolute choix_couleur_button_1">Réponse</button>
-
-    <div  class = "display-flex choix_couleur3">
-        <div class = "circle"></div>
-        <p>Choisis alors couleurs pour ton template</p>
-    </div>
-
-    <div class = "display-flex position-absolute case_a_couleur">
-        <div class = "user-style">Primaire</div>
-        <div class = "user-style">Secondaire</div>
-        <div class = "user-style">Tertiaire</div>
-    </div>
-
-
-    <div class = " position-absolute user-style choix_couleur_perso">couleurs personnalisées</div>
-
-    <!-- Formulaire -->
-    <div  class = "display-flex position-absolute formulaire_1">
-        <div class = "circle"></div>
-        <p>Merci de m'avoir fourni toutes les informations</p>
-    </div>
-
-    <div  class = "display-flex position-absolute formulaire_2">
-        <div class = "circle"></div>
-        <p>Génération du template en cours (petit loader)</p>
-    </div>
-
-    <div  class = "display-flex position-absolute formulaire_3">
-        <div class = "circle"></div>
-        <p>Template généré avec succès</p>
-    </div>
-
-    <div  class = "display-flex position-absolute formulaire_4">
-        <div class = "circle"></div>
-        <p>Pour le recevoir, je t'invite à remplir ce formulaire</p>
     </div>
 
 

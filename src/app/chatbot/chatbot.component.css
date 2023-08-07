@@ -56,7 +56,6 @@ CLASSES UTILITAIRES
     padding: .7rem 1rem;
     border-radius: 50px;
     cursor: pointer;
-
 }
 
 .send-btn{
@@ -82,7 +81,8 @@ CLASSES UTILITAIRES
     width: 400px;
 }
 
-.user-message div {
+
+.user-message > div {
     margin-left: auto;
 }
 
@@ -178,7 +178,15 @@ div.circle ~ p {
     margin-left: .5rem;
 }
 
+.carousel-indicators{
+    margin-bottom: -2rem !important;
+}
 
+.choice-btn{
+    padding: .7rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
 /* ***********************************************
 SECTION CHAT-INTRODUCTION 
 *********************************************** */
