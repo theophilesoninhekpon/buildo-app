@@ -18,20 +18,28 @@ export class ChatbotComponent {
   @ViewChild('canvas', {static : true}) myCanvas !: ElementRef;
   context !: CanvasRenderingContext2D | null;
   canvas !: HTMLCanvasElement;
+
   @Input() start!: boolean;
+
+  // Variables des entrées de l'utilisateur
   category!: string;
   theme!: string;
   siteName!: string;
   template!: string;
+  primaryColor!: string;
+  secondaryColor!: string;
+  tertiaryColor!: string;
 
   // Valeurs d'états des réponses de l'utilisateur
-  hasSelectCategory!: boolean;
-  hasEnteredTheme!: boolean;
-  hasEnteredSiteName!: boolean;
-  hasSelectTemplate!: boolean;
+  hasSelectCategory: boolean = false;
+  hasEnteredTheme: boolean = false;
+  hasEnteredSiteName: boolean = false;
+  hasSelectTemplate: boolean = false;
+  isReadyForColorStep: boolean = false;
+  chooseOwnColors: string = '';
   animation:boolean = true;
-  invalidThemeInput!: boolean;
-  invalidSiteNameInput!: boolean;
+  invalidThemeInput: boolean = false;
+  invalidSiteNameInput: boolean = false;
 
   ready!: boolean;
 
@@ -45,6 +53,9 @@ export class ChatbotComponent {
   showSiteName!: boolean;
 
   templateStep!: boolean;
+  
+  colorStep!: boolean;
+  
 
   ngOnInit(): void {
       this.canvas = this.myCanvas.nativeElement;
@@ -159,6 +170,26 @@ export class ChatbotComponent {
     this.showSiteName = false; 
     this.hasEnteredSiteName = false;
     this.animation = false;
+  }
+
+  // Selection du template
+  onSelectTemplate(event: any){
+    
+    this.template = event.target.value;
+    this.isReadyForColorStep = true;
+
+  }
+
+  startColorStep(state: boolean){
+
+    if(state) {
+      this.colorStep = true;
+      this.chooseOwnColors = 'Oui';
+    } else {
+      this.colorStep = false;
+      this.chooseOwnColors = 'Non';
+    }
+
   }
 
 }
