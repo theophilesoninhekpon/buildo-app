@@ -1,29 +1,6 @@
-import { Category, PrimaryColor, SecondaryColorList } from "./category"
+import { Color, SecondaryColorList, TertiaryColorList } from "./category"
 
-export const categories: Category[] = [
-    {
-        'id': '1',
-        'title': 'Finance'
-    },
-    {
-        'id': '1',
-        'title': 'Gastronomie'
-    },
-    {
-        'id': '1',
-        'title': 'Sport'
-    },
-    {
-        'id': '1',
-        'title': 'Santé'
-    },
-    {
-        'id': '1',
-        'title': 'Digital'
-    },
-];
-
-export const primaryColors: PrimaryColor[] = [
+export const primaryColors: Color[] = [
 
     {
         'id': '1',
@@ -40,3 +17,84 @@ export const primaryColors: PrimaryColor[] = [
 
 ];
 
+
+// Tableau contenant les couleurs secondaires liées à chaque couleur primaire
+export const secondaryColors: SecondaryColorList[] =[
+
+    {               //vert
+        'primaryId': '1',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#666e61'
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13'
+            },
+            {
+                'id': '3',
+                'hexCode': '#236eff'
+            }
+        ]
+    },
+    {               //jaune
+        'primaryId': '2',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#236eff'
+            },
+            {
+                'id': '2',
+                'hexCode': '#800000' 
+            },
+            {
+                'id': '3',
+                'hexCode': '#800000' 
+            }
+        ]
+    },
+    {               //bleu
+        'primaryId': '3',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#954b00'
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13' 
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13' 
+            }
+        ]
+    }
+    
+]
+
+// Tableau contenant les couleurs secondaires liées à chaque couleur primaire
+export const tertiaryColors: TertiaryColorList[] =[
+
+    {               //vert
+        'primaryId': '1',
+        'secondaryId': '1',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#666e61'
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13'
+            },
+            {
+                'id': '3',
+                'hexCode': '#236eff'
+            }
+        ]
+    }
+    
+]
