@@ -30,7 +30,7 @@ export class ChatbotComponent {
   siteName!: string;
   template!: string;
   primaryColor!: string | undefined;
-  secondaryColor!: string;
+  secondaryColor!: string | undefined;
   tertiaryColor!: string;
 
   // Valeurs d'états des réponses de l'utilisateur
@@ -60,8 +60,10 @@ export class ChatbotComponent {
   colorStep!: boolean;
 
   /** Variables de récupération des couleurs */
+  primaryColorId !: string;
   primaryColors !: Color[] ;
   secondaryColors !: Color[] | undefined;
+  tertiaryColors !: Color[] | undefined;
   
 
   constructor(
@@ -206,15 +208,27 @@ export class ChatbotComponent {
   }
 
   getPrimaryColor(event : any) {
-    let id = event.target.value;
-    this.primaryColor = this.primaryColors.find((element) => id === element.id)?.hexCode;
+    this.primaryColorId = event.target.value;
+    this.primaryColor = this.primaryColors.find((element) => this.primaryColorId === element.id)?.hexCode;
 
-    this.secondaryColors = this.chatService.getSecondaryColors(id);
+    this.secondaryColors = this.chatService.getSecondaryColors(this.primaryColorId);
   }
 
   getSecondaryColor(event : any) {
-    let id = event.target.value;
-    this.tertiaryColor
+    let secondaryId = event.target.value;
+   
+    secondaryColors.forEach(element => {
+      if (element.primaryId === this.primaryColorId) {
+        this.secondaryColor = element.list.find( color => color.id == secondaryId)?.hexCode
+      }
+    })
+
+    this.tertiaryColors = this.chatService.getTertiaryColors(this.primaryColorId, secondaryId);
   }
 
+  getTertiaryColor(event : any) {
+    this.tertiaryColor = event.target.value;
+    console.log(this.tertiaryColor);
+    
+  }
 }

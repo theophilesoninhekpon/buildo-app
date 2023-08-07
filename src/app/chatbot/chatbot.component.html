@@ -234,9 +234,9 @@
                 </div>
                 <div class = "boxTertiaryColor display-flex">
                     <p class = "user-style color_title">Tertiaire</p>
-                    <div><input type="radio" name = "firstTertiaryColor" id="firstTertiaryColor"></div>
-                    <div><input type="radio" name = "SecondTertiaryColor" id="SecondTertiaryColor"></div>
-                    <div><input type="radio" name = "ThirdTertiaryColor" id="ThirdTertiaryColor"></div>
+                    <div *ngFor = "let tertiaryColor of tertiaryColors" [ngStyle] = "{'background-color': tertiaryColor.hexCode}"><input type="radio" name = "tertiaryColor" [value] = "tertiaryColor.hexCode" id="firstTertiaryColor" (change) = "getTertiaryColor($event)"></div>
+                    <!-- <div><input type="radio" name = "SecondTertiaryColor" id="SecondTertiaryColor"></div>
+                    <div><input type="radio" name = "ThirdTertiaryColor" id="ThirdTertiaryColor"></div> -->
                 </div>
             </div>
         </div>
