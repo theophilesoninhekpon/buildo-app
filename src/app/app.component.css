@@ -23,7 +23,7 @@ html {
 GENERALITIES
 ***************************************************************** */
 /* Le corps du document */
-.container {
+.wrapper {
     width: 100%;
     height: auto;
     margin: 0;

@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild , Input} from '@angular/core';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
-         circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module";
-
-         
+         circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
 
 @Component({
   selector: 'app-chatbot',
