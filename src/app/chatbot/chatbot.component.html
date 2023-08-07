@@ -209,8 +209,8 @@
            </div>
         </div>
 
-        <div class = "display-flex " *ngIf="showSiteName">
-            <p class = "user-style">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+        <div class = "display-flex " *ngIf="isReadyForColorStep">
+            <p class = "user-style">{{chooseOwnColors}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
         </div>
 
     </div>
