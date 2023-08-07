@@ -5,30 +5,30 @@ export class Category {
     ) {}
 }
 
-export class PrimaryColor {
+export class Color {
     constructor(
         public id: string,
         public hexCode: string
     ) {}
 }
 
-export class ColorList {
-    constructor(
-        public id: string,
-        public hexCode: string
-    ) {}
-}
-
-export class SecondaryColorList {
+export class SecondaryColorList{
     constructor(
         public primaryId: string,
-        public list: string[]
+        public list: Color[]
     ) {}
 }
 
 export class TertiaryColorList {
     constructor(
+        public primaryId: string,
         public secondaryId: string,
-        public list: string[]
+        public list: Color[]
     ) {}
 }
+
+    
+  
+    
+  
+    

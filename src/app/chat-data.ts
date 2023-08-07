@@ -78,7 +78,8 @@ export const secondaryColors: SecondaryColorList[] =[
 // Tableau contenant les couleurs secondaires liées à chaque couleur primaire
 export const tertiaryColors: TertiaryColorList[] =[
 
-    {               //vert
+    // Couleur secondaire 1
+    {               
         'primaryId': '1',
         'secondaryId': '1',
         'list': [
@@ -95,6 +96,44 @@ export const tertiaryColors: TertiaryColorList[] =[
                 'hexCode': '#236eff'
             }
         ]
-    }
+    },
+    {               
+        'primaryId': '1',
+        'secondaryId': '1',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#666e61'
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13'
+            },
+            {
+                'id': '3',
+                'hexCode': '#236eff'
+            }
+        ]
+    },
+    {               
+        'primaryId': '1',
+        'secondaryId': '1',
+        'list': [
+            {
+                'id': '1',
+                'hexCode': '#666e61'
+            },
+            {
+                'id': '2',
+                'hexCode': '#f4dd13'
+            },
+            {
+                'id': '3',
+                'hexCode': '#236eff'
+            }
+        ]
+    },
+
+
     
 ]
