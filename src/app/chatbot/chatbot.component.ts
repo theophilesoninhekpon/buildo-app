@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild , Input} from '@angular/core';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
+import { Color, SecondaryColorList, TertiaryColorList } from "../category";
+import { primaryColors, secondaryColors, tertiaryColors } from "../chat-data";
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -26,7 +29,7 @@ export class ChatbotComponent {
   theme!: string;
   siteName!: string;
   template!: string;
-  primaryColor!: string;
+  primaryColor!: string | undefined;
   secondaryColor!: string;
   tertiaryColor!: string;
 
@@ -55,12 +58,21 @@ export class ChatbotComponent {
   templateStep!: boolean;
   
   colorStep!: boolean;
+
+  /** Variables de récupération des couleurs */
+  primaryColors !: Color[] ;
+  secondaryColors !: Color[] | undefined;
   
+
+  constructor(
+    private chatService : ChatService
+  ) {}
 
   ngOnInit(): void {
       this.canvas = this.myCanvas.nativeElement;
       this.context = this.canvas.getContext('2d');
 
+      this.primaryColors = this.chatService.getPrimaryColors();
   }
 
 
@@ -185,11 +197,24 @@ export class ChatbotComponent {
     if(state) {
       this.colorStep = true;
       this.chooseOwnColors = 'Oui';
+      this.colorStep = true;
     } else {
       this.colorStep = false;
       this.chooseOwnColors = 'Non';
     }
 
+  }
+
+  getPrimaryColor(event : any) {
+    let id = event.target.value;
+    this.primaryColor = this.primaryColors.find((element) => id === element.id)?.hexCode;
+
+    this.secondaryColors = this.chatService.getSecondaryColors(id);
+  }
+
+  getSecondaryColor(event : any) {
+    let id = event.target.value;
+    this.tertiaryColor
   }
 
 }

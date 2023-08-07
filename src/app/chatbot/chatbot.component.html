@@ -191,6 +191,7 @@
                 </button>
               </div>
         </div>
+
          <!-- Choisir les couleurs ou non -->
          <div class = "display-flex bot-message" *ngIf = "isReadyForColorStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
@@ -211,6 +212,33 @@
 
         <div class = "display-flex " *ngIf="isReadyForColorStep">
             <p class = "user-style">{{chooseOwnColors}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+        </div>
+
+        <!-- choix manuel des couleurs par l'utilisateur -->
+        <div class = "display-flex bot-message" *ngIf = "colorStep">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Choisis alors trois couleurs de ton template </p>
+        </div>
+
+        <div class = "display-flex justify-content-center">
+            <div class="boxColorParent display-flex">
+                <div class = "boxPrimaryColor display-flex">
+                    <p class = "user-style color_title">Primaire</p>
+                    <div *ngFor = "let primaryColor of primaryColors" [ngStyle] = "{'background-color': primaryColor.hexCode}"> <input type="radio"  name = "primaryColor" [value] = "primaryColor.id" id = "firstPrimaryColor" (change) = "getPrimaryColor($event)"> </div>
+                </div>
+                <div class = "boxSecondaryColor display-flex">
+                    <p class = "user-style color_title">Secondaire</p>
+                    <div *ngFor = "let secondaryColor of secondaryColors" [ngStyle] = "{'background-color': secondaryColor.hexCode}"> <input type="radio" name = "secondaryColor" [value] = "secondaryColor.id" id="firstSecondaryColor" (change) = "getSecondaryColor($event)"></div>
+                    <!-- <div><input type="radio" name = "secondaryColor" value = "SecondSecondaryColor" id="SecondSecondaryColor"></div>
+                    <div><input type="radio" name = "secondaryColor" value = "ThirdSecondaryColor" id="ThirdSecondaryColor"></div> -->
+                </div>
+                <div class = "boxTertiaryColor display-flex">
+                    <p class = "user-style color_title">Tertiaire</p>
+                    <div><input type="radio" name = "firstTertiaryColor" id="firstTertiaryColor"></div>
+                    <div><input type="radio" name = "SecondTertiaryColor" id="SecondTertiaryColor"></div>
+                    <div><input type="radio" name = "ThirdTertiaryColor" id="ThirdTertiaryColor"></div>
+                </div>
+            </div>
         </div>
 
     </div>

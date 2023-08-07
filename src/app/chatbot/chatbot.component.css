@@ -108,6 +108,11 @@ select{
     cursor: pointer;
     margin-left: .3rem;
 }
+
+.color_title {
+    width: fit-content;
+}
+
 /* ******************************************************************************
 CONTAINER
 ********************************************************************************/
@@ -391,6 +396,69 @@ div.formulaire_2 {
 div.formulaire_3 {
     top: 210rem;
 } */
+
+.boxColorParent {
+ justify-content: space-around;
+ border: 1px solid aqua;
+ margin-left: 20rem;
+ margin-right: 0;
+}
+
+input[type=radio] {
+    width: 2rem;
+    height: 2rem;
+}
+
+.boxPrimaryColor, 
+.boxSecondaryColor, 
+.boxTertiaryColor {
+    border: 1px solid red;
+    flex-direction: column;
+    align-items: center;
+} 
+
+/* Couleurs primaires */
+.boxPrimaryColor div:nth-of-type(1) {
+    background-color: #f95568;
+}
+.boxPrimaryColor div:nth-of-type(2) {
+    background-color: #452636;
+}
+.boxPrimaryColor div:nth-of-type(3) {
+    background-color: #563258;
+}
+
+/* Couleurs secondaires */
+.boxSecondaryColor div:nth-of-type(1) {
+    background-color: #666e61;
+}
+.boxSecondaryColor div:nth-of-type(2) {
+    background-color: #f4dd13;
+}
+.boxSecondaryColor div:nth-of-type(3) {
+    background-color: #236eff;
+}
+
+/* Couleurs tertiaires */
+.boxTertiaryColor div:nth-of-type(1) {
+    background-color: #666e61;
+}
+.boxTertiaryColor div:nth-of-type(2) {
+    background-color: #f4dd13;
+}
+.boxTertiaryColor div:nth-of-type(3) {
+    background-color: #236eff;
+}
+
+.boxPrimaryColor div,
+.boxSecondaryColor div,
+.boxTertiaryColor div {
+    width: 5rem;
+    aspect-ratio: 1;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
 
 div.formulaire_4 {
     top: 224rem;

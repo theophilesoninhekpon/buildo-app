@@ -7,11 +7,11 @@ export const primaryColors: Color[] = [
         'hexCode': '#f95568'
     },
     {
-        'id': '1',
+        'id': '2',
         'hexCode': '#452636'
     },
     {
-        'id': '1',
+        'id': '3',
         'hexCode': '#563258'
     },
 
@@ -99,7 +99,7 @@ export const tertiaryColors: TertiaryColorList[] =[
     },
     {               
         'primaryId': '1',
-        'secondaryId': '1',
+        'secondaryId': '2',
         'list': [
             {
                 'id': '1',
@@ -117,7 +117,7 @@ export const tertiaryColors: TertiaryColorList[] =[
     },
     {               
         'primaryId': '1',
-        'secondaryId': '1',
+        'secondaryId': '3',
         'list': [
             {
                 'id': '1',

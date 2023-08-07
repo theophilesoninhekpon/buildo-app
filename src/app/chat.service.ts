@@ -16,7 +16,6 @@ export class ChatService {
   }
 
   getSecondaryColors(id: string): Color[] | undefined{
-
     return secondaryColors.find((element) => element.primaryId === id)?.list;
     
   }
