@@ -1,0 +1,42 @@
+/* Style du carousel */
+@import url('../../../node_modules/@fancyapps/ui/dist/carousel/carousel.css');
+
+#myCarousel {
+    --f-carousel-slide-width: calc(94% / 3);
+    --f-carousel-spacing: 0;
+  
+    --f-button-next-pos: 30px;
+    --f-button-prev-pos: 30px;
+  
+    --f-button-width: 44px;
+    --f-button-height: 44px;
+    --f-button-border-radius: 50%;
+  
+    --f-button-color: white;
+    --f-button-hover-color: white;
+    --f-button-active-color: white;
+  
+    --f-button-bg: rgba(0, 0, 0, 0.5);
+    --f-button-hover-bg: rgba(0, 0, 0, 0.8);
+    --f-button-active-bg: rgba(0, 0, 0, 0.8);
+  
+    --f-button-svg-width: 22px;
+    --f-button-svg-height: 22px;
+    --f-button-svg-stroke-width: 3;
+
+  }
+  
+  #myCarousel .f-carousel__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    padding: 3% 10px;
+  }
+  
+  #myCarousel img {
+    border-radius: 20%;
+    transform: scale(var(--f-scale, 1)) translateX(var(--f-translateX, 0));
+    background: #fff;
+  }
+  

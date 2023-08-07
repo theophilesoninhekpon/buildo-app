@@ -59,14 +59,31 @@ CLASSES UTILITAIRES
 
 }
 
+.send-btn{
+    padding: .7rem 1rem;
+    border-radius: 20px;
+    background-color:#0119ff;
+    cursor: pointer;
+    margin-left: -2rem;
+}
+
+.send-icon{
+    color: white;
+}
+
 .user-message select, 
 .user-message input {
     display: block;
-    padding: .5rem 1rem;
+    padding: .7rem 1rem;
     background-color: #fff;
     margin-left: auto;
     border-radius: 50px;
     font-family: Manrope;
+    width: 400px;
+}
+
+.user-message div {
+    margin-left: auto;
 }
 
 /* Paragraphe contenant le choix ou le message de l'utilisateur */

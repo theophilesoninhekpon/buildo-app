@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild , Input} from '@angular/core';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module";
-import { of } from 'rxjs';
+
+         
 
 @Component({
   selector: 'app-chatbot',
@@ -21,19 +22,35 @@ export class ChatbotComponent {
   canvas !: HTMLCanvasElement;
   @Input() start!: boolean;
   category!: string;
+  theme!: string;
+  siteName!: string;
+  template!: string;
 
   // Valeurs d'états des réponses de l'utilisateur
-  hasAnswered!: boolean;
-  ready!: boolean;
-  categoryState!: boolean;
-  categoryShow!: boolean;
-  themeState!: boolean;
+  hasSelectCategory!: boolean;
+  hasEnteredTheme!: boolean;
+  hasEnteredSiteName!: boolean;
+  hasSelectTemplate!: boolean;
   animation:boolean = true;
+  invalidThemeInput!: boolean;
+  invalidSiteNameInput!: boolean;
+
+  ready!: boolean;
+
+  categoryStep!: boolean;
+  showCategory!: boolean;
+
+  themeStep!: boolean;
+  showTheme!: boolean;
+
+  siteNameStep!: boolean;
+  showSiteName!: boolean;
+
+  templateStep!: boolean;
 
   ngOnInit(): void {
       this.canvas = this.myCanvas.nativeElement;
       this.context = this.canvas.getContext('2d');
-      console.log("marche")
 
   }
 
@@ -76,7 +93,7 @@ export class ChatbotComponent {
   ngOnChanges(){
 
     this.onAnime();
-    this.increaseHeight(800);
+    this.increaseHeight(2000);
     // if(this.start){
     //   setInterval(() => {
     //     this.onHeight()
@@ -87,30 +104,62 @@ export class ChatbotComponent {
 
   isReady(){
     this.ready = true;
-
-    let timeOut = setTimeout(() => {
-      this.categoryState = true;
-      this.animation = true;
-      clearTimeout(timeOut);
-    }, 1000)
+    this.categoryStep = true;
+    this.animation = true;
   }
 
   getOption(event: any){
 
     // Récupération de la catégorie sélectionnée
     this.category = event.target.value;
-    this.categoryShow = true;
-    this.hasAnswered = true;
-
-    let timeOut = setTimeout(() => {
-      this.themeState = true;
-      clearTimeout(timeOut);
-    }, 1000)
+    this.showCategory = true;
+    this.hasSelectCategory = true;
+    this.themeStep = true;
+    
   }
 
   modifyCategory(){
-    this.categoryShow = false; 
-    this.hasAnswered = false;
+    this.showCategory = false; 
+    this.hasSelectCategory = false;
+    this.animation = false;
+  }
+
+  getTheme(event: any = null){
+
+    if(event && typeof event.target.value !== 'string'){
+      this.invalidThemeInput = true;
+    } else {
+      this.theme = event.target.value;
+      this.invalidThemeInput = false;
+      this.hasEnteredTheme = true;
+      this.showTheme = true;
+      this.siteNameStep = true;
+    }
+
+  }
+
+   modifyTheme(){
+    this.showTheme = false; 
+    this.hasEnteredTheme = false;
+    this.animation = false;
+  }
+
+  getSiteName(event: any = null){
+
+    if(event && typeof event.target.value !== 'string'){
+      this.invalidSiteNameInput = true;
+    } else {
+      this.siteName = event.target.value;
+      this.invalidSiteNameInput = false;
+      this.hasEnteredSiteName = true;
+      this.showSiteName = true;
+      this.templateStep = true;
+    }
+  }
+
+  modifySiteName(){
+    this.showSiteName = false; 
+    this.hasEnteredSiteName = false;
     this.animation = false;
   }
 

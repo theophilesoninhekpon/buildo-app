@@ -32,17 +32,17 @@
         </div>
 
         <!-- Choix de la catégorie du site web -->
-        <div  class = "display-flex bot-message" *ngIf = "categoryState">
+        <div  class = "display-flex bot-message" *ngIf = "categoryStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
             <p [@textFadeInAnimation1]>Super !</p>
         </div>
 
-        <div  class = "display-flex bot-message" *ngIf = "categoryState">
+        <div  class = "display-flex bot-message" *ngIf = "categoryStep">
             <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
             <p [@textFadeInAnimation2]>Dans quelle catégorie s'inscrit ton site ?</p>
         </div>
 
-        <div *ngIf="categoryState && !hasAnswered" class="user-message" [@textFadeInAnimation3] = 'animation'>
+        <div *ngIf="categoryStep && !hasSelectCategory" class="user-message" [@textFadeInAnimation3] = 'animation'>
             <select name = "" id = "" (change)="getOption($event)"> <!-- Action utilisateur -->
                 <option value="" >--Sélectionne une catégorie--</option>
                 <option value="Finance" >Finance</option>
@@ -53,13 +53,70 @@
             </select>
         </div>
 
-        <div class = "display-flex " *ngIf="categoryShow">
+        <div class = "display-flex " *ngIf="showCategory">
             <p class = "user-style">{{category}} <span (click)="modifyCategory()" class="pen-icon fas fa-pen"></span></p> 
         </div>
 
-        <div class = "display-flex bot-message" *ngIf = "themeState">
+
+        <!-- Thème du site -->
+        <div class = "display-flex bot-message" *ngIf = "themeStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
             <p [@textFadeInAnimation1] > A présent renseigne moi le thème de ton site</p>
+        </div>
+
+        <div *ngIf="themeStep && !hasEnteredTheme" class="user-message" [@textFadeInAnimation2] = 'animation'>
+            <div class="display-flex">
+                <input type="text" (change)="getTheme($event)">
+                <button class="send-btn" (click)="getTheme($event)"><span class="send-icon fa-solid fa-paper-plane"></span></button>
+            </div>
+            <p *ngIf="invalidThemeInput"> Veuillez renseigner un thème valide !</p>
+        </div>
+
+        <div class = "display-flex " *ngIf="showTheme && !invalidThemeInput">
+            <p class = "user-style">{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
+        </div>
+
+        <!-- Nom du site -->
+        <div class = "display-flex bot-message" *ngIf = "siteNameStep">
+            <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
+            <p [@textFadeInAnimation1] > Ton site web porte donc sur le thème : {{theme}} </p>
+        </div>
+        <div class = "display-flex bot-message" *ngIf = "siteNameStep">
+            <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Quel nom donneras tu à ton site ? </p>
+        </div>
+
+        <div *ngIf="siteNameStep && !hasEnteredSiteName" class="user-message" [@textFadeInAnimation2] = 'animation'>
+            <div class="display-flex">
+                <input type="text" (change)="getSiteName($event)">
+                <button class="send-btn" (click)="getSiteName($event)"><span class="send-icon fa-solid fa-paper-plane"></span></button>
+            </div>
+        </div>
+        <p *ngIf="invalidSiteNameInput"> Veuillez renseigner un nom valide !</p>
+
+        <div class = "display-flex " *ngIf="showSiteName && !invalidSiteNameInput">
+            <p class = "user-style">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+        </div>
+
+
+         <!-- Template du site -->
+         <div class = "display-flex bot-message" *ngIf = "templateStep">
+            <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
+            <p [@textFadeInAnimation1] > J'aime bien ce nom ! </p>
+        </div>
+        <div class = "display-flex bot-message" *ngIf = "templateStep">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > On avance bien ! </p>
+        </div>
+        <div class = "display-flex bot-message" *ngIf = "templateStep">
+            <div [ngClass] = "{circle : start, 'circle-3': start}"  [@circleFadeInAnimation3] ></div>
+            <p [@textFadeInAnimation3] > Tu vas maintenant choisir le template de ton site </p>
+        </div>
+
+        <div class="user-message" [@textFadeInAnimation4] = 'animation'>
+            
+            <app-template-carousel></app-template-carousel>
+              
         </div>
     </div>
 
@@ -76,25 +133,6 @@
     
 
     
-    <div>
-        <button class = "position-absolute choix-categorie user-style">catégorie choisie</button>
-    </div>
-
-
-    <!-- Choix du thème du site web -->
-    <div  class = "display-flex theme-1">
-        <div class = "circle"></div>
-        <p>A présent renseigne moi le thème de ton site</p>
-    </div>
-
-
-    <div class  = "position-absolute theme-2">
-        <input type = "text" name = ""> <!-- Action utilisateur -->
-        <div>
-            <button class = "user-style">Thème de son site</button>
-        </div>
-    </div>
-
 
     <div  class = "display-flex theme-3">
         <div class = "circle"></div>
