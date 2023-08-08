@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Category, PrimaryColor, SecondaryColorList } from './category';
-import { categories, primaryColors } from './chat-data';
+import { Color, SecondaryColorList } from './category';
+import { primaryColors, secondaryColors, tertiaryColors } from './chat-data';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,21 +9,19 @@ export class ChatService {
   
   constructor() { }
 
-  getCategories(): Category[]{
-
-    return categories;
-
-  } 
-
-  getPrimaryColors(): PrimaryColor[] {
+  getPrimaryColors(): Color[] {
 
     return primaryColors;
 
   }
 
-  // getSecondaryColors(id: string): ColorList[] {
-
-  //   return primaryColors.find((element) => element.id === id).list;
+  getSecondaryColors(id: string): Color[] | undefined{
+    return secondaryColors.find((element) => element.primaryId === id)?.list;
     
-  // }
+  }
+
+  getTertiaryColors(primary: string, secondary: string): Color[] | undefined{
+    return tertiaryColors.find((element) => element.primaryId === primary && element.secondaryId === secondary)?.list;
+  }
+
 }
