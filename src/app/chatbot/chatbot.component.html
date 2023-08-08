@@ -220,7 +220,7 @@
             <p [@textFadeInAnimation2] > Choisis alors trois couleurs de ton template </p>
         </div>
 
-        <div class = "display-flex justify-content-center">
+        <div class = "display-flex justify-content-center mt-5" *ngIf = "colorStep">
             <div class="boxColorParent display-flex">
                 <div class = "boxPrimaryColor display-flex">
                     <p class = "user-style color_title">Primaire</p>
@@ -240,22 +240,50 @@
                 </div>
             </div>
         </div>
+        
+        <div class = "display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"  *ngIf = "colorStep">
+            <p class = "user-style color_title">Couleurs personnalisées </p>
+            <div class="display-flex boxOwnColor justify-content-center">
+                <div> <input type="color" name="" id="" value="#d9d9d9" (change) = "getOwnPrimaryColor($event)"> </div>
+                <div> <input type="color" name="" id="" value="#d9d9d9" (change) = "getOwnSecondaryColor($event)"> </div>
+                <div> <input type="color" name="" id="" value="#d9d9d9" (change) = "getOwnTertiaryColor($event)"> </div>
+            </div>
+        </div>
+
+        <!-- Message d'introduction au formulaire de fin-->
+        <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Merci de m'avoir donné toutes les informations </p>
+        </div>
+
+        <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Génération du template en cours (petit loader) </p>
+        </div>
+
+        <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] >Template généré avec succès  </p>
+        </div>
+
+        <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
+            <p [@textFadeInAnimation2] > Pour le recevoir, je t'invite à remplir ce formulaire </p>
+        </div>
 
     </div>
 
+    <form action="">
+        <label for="lastname">Nom</label>
+        <div><input type="text" name = "lastname" id = "lastname"[(ngModel)] = "lastname"></div>
 
-    <form action="" class = "position-absolute">
-        <label for="lastname">Nom</label><br>
-        <input type="text" name = "lastname" id = "lastname"><br><br>
+        <label for="firstname">Prénom</label>
+        <div><input type="text" name = "firstname" id = "firstname"[(ngModel)] = "firstname"></div>
 
-        <label for="firstname">Nom</label><br>
-        <input type="text" name = "firstname" id = "firstname"><br><br>
+        <label for="mail">Email</label><br>
+        <div><input type="email" name = "mail" id = "mail"[(ngModel)] = "mail"></div>
 
-        <label for="mail">Nom</label><br>
-        <input type="email" name = "mail" id = "mail"><br><br>
-
-        <button type = "submit"> RECEVOIR MON TEMPLATE </button>
+        <button type = "submit" (click) = "onSubmit()"> RECEVOIR MON TEMPLATE </button>
     </form>
-
 
 </div>
