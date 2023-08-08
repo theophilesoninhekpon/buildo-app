@@ -48,14 +48,23 @@ CLASSES UTILITAIRES
 
 .bot-message{
     margin-left: 1rem;
+    margin-bottom: -3rem;
 }
 
+.prev-long-message{
+    margin-bottom: -6rem;
+}
 
 .ready-btn{
-    margin-left: 15rem;
+    
     padding: .7rem 1rem;
     border-radius: 50px;
     cursor: pointer;
+    margin-left: 18.7rem;
+    box-shadow: 0 1px 3px 2.5px rgba(0, 0, 0, 0.12);
+    background-color: #ff9e00;;
+    color: black;
+
 }
 
 .send-btn{
@@ -81,6 +90,12 @@ CLASSES UTILITAIRES
     width: 400px;
 }
 
+.user-icon{
+    border-radius: 20px;
+    background-color:#0119ff;
+    color: white;
+    padding: 1rem;
+}
 
 .user-message > div {
     margin-left: auto;
@@ -88,12 +103,19 @@ CLASSES UTILITAIRES
 
 /* Paragraphe contenant le choix ou le message de l'utilisateur */
 .user-style {
-    padding: .5rem 1.5rem;
     color: white;
     background-color:#0119ff;
-    border-radius: 20px;
     margin-left: auto;
+    font-size: 1.5rem;
+    padding: 1rem 1.7rem;
+    border-radius: 40px 40px 10px 40px;
+    margin-top: 8rem;
 }
+
+.bot-btn{
+    flex-basis: 100%;
+}
+
 
 button{
     font-family: Manrope;
@@ -119,6 +141,7 @@ CONTAINER
 
 .message-container{
     position: absolute;
+    padding-top: 20rem;
     top: 1rem;
     z-index: 1;
     margin-left: -2rem;
@@ -126,9 +149,11 @@ CONTAINER
 }
 
 .chat-container {
+    padding-top: 15rem;
     position: relative;
-    max-width: 980px;
-    height: 175rem;
+    margin-top: -20rem;
+    width: 67.1%;
+    height: 265rem;
     margin-inline: auto;
     background-color:#f9f9f9;
     font-family: Manrope;
@@ -176,12 +201,19 @@ div.circle-4{
 
 /* Les bulles de discussion du chat */
 div.circle ~ p {
-    padding: .5rem 3rem .5rem .5rem;
     background-color:#d9d9d9;
-    border-radius: 20px;
-    background-image: linear-gradient( rgb(249, 249, 249) 20%, rgb(217, 217, 217));
+    border-radius: 10px 40px 40px 40px;
+    background-color: rgb(217, 217, 217);
     margin-left: .5rem;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    padding: 1rem 1.7rem;
 }
+
+.long-message > p{
+    margin-top: 8rem !important;
+}
+
 
 .carousel-indicators{
     margin-bottom: -2rem !important;

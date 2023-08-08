@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'projet_wakanda';
   isLaunched!: boolean;
+  isDisabled: boolean = false;
+
+  startChat(){
+    this.isLaunched = true;
+    this.isDisabled = true;
+  }
 }
