@@ -572,7 +572,7 @@ MOBILE MEDIA-QUERY
 @media screen and (max-width : 780px) {
     .chat-container {
         width: 90%;
-        height: 355rem;
+        height: 360rem;
         margin-top: -37rem;
     }
 
@@ -581,5 +581,18 @@ MOBILE MEDIA-QUERY
     }
 }
 
+
+/* *************************************************************************************************************
+MEDIA QUERY TABLETTE
+************************************************************************************************************* */
+@media screen and (max-width : 980px) {
+
+    .chat-container {
+        width: 90%;
+        height: 360rem;
+        margin-top: -30rem;
+    }
+
+}
 
 
