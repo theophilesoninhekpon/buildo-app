@@ -158,8 +158,9 @@ CONTAINER
     position: relative;
     margin-top: -20rem;
     width: 67.1%;
-    height: 265rem;
+    height: 345rem;
     margin-inline: auto;
+    background-image: linear-gradient(to right, #e3e3e3 1%, #f9f9f9 2%, #f9f9f9 90%, #f9f9f9 99%, #e3e3e3 100% );
     background-color:#f9f9f9;
     font-family: Manrope;
 }
@@ -534,7 +535,7 @@ form {
 
     background-color: #0119ff;
     border-radius: 20px;
-    /* text-align: center; */
+    margin-top: 8rem;
     margin-inline: auto;
 }
 
