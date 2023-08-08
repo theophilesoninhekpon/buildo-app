@@ -20,6 +20,9 @@ export class ChatbotComponent {
   count : number = 0;
   canvasHeight : number = 0;
   @ViewChild('canvas', {static : true}) myCanvas !: ElementRef;
+  @ViewChild('select') select !: ElementRef;
+  @ViewChild('text1') input1 !: ElementRef;
+  @ViewChild('text2') input2 !: ElementRef;
   context !: CanvasRenderingContext2D | null;
   canvas !: HTMLCanvasElement;
 
@@ -133,6 +136,10 @@ export class ChatbotComponent {
     this.ready = true;
     this.categoryStep = true;
     this.animation = true;
+    let selectInput: any;
+    setTimeout(()=>{ 
+      selectInput = this.select.nativeElement; 
+      selectInput.focus()}, 2500)
   }
 
   getOption(event: any){
@@ -142,6 +149,11 @@ export class ChatbotComponent {
     this.showCategory = true;
     this.hasSelectCategory = true;
     this.themeStep = true;
+    let input: any;
+    setTimeout(()=>{ 
+      input = this.input1.nativeElement; 
+      input.focus()}, 1000)
+    
     
   }
 
@@ -161,6 +173,10 @@ export class ChatbotComponent {
       this.hasEnteredTheme = true;
       this.showTheme = true;
       this.siteNameStep = true;
+      let input: any;
+    setTimeout(()=>{ 
+      input = this.input2.nativeElement; 
+      input.focus()}, 2000)
     }
 
   }

@@ -37,7 +37,7 @@
         <!-- Choix de la catégorie du site web -->
         <div  class = "display-flex bot-message" *ngIf = "categoryStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
-            <p [@textFadeInAnimation1]>Super !</p>
+            <p [@textFadeInAnimation1]>D'accord !</p>
         </div>
 
         <div  class = "display-flex bot-message" *ngIf = "categoryStep">
@@ -46,7 +46,7 @@
         </div>
 
         <div *ngIf="categoryStep && !hasSelectCategory" class="user-message" [@textFadeInAnimation3] = 'animation'>
-            <select name = "" id = "" (change)="getOption($event)"> <!-- Action utilisateur -->
+            <select name = "" #select (change)="getOption($event)"> <!-- Action utilisateur -->
                 <option value="" >--Sélectionne une catégorie--</option>
                 <option value="Finance" >Finance</option>
                 <option value="Santé" >Santé</option>
@@ -72,23 +72,23 @@
 
         <div *ngIf="themeStep && !hasEnteredTheme" class="user-message" [@textFadeInAnimation2] = 'animation'>
             <div class="display-flex">
-                <input type="text" (change)="getTheme($event)">
+                <input class="bot-input" #text1 type="text" (change)="getTheme($event)">
                 <button class="send-btn" (click)="getTheme($event)"><span class="send-icon fa-solid fa-paper-plane"></span></button>
             </div>
             <p *ngIf="invalidThemeInput"> Veuillez renseigner un thème valide !</p>
         </div>
 
         <div class = "display-flex " *ngIf="showTheme && !invalidThemeInput">
-            <p class = "user-style">{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
+            <p class = "user-style max-width d-flex justify-content-end align-items-end" >{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
         </div>
 
         <!-- Nom du site -->
-        <div class = "display-flex bot-message" *ngIf = "siteNameStep">
+        <div class = "display-flex bot-message " *ngIf = "siteNameStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation1] ></div>
-            <p [@textFadeInAnimation1] > Ton site web porte donc sur le thème : {{theme}} </p>
+            <p [@textFadeInAnimation1] > Thème enregistré ! </p>
         </div>
         <div class = "display-flex bot-message" *ngIf = "siteNameStep">
             <div [ngClass] = "{circle : start, 'circle-1': start}"  [@circleFadeInAnimation2] ></div>
@@ -96,8 +96,8 @@
         </div>
 
         <div *ngIf="siteNameStep && !hasEnteredSiteName" class="user-message" [@textFadeInAnimation2] = 'animation'>
-            <div class="display-flex">
-                <input type="text" (change)="getSiteName($event)">
+            <div class="display-flex align-items-end">
+                <input #text2 class="bot-input" type="text" (change)="getSiteName($event)">
                 <button class="send-btn" (click)="getSiteName($event)"><span class="send-icon fa-solid fa-paper-plane"></span></button>
             </div>
         </div>
@@ -137,7 +137,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="row ">
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template1"  (change)="onSelectTemplate($event)">
                             </div>
@@ -145,7 +145,7 @@
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template2" (change)="onSelectTemplate($event)">
                             </div>
@@ -153,7 +153,7 @@
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template3" (change)="onSelectTemplate($event)">
                             </div>
