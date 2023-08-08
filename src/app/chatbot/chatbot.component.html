@@ -276,7 +276,7 @@
 
     </div>
 
-    <form action="">
+    <form action="" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
         <label for="lastname">Nom</label>
         <div><input type="text" name = "lastname" id = "lastname"[(ngModel)] = "lastname"></div>
 
