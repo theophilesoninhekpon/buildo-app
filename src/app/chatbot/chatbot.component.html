@@ -241,17 +241,31 @@
                     <p class = "user-style color_title">Primaire</p>
                     <div *ngFor = "let primaryColor of primaryColors" [ngStyle] = "{'background-color': primaryColor.hexCode}"> <input type="radio"  name = "primaryColor" [value] = "primaryColor.id" id = "firstPrimaryColor" (change) = "getPrimaryColor($event)"> </div>
                 </div>
-                <div class = "boxSecondaryColor display-flex">
+
+                <div class = "boxSecondaryColor display-flex" *ngIf = "primaryColor">
                     <p class = "user-style color_title">Secondaire</p>
                     <div *ngFor = "let secondaryColor of secondaryColors" [ngStyle] = "{'background-color': secondaryColor.hexCode}"> <input type="radio" name = "secondaryColor" [value] = "secondaryColor.id" id="firstSecondaryColor" (change) = "getSecondaryColor($event)"></div>
-                    <!-- <div><input type="radio" name = "secondaryColor" value = "SecondSecondaryColor" id="SecondSecondaryColor"></div>
-                    <div><input type="radio" name = "secondaryColor" value = "ThirdSecondaryColor" id="ThirdSecondaryColor"></div> -->
                 </div>
-                <div class = "boxTertiaryColor display-flex">
+
+                <div class = "boxSecondaryColor display-flex" *ngIf = "!primaryColor">
+                    <p class = "user-style color_title">Secondaire</p>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
+                </div>
+
+
+
+                <div class = "boxTertiaryColor display-flex" *ngIf = "secondaryColor">
                     <p class = "user-style color_title">Tertiaire</p>
                     <div *ngFor = "let tertiaryColor of tertiaryColors" [ngStyle] = "{'background-color': tertiaryColor.hexCode}"><input type="radio" name = "tertiaryColor" [value] = "tertiaryColor.hexCode" id="firstTertiaryColor" (change) = "getTertiaryColor($event)"></div>
-                    <!-- <div><input type="radio" name = "SecondTertiaryColor" id="SecondTertiaryColor"></div>
-                    <div><input type="radio" name = "ThirdTertiaryColor" id="ThirdTertiaryColor"></div> -->
+                </div>
+
+                <div class = "boxTertiaryColor display-flex" *ngIf = "!secondaryColor">
+                    <p class = "user-style color_title">Tertiaire</p>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
+                    <div [ngStyle] = "{backgroundColor : '#d9d9d9'}"><input type="radio" name = "secondaryColor" value = "" id=""></div>
                 </div>
             </div>
         </div>
@@ -287,7 +301,7 @@
         </div>
 
         
-        <form action=""  *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+        <form action = ""  *ngIf = "primaryColor && secondaryColor && tertiaryColor">
             <label for="lastname">Nom</label>
             <div><input type="text" name = "lastname" id = "lastname" [(ngModel)] = "lastname"></div>
 
