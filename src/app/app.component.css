@@ -343,6 +343,8 @@ MEDIA QUERY MOBILE
 }
 
 
+
+
 /* *************************************************************************************************************
 MEDIA QUERY TABLETTE
 ************************************************************************************************************* */
@@ -360,6 +362,10 @@ MEDIA QUERY TABLETTE
         background-attachment: scroll;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    div.flex {
+        padding-inline: 2rem;
     }
 
     .logo {
@@ -384,5 +390,21 @@ MEDIA QUERY TABLETTE
     
     .hero h1 {
         font-size: 4rem;
+    }
+}
+
+
+/* *************************************************************************************************************
+MEDIA QUERY DESKTOP - 1200px
+************************************************************************************************************* */
+@media screen and (max-width : 1600px) {
+    .BgroundImage {
+        padding : 3rem 0rem 0rem 0rem;
+        max-width: 100%;
+        height: 80rem;
+        background: url(../assets/Origine-banner.png);
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
