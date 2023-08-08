@@ -17,7 +17,7 @@
 
         <div class = "display-flex bot-message long-message" *ngIf = "start">
             <div [ngClass] = "{circle : start, 'circle-3': start}"  [@circleFadeInAnimation3] ></div>
-            <p [@textFadeInAnimation3]>Je vais te demander des informations sur letemplate <br>afin de le construire à ta convenance</p>
+            <p [@textFadeInAnimation3]>Je vais te demander des informations sur le template <br>afin de le construire à ta convenance</p>
         </div>
 
         <div class = "display-flex flex-wrap bot-message readyDiv" *ngIf = "start">
@@ -27,9 +27,9 @@
                 <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf = "start">Oui Build'o</button>
             </div>
         </div>
-        <div class = "display-flex" *ngIf="ready">
+        <div class = "display-flex gap-1" *ngIf="ready">
             <p class = "user-style">Oui Build'o</p> <span></span>
-            <div class="d-flex align-item-end">
+            <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
         </div>
@@ -56,8 +56,11 @@
             </select>
         </div>
 
-        <div class = "display-flex " *ngIf="showCategory">
+        <div class = "display-flex gap-1" *ngIf="showCategory">
             <p class = "user-style">{{category}} <span (click)="modifyCategory()" class="pen-icon fas fa-pen"></span></p> 
+            <div class="d-flex align-item-end user">
+                <span class="user-icon fas fa-user"></span>
+            </div>
         </div>
 
 
@@ -77,6 +80,9 @@
 
         <div class = "display-flex " *ngIf="showTheme && !invalidThemeInput">
             <p class = "user-style">{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
+            <div class="d-flex align-item-end user">
+                <span class="user-icon fas fa-user"></span>
+            </div>
         </div>
 
         <!-- Nom du site -->
@@ -97,8 +103,11 @@
         </div>
         <p *ngIf="invalidSiteNameInput"> Veuillez renseigner un nom valide !</p>
 
-        <div class = "display-flex " *ngIf="showSiteName && !invalidSiteNameInput">
+        <div class = "display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
             <p class = "user-style">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+            <div class="d-flex align-item-end user">
+                <span class="user-icon fas fa-user"></span>
+            </div>
         </div>
 
 
@@ -119,7 +128,7 @@
         <!-- Carousel de templates -->
         <div class="user-message" [@textFadeInAnimation4] = 'animation' *ngIf="templateStep">
             
-            <div id="carouselExampleIndicators" class="carousel carousel-dark slide w-75">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide ">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -206,15 +215,18 @@
             <p [@textFadeInAnimation2] > Voudrais-tu les choisir toi même ? </p>
         </div>
 
-        <div class = "display-flex user-message"  [@textFadeInAnimation3] *ngIf = "isReadyForColorStep">
+        <div class = "display-flex user-message "  [@textFadeInAnimation3] *ngIf = "isReadyForColorStep">
            <div class="d-flex gap-2 ms-auto">
                 <button class="choice-btn" (click)="startColorStep(true)" >Oui </button>
                 <button class="choice-btn" (click)="startColorStep(false)" >Non </button>
            </div>
         </div>
 
-        <div class = "display-flex " *ngIf="isReadyForColorStep">
+        <div class = "display-flex gap-1" *ngIf="isReadyForColorStep">
             <p class = "user-style">{{chooseOwnColors}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+            <div class="d-flex align-item-end user">
+                <span class="user-icon fas fa-user"></span>
+            </div>
         </div>
 
         <!-- choix manuel des couleurs par l'utilisateur -->

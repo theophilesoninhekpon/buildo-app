@@ -82,19 +82,24 @@ CLASSES UTILITAIRES
 .user-message select, 
 .user-message input[type=text] {
     display: block;
-    padding: .7rem 1rem;
+    padding: 1rem 1.7rem;
     background-color: #fff;
     margin-left: auto;
     border-radius: 50px;
     font-family: Manrope;
     width: 400px;
+    margin-top: 8rem;
 }
 
 .user-icon{
-    border-radius: 20px;
+    border-radius: 50px;
     background-color:#0119ff;
     color: white;
-    padding: 1rem;
+    padding: 0.7rem 0.8rem;
+}
+
+.user{
+    margin-bottom: -12rem;
 }
 
 .user-message > div {
