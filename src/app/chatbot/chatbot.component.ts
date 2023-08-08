@@ -232,3 +232,12 @@ export class ChatbotComponent {
     
   }
 }
+
+
+
+// import { ElementRef, Renderer, ViewChild,AfterViewInit}
+
+// implements AfterViewInit
+
+// @ViewChild('chatContainer') chatContainer :  ElementRef
+

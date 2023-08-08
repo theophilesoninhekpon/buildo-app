@@ -10,25 +10,28 @@
             <p [@textFadeInAnimation1] > Salut ! Je m'appelle Build'o</p>
         </div>
 
-        <div class = "display-flex bot-message" *ngIf = "start">
+        <div class = "display-flex bot-message prev-long-message" *ngIf = "start">
             <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
             <p [@textFadeInAnimation2]>Je suis le bot constructeur de template.</p>
         </div>
 
-        <div class = "display-flex bot-message" *ngIf = "start">
+        <div class = "display-flex bot-message long-message" *ngIf = "start">
             <div [ngClass] = "{circle : start, 'circle-3': start}"  [@circleFadeInAnimation3] ></div>
             <p [@textFadeInAnimation3]>Je vais te demander des informations sur letemplate <br>afin de le construire à ta convenance</p>
         </div>
 
-        <div class = "display-flex bot-message" *ngIf = "start">
+        <div class = "display-flex flex-wrap bot-message readyDiv" *ngIf = "start">
             <div [ngClass] = "{circle : start, 'circle-4': start}"  [@circleFadeInAnimation4] ></div>
             <p [@textFadeInAnimation4]>Alors on peut commencer ?</p>
+            <div class="bot-btn"> 
+                <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf = "start">Oui Build'o</button>
+            </div>
         </div>
-        <div> 
-            <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf = "start">Oui Build'o</button>
-        </div>
-        <div class = "display-flex " *ngIf="ready">
+        <div class = "display-flex" *ngIf="ready">
             <p class = "user-style">Oui Build'o</p> <span></span>
+            <div class="d-flex align-item-end">
+                <span class="user-icon fas fa-user"></span>
+            </div>
         </div>
 
         <!-- Choix de la catégorie du site web -->
