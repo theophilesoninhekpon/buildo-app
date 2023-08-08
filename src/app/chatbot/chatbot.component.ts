@@ -137,6 +137,8 @@ export class ChatbotComponent {
     this.categoryStep = true;
     this.animation = true;
     let selectInput: any;
+
+    // Focus de l'input après un délai
     setTimeout(()=>{ 
       selectInput = this.select.nativeElement; 
       selectInput.focus()}, 2500)
@@ -150,6 +152,8 @@ export class ChatbotComponent {
     this.hasSelectCategory = true;
     this.themeStep = true;
     let input: any;
+
+    // Focus de l'input après un délai
     setTimeout(()=>{ 
       input = this.input1.nativeElement; 
       input.focus()}, 1000)
@@ -174,10 +178,12 @@ export class ChatbotComponent {
       this.showTheme = true;
       this.siteNameStep = true;
       let input: any;
-    setTimeout(()=>{ 
-      input = this.input2.nativeElement; 
-      input.focus()}, 2000)
-    }
+
+      // Focus de l'input après un délai
+      setTimeout(()=>{ 
+        input = this.input2.nativeElement; 
+        input.focus()}, 2000)
+      }
 
   }
 
