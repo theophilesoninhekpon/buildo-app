@@ -501,16 +501,41 @@ div.formulaire_4 {
     top: 224rem;
 }
 
+/* Section du choix des couleurs personnalisées */
+.boxOwnColorParent {
+    width: 40rem;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+.boxOwnColorParent p {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+/* .boxOwnColor div {
+    background-color: #d9d9d9;
+} */
+
+input[type=color] {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.boxOwnColor {
+    column-gap: 2.2rem;
+}
 
 /* Formulaie */
 form {
+    width: 35rem;
     padding: 1.5rem 2rem;
-    top: 240rem;
-    left: 16rem;
 
     background-color: #0119ff;
     border-radius: 20px;
-    text-align: center;
+    /* text-align: center; */
+    margin-inline: auto;
 }
 
 form button {
