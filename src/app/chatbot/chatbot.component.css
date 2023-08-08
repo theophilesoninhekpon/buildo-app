@@ -455,6 +455,10 @@ div.formulaire_3 {
     top: 210rem;
 } */
 
+
+/* ***********************************************
+SECTION CHOIX DES COULEURS
+*********************************************** */
 .boxColorParent {
  justify-content: space-around;
  border: 1px solid aqua;
@@ -533,9 +537,6 @@ div.formulaire_4 {
     text-align: center;
 }
 
-/* .boxOwnColor div {
-    background-color: #d9d9d9;
-} */
 
 input[type=color] {
     width: 5rem;
@@ -548,7 +549,9 @@ input[type=color] {
     column-gap: 2.2rem;
 }
 
-/* Formulaie */
+/* ***********************************************
+SECTION FORMULAIRE
+*********************************************** */
 form {
     position: relative;
     width: 35rem;
@@ -584,6 +587,32 @@ form label {
 form button {
     font-size: 1.5rem;
     font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* *****************************************************************************************************
+MOBILE MEDIA-QUERY
+***************************************************************************************************** */
+
+@media screen and (max-width : 780px) {
+    .chat-container {
+        width: 90%;
+        height: 355rem;
+        margin-top: -37rem;
+    }
+
+    form {
+        width: 30rem;
+    }
 }
 
 
