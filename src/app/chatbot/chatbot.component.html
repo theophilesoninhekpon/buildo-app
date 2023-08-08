@@ -79,7 +79,7 @@
         </div>
 
         <div class = "display-flex " *ngIf="showTheme && !invalidThemeInput">
-            <p class = "user-style max-width d-flex justify-content-end align-items-end" >{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
+            <p class = "user-style max-width d-flex justify-content-end" >{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
@@ -104,7 +104,7 @@
         <p *ngIf="invalidSiteNameInput"> Veuillez renseigner un nom valide !</p>
 
         <div class = "display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
-            <p class = "user-style">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+            <p class = "user-style max-width d-flex justify-content-end">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
@@ -126,7 +126,7 @@
         </div>
 
         <!-- Carousel de templates -->
-        <div class="user-message" [@textFadeInAnimation4] = 'animation' *ngIf="templateStep">
+        <div class="user-message carousel-div" [@textFadeInAnimation4] = 'animation' *ngIf="templateStep">
             
             <div id="carouselExampleIndicators" class="carousel carousel-dark slide ">
                 <div class="carousel-indicators">
@@ -136,7 +136,7 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="row ">
+                    <div class="row justify-content-center">
                         <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template1"  (change)="onSelectTemplate($event)">
@@ -164,8 +164,8 @@
                     </div>
                   </div>
                   <div class="carousel-item active">
-                    <div class="row ">
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                    <div class="row justify-content-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template4" (change)="onSelectTemplate($event)">
                             </div>
@@ -173,7 +173,7 @@
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template5" (change)="onSelectTemplate($event)">
                             </div>
@@ -181,7 +181,7 @@
                                 <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column gap-3 justify-content-center align-items-center">
+                        <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
                             <div class="template-input mx-auto">
                                 <input type="radio" name="template" value="template6" (change)="onSelectTemplate($event)">
                             </div>
