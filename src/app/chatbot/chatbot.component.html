@@ -286,19 +286,20 @@
             <p [@textFadeInAnimation2] > Pour le recevoir, je t'invite à remplir ce formulaire </p>
         </div>
 
+        
+        <form action=""  *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <label for="lastname">Nom</label>
+            <div><input type="text" name = "lastname" id = "lastname" [(ngModel)] = "lastname"></div>
+
+            <label for="firstname">Prénom</label>
+            <div><input type="text" name = "firstname" id = "firstname" [(ngModel)] = "firstname"></div>
+
+            <label for="mail">Email</label><br>
+            <div><input type="email" name = "mail" id = "mail" [(ngModel)] = "mail"></div>
+
+            <button type = "submit" (click) = "onSubmit()"> RECEVOIR MON TEMPLATE </button>
+        </form>
     </div>
 
-    <form action="" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
-        <label for="lastname">Nom</label>
-        <div><input type="text" name = "lastname" id = "lastname"[(ngModel)] = "lastname"></div>
-
-        <label for="firstname">Prénom</label>
-        <div><input type="text" name = "firstname" id = "firstname"[(ngModel)] = "firstname"></div>
-
-        <label for="mail">Email</label><br>
-        <div><input type="email" name = "mail" id = "mail"[(ngModel)] = "mail"></div>
-
-        <button type = "submit" (click) = "onSubmit()"> RECEVOIR MON TEMPLATE </button>
-    </form>
 
 </div>
