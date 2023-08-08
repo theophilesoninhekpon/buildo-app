@@ -1,6 +1,6 @@
 
 <div id="chatbot" class = "chat-container">
-    <canvas #canvas width = "20px" [height] = "canvasHeight" style = " border : 1px solid black;" ></canvas>
+    <canvas #canvas width = "20px" [height] = "canvasHeight" ></canvas>
     
     <div class="message-container">
         
@@ -281,8 +281,8 @@
 
         <!-- Message d'introduction au formulaire de fin-->
         <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
-            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
-            <p [@textFadeInAnimation2] > Merci de m'avoir donné toutes les informations </p>
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation1] ></div>
+            <p [@textFadeInAnimation1] > Merci de m'avoir donné toutes les informations </p>
         </div>
 
         <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
@@ -291,27 +291,27 @@
         </div>
 
         <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
-            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
-            <p [@textFadeInAnimation2] >Template généré avec succès  </p>
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation3] ></div>
+            <p [@textFadeInAnimation3] >Template généré avec succès  </p>
         </div>
 
         <div class = "display-flex bot-message" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
-            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation2] ></div>
-            <p [@textFadeInAnimation2] > Pour le recevoir, je t'invite à remplir ce formulaire </p>
+            <div [ngClass] = "{circle : start, 'circle-2': start}"  [@circleFadeInAnimation4] ></div>
+            <p [@textFadeInAnimation4] > Pour le recevoir, je t'invite à remplir ce formulaire </p>
         </div>
 
         
-        <form action = ""  *ngIf = "primaryColor && secondaryColor && tertiaryColor">
-            <label for="lastname">Nom</label>
-            <div><input type="text" name = "lastname" id = "lastname" [(ngModel)] = "lastname"></div>
+        <form action = "" *ngIf = "primaryColor && secondaryColor && tertiaryColor">
+            <div class="d-flex justify-content-center flex-column p-5">
+                <div><label for="lastname">Nom</label></div>
+                <br><input type="text" name = "lastname" id = "lastname" [(ngModel)] = "lastname">  <br>
+                <div><label for="firstname">Prénom</label></div>
+                <br><input type="text" name = "firstname" id = "firstname" [(ngModel)] = "firstname">   <br>
+                <div><label for="mail">Email</label></div>
+                <br><input type="email" name = "mail" id = "mail" [(ngModel)] = "mail"> <br>
+            </div>
 
-            <label for="firstname">Prénom</label>
-            <div><input type="text" name = "firstname" id = "firstname" [(ngModel)] = "firstname"></div>
-
-            <label for="mail">Email</label><br>
-            <div><input type="email" name = "mail" id = "mail" [(ngModel)] = "mail"></div>
-
-            <button type = "submit" (click) = "onSubmit()"> RECEVOIR MON TEMPLATE </button>
+            <div ><button type = "submit" (click) = "onSubmit()" class = "containButton"> RECEVOIR MON TEMPLATE </button></div>
         </form>
     </div>
 
