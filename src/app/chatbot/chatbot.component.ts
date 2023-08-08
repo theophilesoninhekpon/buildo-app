@@ -233,6 +233,10 @@ export class ChatbotComponent {
 
   }
 
+  // A la modification du choix
+  modifyOwnColorsChoice(){
+
+  }
   /**
    * Méthode de récupération de la couleur primaire
    * @param event identifiant de la couleur primaire

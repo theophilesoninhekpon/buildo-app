@@ -67,6 +67,14 @@ CLASSES UTILITAIRES
 
 }
 
+.color-choices-btn button{
+    font-size: 1.5rem;
+}
+
+.color-choices-btn{
+    margin-top: 8rem;
+}
+
 .max-width{
     max-width: 50rem;
     word-break: break-all;

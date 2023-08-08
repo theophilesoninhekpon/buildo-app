@@ -79,7 +79,7 @@
         </div>
 
         <div class = "display-flex " *ngIf="showTheme && !invalidThemeInput">
-            <p class = "user-style max-width d-flex justify-content-end" >{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
+            <p class = "user-style max-width d-flex justify-content-end align-items-center" >{{theme}} <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
@@ -104,7 +104,7 @@
         <p *ngIf="invalidSiteNameInput"> Veuillez renseigner un nom valide !</p>
 
         <div class = "display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
-            <p class = "user-style max-width d-flex justify-content-end">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+            <p class = "user-style max-width d-flex justify-content-end align-items-center">{{siteName}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
@@ -215,15 +215,15 @@
             <p [@textFadeInAnimation2] > Voudrais-tu les choisir toi même ? </p>
         </div>
 
-        <div class = "display-flex user-message "  [@textFadeInAnimation3] *ngIf = "isReadyForColorStep">
-           <div class="d-flex gap-2 ms-auto">
+        <div class = "display-flex user-message color-choices-btn "  [@textFadeInAnimation3] *ngIf = "isReadyForColorStep && !chooseOwnColors">
+           <div class="d-flex gap-2 ms-auto ">
                 <button class="choice-btn" (click)="startColorStep(true)" >Oui </button>
                 <button class="choice-btn" (click)="startColorStep(false)" >Non </button>
            </div>
         </div>
 
-        <div class = "display-flex gap-1" *ngIf="isReadyForColorStep">
-            <p class = "user-style">{{chooseOwnColors}} <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span></p> 
+        <div class = "display-flex gap-1" *ngIf="chooseOwnColors">
+            <p class = "user-style">{{chooseOwnColors}} <span (click)="modifyOwnColorsChoice()" class="pen-icon fas fa-pen"></span></p> 
             <div class="d-flex align-item-end user">
                 <span class="user-icon fas fa-user"></span>
             </div>
