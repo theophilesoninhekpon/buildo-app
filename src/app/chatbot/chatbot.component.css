@@ -262,7 +262,177 @@ div.circle ~ p {
 
 
 
-/* Partie des couleurs */
+/* *************************************************
+SECTION CHAT-CHOIX DE LA CATEGORIE 
+************************************************* */
+
+/* Message du bot */
+/* div.categorie-chat-1 {
+    top: 46rem;
+}
+
+div.categorie-chat-2{
+    top: 52rem;
+} */
+
+/* Action de l'utilisateur */
+/* select.position-absolute {
+    display: block;
+    top: 49rem;
+    right: 8rem;
+
+    padding : 1rem 10rem;
+    border: none;
+    border-radius: 15px;
+
+}
+
+button.choix-categorie {
+    top: 55rem;
+    right: 8rem;
+} */
+
+
+/* **************************************************
+SECTION CHAT-CHOIX DU THEME
+************************************************** */
+/* div.theme-1 {
+    top: 70rem;
+} */
+
+/* Action utilisateur */
+/* div.theme-2 {
+    top: 78rem;
+    right: 8rem;
+}
+
+div.theme-2 div {
+    position: absolute;
+    right: 0;
+    margin-top: 3rem;
+} */
+
+/* Affichage du thème choisi par l'utilisateur */
+/* div.theme-3 {
+    top: 89rem;
+} */
+
+
+/* ****************************************************
+SECTION CHAT-CHOIX DU NOM DU SITE WEB 
+**************************************************** */
+/* div.nom_site1 {
+    top: 98rem;
+} */
+
+/* Action utilisateur */
+/* div.nom_site2 {
+    top: 106rem;
+    right: 8rem;
+}
+
+
+div.nom_site2 div {
+    position: absolute;
+    right: 0;
+    margin-top: 3rem;
+} */
+
+
+/* ******************************************************
+SECTION CHAT-CHOIX DU TEMPLATE 
+****************************************************** */
+
+/* div.choix_template_1 {
+    top: 116rem;
+}
+
+div.choix_template_2{
+    top: 112rem;
+}
+
+div.choix_template_3{
+    top: 128rem;
+} */
+
+/* Carousel */
+
+/* div.carousel {
+    top: 135rem;
+    left: 18rem;
+    column-gap: 2rem;
+    text-align: center;
+} */
+
+
+/* *******************************************************
+SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
+******************************************************* */
+/* div.choix_couleur1 {
+    top: 147rem;
+}
+
+div.choix_couleur2 {
+    top: 154rem;
+} */
+
+/* Button pour le choix */
+/* div.choix_couleur_button {
+    top: 163rem;
+    right: 8rem;
+}
+
+div.choix_couleur_button button {
+    box-shadow: 0px 1px 3px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    padding: .5rem 1rem;
+}
+
+button.choix_couleur_button_1 {
+    top: 160rem;
+    right: 8rem;
+} */
+
+/* Chat - texte d'introduction au choix */
+/* div.choix_couleur3 {
+    top: 174rem;
+}
+
+/* Case à choix de couleur */
+/* div.case_a_couleur {
+    top: 182rem;
+    left: 14rem;
+    column-gap: 3rem;
+} */ */
+
+
+/* Case à choix de couleur personnel*/
+/* div.choix_couleur_perso {
+    top: 192rem;
+    left: 22rem;
+} */
+
+
+/* *******************************************************
+SECTION CHAT-CHOIX DES COULEURS DU TEMPLATE 
+******************************************************* */
+/* div.formulaire_1 {
+    top: 198rem;
+}
+
+div.formulaire_2 {
+    top: 212rem;
+}
+
+div.formulaire_3 {
+    top: 210rem;
+} */
+
+
+/* ***********************************************
+SECTION CHOIX DES COULEURS
+*********************************************** */
 .boxColorParent {
  justify-content: space-around;
  border: 1px solid aqua;
@@ -341,9 +511,6 @@ div.formulaire_4 {
     text-align: center;
 }
 
-/* .boxOwnColor div {
-    background-color: #d9d9d9;
-} */
 
 input[type=color] {
     width: 5rem;
@@ -356,7 +523,9 @@ input[type=color] {
     column-gap: 2.2rem;
 }
 
-/* Formulaie */
+/* ***********************************************
+SECTION FORMULAIRE
+*********************************************** */
 form {
     position: relative;
     width: 35rem;
@@ -394,5 +563,44 @@ form button {
     font-weight: 900;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* *****************************************************************************************************
+MOBILE MEDIA-QUERY
+***************************************************************************************************** */
+
+@media screen and (max-width : 780px) {
+    .chat-container {
+        width: 90%;
+        height: 360rem;
+        margin-top: -37rem;
+    }
+
+    form {
+        width: 30rem;
+    }
+}
+
+
+/* *************************************************************************************************************
+MEDIA QUERY TABLETTE
+************************************************************************************************************* */
+@media screen and (max-width : 980px) {
+
+    .chat-container {
+        width: 90%;
+        height: 360rem;
+        margin-top: -30rem;
+    }
+
+}
 
 
