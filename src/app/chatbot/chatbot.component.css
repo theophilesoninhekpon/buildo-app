@@ -67,12 +67,18 @@ CLASSES UTILITAIRES
 
 }
 
+.max-width{
+    max-width: 50rem;
+    word-break: break-all;
+}
+
 .send-btn{
-    padding: .7rem 1rem;
+    padding: 1rem 3rem;
     border-radius: 20px;
     background-color:#0119ff;
     cursor: pointer;
-    margin-left: -2rem;
+    
+    margin-top: 8rem;
 }
 
 .send-icon{
@@ -91,11 +97,21 @@ CLASSES UTILITAIRES
     margin-top: 8rem;
 }
 
+input[type=text]:focus, 
+select:focus{
+    outline: 2px solid #0119ff;
+}
+
 .user-icon{
     border-radius: 50px;
     background-color:#0119ff;
     color: white;
     padding: 0.7rem 0.8rem;
+}
+
+.bot-input{
+    width: 50% !important;
+    margin-right: 1rem;
 }
 
 .user{
@@ -228,6 +244,10 @@ div.circle ~ p {
     padding: .7rem 1rem;
     border-radius: 30px;
     cursor: pointer;
+}
+
+.carousel-inner{
+    margin-inline: 2rem;
 }
 /* ***********************************************
 SECTION CHAT-INTRODUCTION 
