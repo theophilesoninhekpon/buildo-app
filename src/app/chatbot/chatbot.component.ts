@@ -126,15 +126,15 @@ export class ChatbotComponent {
 
     setTimeout(()=>{ 
       let a = this.answer.nativeElement;
-      console.log(a)
+      console.log(a);
       this.onAnime();
    
       if(this.start){
         let interval = setInterval(() => {
-          if (this.canvasHeight <= (a.offsetTop - 15 * 16)) {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
             this.canvasHeight++;
           } else {
-            clearInterval(interval)
+            clearInterval(interval);
           }
         }, 1000/60)
       }
