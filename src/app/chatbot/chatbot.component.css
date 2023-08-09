@@ -164,6 +164,7 @@ select {
 CONTAINER
 ********************************************************************************/
 
+/* Style de l'élément contenant les messages */
 .message-container {
   position: absolute;
   padding-top: 20rem;
@@ -171,12 +172,22 @@ CONTAINER
   z-index: 1;
   margin-left: -2rem;
   width: 100%;
+  
+
 }
 
 .chat-container {
   padding-top: 15rem;
+  width: 100%;
+  margin-inline: auto;
+  background-color: #f9f9f9;
+  font-family: Manrope;
+}
+
+.wrapper{
   position: relative;
   margin-top: -20rem;
+ 
   width: 67.1%;
   margin-inline: auto;
   background-image: linear-gradient(
@@ -188,7 +199,7 @@ CONTAINER
     #e3e3e3 100%
   );
   background-color: #f9f9f9;
-  font-family: Manrope;
+  
 }
 
 /* ******************************************************************************

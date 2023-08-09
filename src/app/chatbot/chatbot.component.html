@@ -1,442 +1,446 @@
-<div id="chatbot" class="chat-container">
-  <canvas #canvas width="20px" [height]="canvasHeight"></canvas>
+<div class="wrapper" #wrapper>
 
-  <div class="message-container">
-    <!-- Variable d'état start pour la première réponse (ensemble de messages) du bot -->
-      <div class="display-flex bot-message" *ngIf="start">
+  <div id="chatbot" class="chat-container">
+    <canvas #canvas width="20px" [height]="canvasHeight"></canvas>
+  
+    <div class="message-container">
+      <!-- Variable d'état start pour la première réponse (ensemble de messages) du bot -->
+        <div class="display-flex bot-message" *ngIf="start">
+          <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+          <p [@textFadeInAnimation1]>Salut ! Je m'appelle Build'o</p>
+        </div>
+    
+        <div class="display-flex bot-message prev-long-message" *ngIf="start">
+          <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
+          <p [@textFadeInAnimation2]>Je suis le bot constructeur de template.</p>
+        </div>
+    
+        <div class="display-flex bot-message long-message" *ngIf="start">
+          <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
+          <p [@textFadeInAnimation3]>
+            Je vais te demander des informations sur le template <br />afin de le
+            construire à ta convenance
+          </p>
+        </div>
+    
+        <div class="display-flex flex-wrap bot-message readyDiv" *ngIf="start">
+          <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4] #botFirstAnswerLimit></div>
+          <p [@textFadeInAnimation4]>Alors on peut commencer ?</p>
+          <div class="bot-btn">
+            <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf="start">
+              Oui Build'o
+            </button>
+          </div>
+        </div>
+      <div class="display-flex gap-1" *ngIf="ready">
+        <p class="user-style">Oui Build'o</p>
+        <span></span>
+        <div class="d-flex align-item-end user">
+          <span class="user-icon fas fa-user"></span>
+        </div>
+      </div>
+  
+      <!-- Choix de la catégorie du site web -->
+      <div class="display-flex bot-message" *ngIf="categoryStep">
         <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-        <p [@textFadeInAnimation1]>Salut ! Je m'appelle Build'o</p>
+        <p [@textFadeInAnimation1]>D'accord !</p>
       </div>
   
-      <div class="display-flex bot-message prev-long-message" *ngIf="start">
-        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-        <p [@textFadeInAnimation2]>Je suis le bot constructeur de template.</p>
+      <div class="display-flex bot-message" *ngIf="categoryStep">
+        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2] #botSecondAnswerLimit></div>
+        <p [@textFadeInAnimation2]>Dans quelle catégorie s'inscrit ton site ?</p>
       </div>
   
-      <div class="display-flex bot-message long-message" *ngIf="start">
-        <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
-        <p [@textFadeInAnimation3]>
-          Je vais te demander des informations sur le template <br />afin de le
-          construire à ta convenance
+      <div
+        *ngIf="categoryStep && !hasSelectCategory"
+        class="user-message"
+        [@textFadeInAnimation3]="selectAnimation"
+      >
+        <select name="" #select (change)="getOption($event)">
+          <!-- Action utilisateur -->
+          <option value="">--Sélectionne une catégorie--</option>
+          <option value="Finance">Finance</option>
+          <option value="Santé">Santé</option>
+          <option value="Gastronomie">Gastronomie</option>
+          <option value="Sport">Sport</option>
+          <option value="Informatique">Informatique</option>
+        </select>
+      </div>
+  
+      <div class="display-flex gap-1" *ngIf="showCategory">
+        <p class="user-style">
+          {{ category }}
+          <span (click)="modifyCategory()" class="pen-icon fas fa-pen"></span>
+        </p>
+        <div class="d-flex align-item-end user">
+          <span class="user-icon fas fa-user"></span>
+        </div>
+      </div>
+  
+      <!-- Thème du site -->
+      <div class="display-flex bot-message" *ngIf="themeStep">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1] #botThirdAnswerLimit></div>
+        <p [@textFadeInAnimation1]>
+          A présent renseigne moi le thème de ton site
         </p>
       </div>
   
-      <div class="display-flex flex-wrap bot-message readyDiv" *ngIf="start">
-        <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4] #answer1></div>
-        <p [@textFadeInAnimation4]>Alors on peut commencer ?</p>
-        <div class="bot-btn">
-          <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf="start">
-            Oui Build'o
+      <div
+        *ngIf="themeStep && !hasEnteredTheme"
+        class="user-message"
+        [@textFadeInAnimation2]="input1Animation"
+      >
+        <div class="display-flex"> 
+          <input class="bot-input" #text1 type="text" (change)="getTheme($event)" />
+          <button class="send-btn" (click)="getTheme($event)">
+            <span class="send-icon fa-solid fa-paper-plane"></span>
           </button>
         </div>
+        <p class="invalid-input" *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
       </div>
-    <div class="display-flex gap-1" *ngIf="ready">
-      <p class="user-style">Oui Build'o</p>
-      <span></span>
-      <div class="d-flex align-item-end user">
-        <span class="user-icon fas fa-user"></span>
-      </div>
-    </div>
-
-    <!-- Choix de la catégorie du site web -->
-    <div class="display-flex bot-message" *ngIf="categoryStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>D'accord !</p>
-    </div>
-
-    <div class="display-flex bot-message" *ngIf="categoryStep">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-      <p [@textFadeInAnimation2]>Dans quelle catégorie s'inscrit ton site ?</p>
-    </div>
-
-    <div
-      *ngIf="categoryStep && !hasSelectCategory"
-      class="user-message"
-      [@textFadeInAnimation3]="selectAnimation"
-    >
-      <select name="" #select (change)="getOption($event)">
-        <!-- Action utilisateur -->
-        <option value="">--Sélectionne une catégorie--</option>
-        <option value="Finance">Finance</option>
-        <option value="Santé">Santé</option>
-        <option value="Gastronomie">Gastronomie</option>
-        <option value="Sport">Sport</option>
-        <option value="Informatique">Informatique</option>
-      </select>
-    </div>
-
-    <div class="display-flex gap-1" *ngIf="showCategory">
-      <p class="user-style">
-        {{ category }}
-        <span (click)="modifyCategory()" class="pen-icon fas fa-pen"></span>
-      </p>
-      <div class="d-flex align-item-end user">
-        <span class="user-icon fas fa-user"></span>
-      </div>
-    </div>
-
-    <!-- Thème du site -->
-    <div class="display-flex bot-message" *ngIf="themeStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>
-        A présent renseigne moi le thème de ton site
-      </p>
-    </div>
-
-    <div
-      *ngIf="themeStep && !hasEnteredTheme"
-      class="user-message"
-      [@textFadeInAnimation2]="input1Animation"
-    >
-      <div class="display-flex"> 
-        <input class="bot-input" #text1 type="text" (change)="getTheme($event)" />
-        <button class="send-btn" (click)="getTheme($event)">
-          <span class="send-icon fa-solid fa-paper-plane"></span>
-        </button>
-      </div>
-      <p class="invalid-input" *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
-    </div>
-
-    <div class="display-flex" *ngIf="showTheme && !invalidThemeInput">
-      <p class="user-style max-width d-flex justify-content-end align-items-center">
-        {{ theme }}
-        <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span>
-      </p>
-      <div class="d-flex align-item-end user">
-        <span class="user-icon fas fa-user"></span>
-      </div>
-    </div>
-
-    <!-- Nom du site -->
-    <div class="display-flex bot-message" *ngIf="siteNameStep">
-      <div
-        [ngClass]="{ circle: start, 'circle-1': start }"
-        [@circleFadeInAnimation1]
-      ></div>
-      <p [@textFadeInAnimation1]>Thème enregistré !</p>
-    </div>
-    <div class="display-flex bot-message" *ngIf="siteNameStep">
-      <div
-        [ngClass]="{ circle: start, 'circle-2': start }"
-        [@circleFadeInAnimation2]
-      ></div>
-      <p [@textFadeInAnimation2]>Quel nom donneras tu à ton site ?</p>
-    </div>
-
-    <div
-      *ngIf="siteNameStep && !hasEnteredSiteName"
-      class="user-message"
-      [@textFadeInAnimation3]="input2Animation"
-    >
-      <div class="display-flex align-items-end">
-        <input #text2 class="bot-input" type="text" (change)="getSiteName($event)" />
-        <button class="send-btn" (click)="getSiteName($event)">
-          <span class="send-icon fa-solid fa-paper-plane"></span>
-        </button>
-      </div>
-      <p class="invalid-input" *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
-    </div>
-
-    <div class="display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
-      <p class="user-style max-width d-flex justify-content-end align-items-center">
-        {{ siteName }}
-        <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span>
-      </p>
-      <div class="d-flex align-item-end user">
-        <span class="user-icon fas fa-user"></span>
-      </div>
-    </div>
-
-    <!-- Template du site -->
-    <div class="display-flex bot-message" *ngIf="templateStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>J'aime bien ce nom !</p>
-    </div>
-    <div class="display-flex bot-message" *ngIf="templateStep">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-      <p [@textFadeInAnimation2]>On avance bien !</p>
-    </div>
-    <div class="display-flex bot-message" *ngIf="templateStep">
-      <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
-      <p [@textFadeInAnimation3]>
-        Tu vas maintenant choisir le template de ton site
-      </p>
-    </div>
-
-    <!-- Carousel de templates -->
-    <div
-      class="user-message carousel-div"
-      [@textFadeInAnimation4]
-      *ngIf="templateStep"
-    >
-      <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row justify-content-center">
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template1" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template2" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template3" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="row justify-content-center">
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template4" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template5" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-              <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="template-input mx-auto">
-                  <input type="radio" name="template" value="template6" (change)="onSelectTemplate($event)" />
-                </div>
-                <div class="template-image">
-                  <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Choisir les couleurs ou non -->
-    <div class="display-flex bot-message" *ngIf="isReadyForColorStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>Passons maintenant aux couleurs</p>
-    </div>
-
-    <div class="display-flex bot-message" *ngIf="isReadyForColorStep">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-      <p [@textFadeInAnimation2]>Voudrais-tu les choisir toi même ?</p>
-    </div>
-
-    <div class="display-flex user-message color-choices-btn" [@textFadeInAnimation3]
-      *ngIf="isReadyForColorStep && !chooseOwnColors">
-      <div class="d-flex gap-2 ms-auto">
-        <button class="choice-btn" (click)="startColorStep(true)">Oui</button>
-        <button class="choice-btn" (click)="startColorStep(false)">Non</button>
-      </div>
-    </div>
-
-    <div class="display-flex gap-1" *ngIf="chooseOwnColors">
-      <p class="user-style">
-        {{ chooseOwnColors }}
-      </p>
-      <div class="d-flex align-item-end user">
-        <span class="user-icon fas fa-user"></span>
-      </div>
-    </div>
-
-    <!-- choix manuel des couleurs par l'utilisateur -->
-    <div class="display-flex bot-message" *ngIf="colorStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>
-        Choisis alors trois couleurs de ton template
-      </p>
-    </div>
-
-    <div class="display-flex justify-content-center mt-5" *ngIf="colorStep" [@textFadeInAnimation2]>
-      <div class="boxColorParent display-flex gap-4">
-        <div class="boxPrimaryColor display-flex">
-          <p class="box-title-style color_title">Primaire</p>
-          <div *ngFor="let primaryColor of primaryColors" [ngStyle]="{ 'background-color': primaryColor.hexCode }">
-            <input type="radio" name="primaryColor" [value]="primaryColor.id" id="firstPrimaryColor"
-              (change)="getPrimaryColor($event)" />
-          </div>
-        </div>
-
-        <div class="boxSecondaryColor display-flex" *ngIf="primaryColor">
-          <p class="box-title-style color_title">Secondaire</p>
-          <div *ngFor="let secondaryColor of secondaryColors"
-            [ngStyle]="{ 'background-color': secondaryColor.hexCode }">
-            <input type="radio" name="secondaryColor" [value]="secondaryColor.id" id="firstSecondaryColor"
-              (change)="getSecondaryColor($event)" />
-          </div>
-        </div>
-
-        <div class="boxSecondaryColor display-flex" *ngIf="!primaryColor">
-          <p class="box-title-style color_title">Secondaire</p>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
-        </div>
-
-        <div class="boxTertiaryColor display-flex" *ngIf="secondaryColor">
-          <p class="box-title-style color_title">Tertiaire</p>
-          <div *ngFor="let tertiaryColor of tertiaryColors" [ngStyle]="{ 'background-color': tertiaryColor.hexCode }">
-            <input type="radio" name="tertiaryColor" [value]="tertiaryColor.hexCode" id="firstTertiaryColor"
-              (change)="getTertiaryColor($event)" />
-          </div>
-        </div>
-
-        <div class="boxTertiaryColor display-flex" *ngIf="!secondaryColor">
-          <p class="box-title-style color_title">Tertiaire</p>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
-          <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-            <input type="radio" name="secondaryColor" value="" id="" />
-          </div>
+  
+      <div class="display-flex" *ngIf="showTheme && !invalidThemeInput">
+        <p class="user-style max-width d-flex justify-content-end align-items-center">
+          {{ theme }}
+          <span (click)="modifyTheme()" class="pen-icon fas fa-pen"></span>
+        </p>
+        <div class="d-flex align-item-end user">
+          <span class="user-icon fas fa-user"></span>
         </div>
       </div>
-    </div>
-
-    <div
-      class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"
-      *ngIf="colorStep"
-    >
-      <p class="box-title-style color_title">Couleurs personnalisées</p>
-      <div class="display-flex boxOwnColor justify-content-center">
-        <div>
-          <input
-            type="color"
-            name=""
-            id=""
-            value="#d9d9d9"
-            (change)="getOwnPrimaryColor($event)"
-          />
-        </div>
-        <div>
-          <input
-            type="color"
-            name=""
-            id=""
-            value="#d9d9d9"
-            (change)="getOwnSecondaryColor($event)"
-          />
-        </div>
-        <div>
-          <input
-            type="color"
-            name=""
-            id=""
-            value="#d9d9d9"
-            (change)="getOwnTertiaryColor($event)"
-          />
-        </div>
-      </div>
-    </div>
-
-    <!-- Message d'introduction au formulaire de fin-->
-    <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>
-        Merci de m'avoir donné toutes les informations
-      </p>
-    </div>
-
-    <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-      <p [@textFadeInAnimation2]>
-        Génération du template en cours (petit loader)
-      </p>
-    </div>
-
-    <div
-      class="display-flex bot-message"
-      *ngIf="primaryColor && secondaryColor && tertiaryColor"
-    >
-      <div
-        [ngClass]="{ circle: start, 'circle-3': start }"
-        [@circleFadeInAnimation3]
-      ></div>
-      <p [@textFadeInAnimation3]>Template généré avec succès</p>
-    </div>
-
-    <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
-      <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4]></div>
-      <p [@textFadeInAnimation4]>
-        Pour le recevoir, je t'invite à remplir ce formulaire
-      </p>
-    </div>
-
-    <form
-      action=""
-      *ngIf="primaryColor && secondaryColor && tertiaryColor"
-      [@textFadeInAnimation4]
-    >
-      <div class="cird-flex justify-content-center">
+  
+      <!-- Nom du site -->
+      <div class="display-flex bot-message" *ngIf="siteNameStep">
         <div
           [ngClass]="{ circle: start, 'circle-1': start }"
           [@circleFadeInAnimation1]
         ></div>
+        <p [@textFadeInAnimation1]>Thème enregistré !</p>
       </div>
-      <div class="d-flex justify-content-center flex-column p-5">
-        <div><label for="lastname">Nom</label></div>
-        <br /><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" />
-        <br />
-        <div><label for="firstname">Prénom</label></div>
-        <br /><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" />
-        <br />
-        <div><label for="mail">Email</label></div>
-        <br /><input type="email" name="mail" id="mail" [(ngModel)]="mail" />
-        <br />
+      <div class="display-flex bot-message" *ngIf="siteNameStep">
+        <div
+          [ngClass]="{ circle: start, 'circle-2': start }"
+          [@circleFadeInAnimation2]
+          #botFourthAnswerLimit></div>
+        <p [@textFadeInAnimation2]>Quel nom donneras tu à ton site ?</p>
       </div>
-
-      <div>
-        <button type="submit" (click)="onSubmit()" class="containButton">
-          RECEVOIR MON TEMPLATE
-        </button>
+  
+      <div
+        *ngIf="siteNameStep && !hasEnteredSiteName"
+        class="user-message"
+        [@textFadeInAnimation3]="input2Animation"
+      >
+        <div class="display-flex align-items-end">
+          <input #text2 class="bot-input" type="text" (change)="getSiteName($event)" />
+          <button class="send-btn" (click)="getSiteName($event)">
+            <span class="send-icon fa-solid fa-paper-plane"></span>
+          </button>
+        </div>
+        <p class="invalid-input" *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
       </div>
-    </form>
+  
+      <div class="display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
+        <p class="user-style max-width d-flex justify-content-end align-items-center">
+          {{ siteName }}
+          <span (click)="modifySiteName()" class="pen-icon fas fa-pen"></span>
+        </p>
+        <div class="d-flex align-item-end user">
+          <span class="user-icon fas fa-user"></span>
+        </div>
+      </div>
+  
+      <!-- Template du site -->
+      <div class="display-flex bot-message" *ngIf="templateStep">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+        <p [@textFadeInAnimation1]>J'aime bien ce nom !</p>
+      </div>
+      <div class="display-flex bot-message" *ngIf="templateStep">
+        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
+        <p [@textFadeInAnimation2]>On avance bien !</p>
+      </div>
+      <div class="display-flex bot-message" *ngIf="templateStep">
+        <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3] #botFifthAnswerLimit></div>
+        <p [@textFadeInAnimation3]>
+          Tu vas maintenant choisir le template de ton site
+        </p>
+      </div>
+  
+      <!-- Carousel de templates -->
+      <div
+        class="user-message carousel-div"
+        [@textFadeInAnimation4]
+        *ngIf="templateStep"
+      >
+        <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template1" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template2" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template3" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template4" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template5" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+                <div class="col-3 d-flex flex-column gap-3 justify-content-center align-items-center">
+                  <div class="template-input mx-auto">
+                    <input type="radio" name="template" value="template6" (change)="onSelectTemplate($event)" />
+                  </div>
+                  <div class="template-image">
+                    <img src="../../assets/photo-1561212024-cb9ad0c33195.jpg" class="d-block w-100" alt="..." />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Choisir les couleurs ou non -->
+      <div class="display-flex bot-message" *ngIf="isReadyForColorStep">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+        <p [@textFadeInAnimation1]>Passons maintenant aux couleurs</p>
+      </div>
+  
+      <div class="display-flex bot-message" *ngIf="isReadyForColorStep">
+        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2] #botSixthAnswerLimit></div>
+        <p [@textFadeInAnimation2]>Voudrais-tu les choisir toi même ?</p>
+      </div>
+  
+      <div class="display-flex user-message color-choices-btn" [@textFadeInAnimation3]
+        *ngIf="isReadyForColorStep && !chooseOwnColors">
+        <div class="d-flex gap-2 ms-auto">
+          <button class="choice-btn" (click)="startColorStep(true)">Oui</button>
+          <button class="choice-btn" (click)="startColorStep(false)">Non</button>
+        </div>
+      </div>
+  
+      <div class="display-flex gap-1" *ngIf="chooseOwnColors">
+        <p class="user-style">
+          {{ chooseOwnColors }}
+        </p>
+        <div class="d-flex align-item-end user">
+          <span class="user-icon fas fa-user"></span>
+        </div>
+      </div>
+  
+      <!-- choix manuel des couleurs par l'utilisateur -->
+      <div class="display-flex bot-message" *ngIf="colorStep">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1] #botSeventhAnswerLimit></div>
+        <p [@textFadeInAnimation1]>
+          Choisis alors trois couleurs de ton template
+        </p>
+      </div>
+  
+      <!-- <div class="display-flex justify-content-center mt-5" *ngIf="colorStep" [@textFadeInAnimation2]>
+        <div class="boxColorParent display-flex gap-4">
+          <div class="boxPrimaryColor display-flex">
+            <p class="box-title-style color_title">Primaire</p>
+            <div *ngFor="let primaryColor of primaryColors" [ngStyle]="{ 'background-color': primaryColor.hexCode }">
+              <input type="radio" name="primaryColor" [value]="primaryColor.id" id="firstPrimaryColor"
+                (change)="getPrimaryColor($event)" />
+            </div>
+          </div>
+  
+          <div class="boxSecondaryColor display-flex" *ngIf="primaryColor">
+            <p class="box-title-style color_title">Secondaire</p>
+            <div *ngFor="let secondaryColor of secondaryColors"
+              [ngStyle]="{ 'background-color': secondaryColor.hexCode }">
+              <input type="radio" name="secondaryColor" [value]="secondaryColor.id" id="firstSecondaryColor"
+                (change)="getSecondaryColor($event)" />
+            </div>
+          </div>
+  
+          <div class="boxSecondaryColor display-flex" *ngIf="!primaryColor">
+            <p class="box-title-style color_title">Secondaire</p>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+          </div>
+  
+          <div class="boxTertiaryColor display-flex" *ngIf="secondaryColor">
+            <p class="box-title-style color_title">Tertiaire</p>
+            <div *ngFor="let tertiaryColor of tertiaryColors" [ngStyle]="{ 'background-color': tertiaryColor.hexCode }">
+              <input type="radio" name="tertiaryColor" [value]="tertiaryColor.hexCode" id="firstTertiaryColor"
+                (change)="getTertiaryColor($event)" />
+            </div>
+          </div>
+  
+          <div class="boxTertiaryColor display-flex" *ngIf="!secondaryColor">
+            <p class="box-title-style color_title">Tertiaire</p>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
+              <input type="radio" name="secondaryColor" value="" id="" />
+            </div>
+          </div>
+        </div>
+      </div> -->
+  
+      <div
+        class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"
+        *ngIf="colorStep"
+      >
+        <p class="box-title-style color_title">Couleurs personnalisées</p>
+        <div class="display-flex boxOwnColor justify-content-center">
+          <div>
+            <input
+              type="color"
+              name=""
+              id=""
+              value="#d9d9d9"
+              (change)="getOwnPrimaryColor($event)"
+            />
+          </div>
+          <div>
+            <input
+              type="color"
+              name=""
+              id=""
+              value="#d9d9d9"
+              (change)="getOwnSecondaryColor($event)"
+            />
+          </div>
+          <div>
+            <input
+              type="color"
+              name=""
+              id=""
+              value="#d9d9d9"
+              (change)="getOwnTertiaryColor($event)"
+            />
+          </div>
+        </div>
+      </div>
+  
+      <!-- Message d'introduction au formulaire de fin-->
+      <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+        <p [@textFadeInAnimation1]>
+          Merci de m'avoir donné toutes les informations
+        </p>
+      </div>
+  
+      <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
+        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
+        <p [@textFadeInAnimation2]>
+          Génération du template en cours (petit loader)
+        </p>
+      </div>
+  
+      <div
+        class="display-flex bot-message"
+        *ngIf="primaryColor && secondaryColor && tertiaryColor"
+      >
+        <div
+          [ngClass]="{ circle: start, 'circle-3': start }"
+          [@circleFadeInAnimation3]
+        ></div>
+        <p [@textFadeInAnimation3]>Template généré avec succès</p>
+      </div>
+  
+      <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
+        <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4] #botEigththAnswerLimit></div>
+        <p [@textFadeInAnimation4]>
+          Pour le recevoir, je t'invite à remplir ce formulaire
+        </p>
+      </div>
+  
+      <form
+        action=""
+        *ngIf="primaryColor && secondaryColor && tertiaryColor"
+        [@textFadeInAnimation4]
+      >
+        <div class="cird-flex justify-content-center">
+          <div
+            [ngClass]="{ circle: start, 'circle-1': start }"
+            [@circleFadeInAnimation1]
+          ></div>
+        </div>
+        <div class="d-flex justify-content-center flex-column p-5">
+          <div><label for="lastname">Nom</label></div>
+          <br /><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" />
+          <br />
+          <div><label for="firstname">Prénom</label></div>
+          <br /><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" />
+          <br />
+          <div><label for="mail">Email</label></div>
+          <br /><input type="email" name="mail" id="mail" [(ngModel)]="mail" />
+          <br />
+        </div>
+  
+        <div>
+          <button type="submit" (click)="onSubmit()" class="containButton">
+            RECEVOIR MON TEMPLATE
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
+
 </div>

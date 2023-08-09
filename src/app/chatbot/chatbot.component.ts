@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild , Input, TemplateRef} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild , Input, AfterViewInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
@@ -14,7 +14,7 @@ import { ChatService } from '../chat.service';
     circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4]
 })
 
-export class ChatbotComponent {
+export class ChatbotComponent implements AfterViewInit{
 
   increase : boolean = false;
   count : number = 0;
@@ -74,7 +74,18 @@ export class ChatbotComponent {
   secondaryColors !: Color[] | undefined;
   tertiaryColors !: Color[] | undefined;
 
-  @ViewChild('answer1') answer!: ElementRef;
+  // Récupération des éléments du DOM correspondant aux derniers cercles de chaque réponse du bot
+  @ViewChild('botFirstAnswerLimit') botFirstAnswerLimit!: ElementRef;
+  @ViewChild('botSecondAnswerLimit') botSecondAnswerLimit!: ElementRef;
+  @ViewChild('botThirdAnswerLimit') botThirdAnswerLimit!: ElementRef;
+  @ViewChild('botFourthAnswerLimit') botFourthAnswerLimit!: ElementRef;
+  @ViewChild('botFifthAnswerLimit') botFifthAnswerLimit!: ElementRef;
+  @ViewChild('botSixthAnswerLimit') botSixthAnswerLimit!: ElementRef;
+  @ViewChild('botSeventhAnswerLimit') botSeventhAnswerLimit!: ElementRef;
+  @ViewChild('botEigththAnswerLimit') botEigththAnswerLimit!: ElementRef;
+
+  @ViewChild('wrapper') chatWrapper !: ElementRef;
+
   constructor(
     private chatService : ChatService
   ) {}
@@ -83,9 +94,23 @@ export class ChatbotComponent {
       this.canvas = this.myCanvas.nativeElement;
       this.context = this.canvas.getContext('2d');
 
-      this.primaryColors = this.chatService.getPrimaryColors();
+      // this.primaryColors = this.chatService.getPrimaryColors();
+
   }
 
+  /**
+   * Fonction d'ajustement de la fenêtre en fonction de la hauteur du conteneur principal wrapper
+   * @param 
+   * @return 
+   */
+  
+  ngAfterViewInit(): void {
+      this.scrollToBottom()
+  }
+  scrollToBottom(){
+    let chatWrapper = this.chatWrapper.nativeElement;
+    chatWrapper.scrollTop = chatWrapper.scrollHeight
+  }
 
   onAnime() {
     if (this.context) {
@@ -104,7 +129,7 @@ export class ChatbotComponent {
   }
 
   #drawRectangle(context : CanvasRenderingContext2D) {
-    // if (this.count < this.canvasHeight) {
+    if (this.count < this.canvasHeight) {
       this.count++;
       context.beginPath();
       context.setLineDash([10, 10]);
@@ -116,19 +141,25 @@ export class ChatbotComponent {
       context.lineTo(10, 0);
       context.stroke();
       
-    // } else {
-    //   this.count = this.count;
-    // }
+    } else {
+       this.count = this.count;
+    }
+
     requestAnimationFrame(() => this.#drawRectangle(context!));
   }
 
   ngOnChanges(){
 
+
+    // Augmentation de la hauteur du chatbot jusqu'au dernier message de la première réponse
     setTimeout(()=>{ 
-      let a = this.answer.nativeElement;
+      let a = this.botFirstAnswerLimit.nativeElement;
       console.log(a);
       this.onAnime();
-   
+      
+      let chatWrapper = this.chatWrapper.nativeElement;
+      chatWrapper.style.paddingBottom = "15rem";
+      
       if(this.start){
         let interval = setInterval(() => {
           if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
@@ -138,6 +169,7 @@ export class ChatbotComponent {
           }
         }, 1000/60)
       }
+     
     }, 10)
    
   }
@@ -148,7 +180,26 @@ export class ChatbotComponent {
     this.categoryStep = true;
     let selectInput: any;
    
-    
+    // Augmentation de la hauteur du chatbot jusqu'au dernier message de la deuxième réponse
+
+    setTimeout(()=>{ 
+      let a = this.botSecondAnswerLimit.nativeElement;
+      console.log(a);
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50/6)
+      }
+    }, 10)
+
+
+
     // Focus de l'input après un délai
     setTimeout(()=>{ 
       selectInput = this.select.nativeElement; 
@@ -164,11 +215,29 @@ export class ChatbotComponent {
     this.themeStep = true;
     let input: any;
 
+      // Augmentation de la hauteur du chatbot jusqu'au dernier message de la troisième réponse
+
+      setTimeout(()=>{ 
+        let a = this.botThirdAnswerLimit.nativeElement;
+        console.log(a);
+        this.onAnime();
+     
+        if(this.start){
+          let interval = setInterval(() => {
+            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+              this.canvasHeight++;
+            } else {
+              clearInterval(interval);
+            }
+          }, 50/6)
+        }
+      }, 10)
+
+      
     // Focus de l'input après un délai
     setTimeout(()=>{ 
       input = this.input1.nativeElement; 
       input.focus()}, 1000)
-    
     
   }
 
@@ -191,6 +260,27 @@ export class ChatbotComponent {
       this.showTheme = true;
       this.siteNameStep = true;
       let input: any;
+
+
+      // Augmentation de la hauteur du chatbot jusqu'au dernier message de la quatrième réponse
+
+      setTimeout(()=>{ 
+        let a = this.botFourthAnswerLimit.nativeElement;
+        console.log(a);
+        this.onAnime();
+     
+        if(this.start){
+          let interval = setInterval(() => {
+            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+              this.canvasHeight++;
+            } else {
+              clearInterval(interval);
+            }
+          }, 50/6)
+        }
+      }, 10)
+
+
 
       // Focus de l'input après un délai
       setTimeout(()=>{ 
@@ -221,6 +311,24 @@ export class ChatbotComponent {
       this.templateStep = true;
       let input: any;
 
+       // Augmentation de la hauteur du chatbot jusqu'au dernier message de la cinquième réponse
+
+       setTimeout(()=>{ 
+        let a = this.botFifthAnswerLimit.nativeElement;
+        console.log(a);
+        this.onAnime();
+     
+        if(this.start){
+          let interval = setInterval(() => {
+            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+              this.canvasHeight++;
+            } else {
+              clearInterval(interval);
+            }
+          }, 100/6)
+        }
+      }, 10)
+
       // Focus de l'input après un délai
       setTimeout(()=>{ 
         input = this.input2.nativeElement; 
@@ -241,6 +349,24 @@ export class ChatbotComponent {
     this.template = event.target.value;
     this.isReadyForColorStep = true;
 
+     // Augmentation de la hauteur du chatbot jusqu'au dernier message de la sixième réponse
+
+     setTimeout(()=>{ 
+      let a = this.botSixthAnswerLimit.nativeElement;
+      console.log(a);
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50/6)
+      }
+    }, 10)
+
   }
 
   startColorStep(state: boolean){
@@ -249,12 +375,49 @@ export class ChatbotComponent {
       this.colorStep = true;
       this.chooseOwnColors = 'Oui';
       // this.colorStep = true;
+
+    // Augmentation de la hauteur du chatbot jusqu'au dernier message de la septième réponse
+
+     setTimeout(()=>{ 
+      let a = this.botSeventhAnswerLimit.nativeElement;
+      console.log(a);
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50/6)
+      }
+    }, 10)
+
     } else {
       this.colorStep = false;
       this.chooseOwnColors = 'Non';
       this.primaryColor = 'defaultColor';
       this.secondaryColor = 'defaultColor';
       this.tertiaryColor = 'defaultColor';
+
+       // Augmentation de la hauteur du chatbot jusqu'au dernier message de la septième réponse
+
+     setTimeout(()=>{ 
+      let a = this.botEigththAnswerLimit.nativeElement;
+      console.log(a);
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50/6)
+      }
+    }, 10)
     }
 
   }
@@ -263,42 +426,42 @@ export class ChatbotComponent {
   modifyOwnColorsChoice(){
 
   }
-  /**
-   * Méthode de récupération de la couleur primaire
-   * @param event identifiant de la couleur primaire
-   */
-  getPrimaryColor(event : any) {
-    this.primaryColorId = event.target.value;
-    this.primaryColor = this.primaryColors.find((element) => this.primaryColorId === element.id)?.hexCode;
+  // /**
+  //  * Méthode de récupération de la couleur primaire
+  //  * @param event identifiant de la couleur primaire
+  //  */
+  // getPrimaryColor(event : any) {
+  //   this.primaryColorId = event.target.value;
+  //   this.primaryColor = this.primaryColors.find((element) => this.primaryColorId === element.id)?.hexCode;
 
-    this.secondaryColors = this.chatService.getSecondaryColors(this.primaryColorId);
-  }
+  //   this.secondaryColors = this.chatService.getSecondaryColors(this.primaryColorId);
+  // }
 
-  /**
-   * Méthode de récupération de la couleur secondaire
-   * @param event identifiant de la couleur secondaire
-   */
-  getSecondaryColor(event : any) {
-    let secondaryId = event.target.value;
+  // /**
+  //  * Méthode de récupération de la couleur secondaire
+  //  * @param event identifiant de la couleur secondaire
+  //  */
+  // getSecondaryColor(event : any) {
+  //   let secondaryId = event.target.value;
    
-    secondaryColors.forEach(element => {
-      if (element.primaryId === this.primaryColorId) {
-        this.secondaryColor = element.list.find( color => color.id == secondaryId)?.hexCode
-      }
-    })
+  //   secondaryColors.forEach(element => {
+  //     if (element.primaryId === this.primaryColorId) {
+  //       this.secondaryColor = element.list.find( color => color.id == secondaryId)?.hexCode
+  //     }
+  //   })
 
-    this.tertiaryColors = this.chatService.getTertiaryColors(this.primaryColorId, secondaryId);
-  }
+  //   this.tertiaryColors = this.chatService.getTertiaryColors(this.primaryColorId, secondaryId);
+  // }
 
-  /**
-   * Méthode de récupération de la couleur tertiarire
-   * @param event Code couleur de la couleur tertiare
-   */
-  getTertiaryColor(event : any) {
-    this.tertiaryColor = event.target.value;
-    console.log(this.tertiaryColor);
+  // /**
+  //  * Méthode de récupération de la couleur tertiarire
+  //  * @param event Code couleur de la couleur tertiare
+  //  */
+  // getTertiaryColor(event : any) {
+  //   this.tertiaryColor = event.target.value;
+  //   console.log(this.tertiaryColor);
     
-  }
+  // }
 
 
   /**
@@ -323,6 +486,26 @@ export class ChatbotComponent {
    */
   getOwnTertiaryColor(event : any) {
     this.tertiaryColor = event.target.value;
+
+
+    // Augmentation de la hauteur du chatbot jusqu'au dernier message de la dernière réponse
+
+    setTimeout(()=>{ 
+      let a = this.botEigththAnswerLimit.nativeElement;
+      console.log(a);
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50/6)
+      }
+    }, 10)
+    
   }
 
   lastname : string = '';
