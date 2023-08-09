@@ -49,7 +49,11 @@
       <p [@textFadeInAnimation2]>Dans quelle catégorie s'inscrit ton site ?</p>
     </div>
 
-    <div *ngIf="categoryStep && !hasSelectCategory" class="user-message" [@textFadeInAnimation3]="animation">
+    <div
+      *ngIf="categoryStep && !hasSelectCategory"
+      class="user-message"
+      [@textFadeInAnimation3]="selectAnimation"
+    >
       <select name="" #select (change)="getOption($event)">
         <!-- Action utilisateur -->
         <option value="">--Sélectionne une catégorie--</option>
@@ -79,14 +83,18 @@
       </p>
     </div>
 
-    <div *ngIf="themeStep && !hasEnteredTheme" class="user-message" [@textFadeInAnimation2]="animation">
+    <div
+      *ngIf="themeStep && !hasEnteredTheme"
+      class="user-message"
+      [@textFadeInAnimation2]="animation"
+    >
       <div class="display-flex">
         <input class="bot-input" #text1 type="text" (change)="getTheme($event)" />
         <button class="send-btn" (click)="getTheme($event)">
           <span class="send-icon fa-solid fa-paper-plane"></span>
         </button>
       </div>
-      <p *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
+      <p class="invalid-input" *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
     </div>
 
     <div class="display-flex" *ngIf="showTheme && !invalidThemeInput">
@@ -101,23 +109,33 @@
 
     <!-- Nom du site -->
     <div class="display-flex bot-message" *ngIf="siteNameStep">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+      <div
+        [ngClass]="{ circle: start, 'circle-1': start }"
+        [@circleFadeInAnimation1]
+      ></div>
       <p [@textFadeInAnimation1]>Thème enregistré !</p>
     </div>
     <div class="display-flex bot-message" *ngIf="siteNameStep">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
+      <div
+        [ngClass]="{ circle: start, 'circle-2': start }"
+        [@circleFadeInAnimation2]
+      ></div>
       <p [@textFadeInAnimation2]>Quel nom donneras tu à ton site ?</p>
     </div>
 
-    <div *ngIf="siteNameStep && !hasEnteredSiteName" class="user-message" [@textFadeInAnimation3]="animation">
+    <div
+      *ngIf="siteNameStep && !hasEnteredSiteName"
+      class="user-message"
+      [@textFadeInAnimation3]="animation"
+    >
       <div class="display-flex align-items-end">
         <input #text2 class="bot-input" type="text" (change)="getSiteName($event)" />
         <button class="send-btn" (click)="getSiteName($event)">
           <span class="send-icon fa-solid fa-paper-plane"></span>
         </button>
       </div>
+      <p class="invalid-input" *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
     </div>
-    <p *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
 
     <div class="display-flex gap-1" *ngIf="showSiteName && !invalidSiteNameInput">
       <p class="user-style max-width d-flex justify-content-end align-items-center">
@@ -146,7 +164,11 @@
     </div>
 
     <!-- Carousel de templates -->
-    <div class="user-message carousel-div" [@textFadeInAnimation4]="animation" *ngIf="templateStep">
+    <div
+      class="user-message carousel-div"
+      [@textFadeInAnimation4]="animation"
+      *ngIf="templateStep"
+    >
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -318,17 +340,38 @@
       </div>
     </div>
 
-    <div class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent" *ngIf="colorStep">
+    <div
+      class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"
+      *ngIf="colorStep"
+    >
       <p class="box-title-style color_title">Couleurs personnalisées</p>
       <div class="display-flex boxOwnColor justify-content-center">
         <div>
-          <input type="color" name="" id="" value="#d9d9d9" (change)="getOwnPrimaryColor($event)" />
+          <input
+            type="color"
+            name=""
+            id=""
+            value="#d9d9d9"
+            (change)="getOwnPrimaryColor($event)"
+          />
         </div>
         <div>
-          <input type="color" name="" id="" value="#d9d9d9" (change)="getOwnSecondaryColor($event)" />
+          <input
+            type="color"
+            name=""
+            id=""
+            value="#d9d9d9"
+            (change)="getOwnSecondaryColor($event)"
+          />
         </div>
         <div>
-          <input type="color" name="" id="" value="#d9d9d9" (change)="getOwnTertiaryColor($event)" />
+          <input
+            type="color"
+            name=""
+            id=""
+            value="#d9d9d9"
+            (change)="getOwnTertiaryColor($event)"
+          />
         </div>
       </div>
     </div>
@@ -348,8 +391,14 @@
       </p>
     </div>
 
-    <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
-      <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
+    <div
+      class="display-flex bot-message"
+      *ngIf="primaryColor && secondaryColor && tertiaryColor"
+    >
+      <div
+        [ngClass]="{ circle: start, 'circle-3': start }"
+        [@circleFadeInAnimation3]
+      ></div>
       <p [@textFadeInAnimation3]>Template généré avec succès</p>
     </div>
 
@@ -360,9 +409,16 @@
       </p>
     </div>
 
-    <form action="" *ngIf="primaryColor && secondaryColor && tertiaryColor" [@textFadeInAnimation4]>
+    <form
+      action=""
+      *ngIf="primaryColor && secondaryColor && tertiaryColor"
+      [@textFadeInAnimation4]
+    >
       <div class="cird-flex justify-content-center">
-        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+        <div
+          [ngClass]="{ circle: start, 'circle-1': start }"
+          [@circleFadeInAnimation1]
+        ></div>
       </div>
       <div class="d-flex justify-content-center flex-column p-5">
         <div><label for="lastname">Nom</label></div>

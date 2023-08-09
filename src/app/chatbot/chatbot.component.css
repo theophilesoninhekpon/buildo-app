@@ -63,6 +63,11 @@ CLASSES UTILITAIRES
   font-size: 1.5rem;
 }
 
+/* Icone de succès */
+.check-icon{
+  color: #58ce20;
+}
+
 .color-choices-btn {
   margin-top: 8rem;
 }
@@ -568,6 +573,14 @@ form button {
   font-weight: 900;
 }
 
+.form-circle{
+  margin-top: -1.4rem;
+}
+
+.invalid-input{
+  color: rgb(189, 2, 2);
+  margin-left: 33rem;
+}
 /* *****************************************************************************************************
 MOBILE MEDIA-QUERY
 ***************************************************************************************************** */
