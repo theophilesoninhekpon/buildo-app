@@ -3,33 +3,33 @@
 
   <div class="message-container">
     <!-- Variable d'état start pour la première réponse (ensemble de messages) du bot -->
-    <div class="display-flex bot-message" *ngIf="start">
-      <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
-      <p [@textFadeInAnimation1]>Salut ! Je m'appelle Build'o</p>
-    </div>
-
-    <div class="display-flex bot-message prev-long-message" *ngIf="start">
-      <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
-      <p [@textFadeInAnimation2]>Je suis le bot constructeur de template.</p>
-    </div>
-
-    <div class="display-flex bot-message long-message" *ngIf="start">
-      <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
-      <p [@textFadeInAnimation3]>
-        Je vais te demander des informations sur le template <br />afin de le
-        construire à ta convenance
-      </p>
-    </div>
-
-    <div class="display-flex flex-wrap bot-message readyDiv" *ngIf="start">
-      <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4]></div>
-      <p [@textFadeInAnimation4]>Alors on peut commencer ?</p>
-      <div class="bot-btn">
-        <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf="start">
-          Oui Build'o
-        </button>
+      <div class="display-flex bot-message" *ngIf="start">
+        <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
+        <p [@textFadeInAnimation1]>Salut ! Je m'appelle Build'o</p>
       </div>
-    </div>
+  
+      <div class="display-flex bot-message prev-long-message" *ngIf="start">
+        <div [ngClass]="{ circle: start, 'circle-2': start }" [@circleFadeInAnimation2]></div>
+        <p [@textFadeInAnimation2]>Je suis le bot constructeur de template.</p>
+      </div>
+  
+      <div class="display-flex bot-message long-message" *ngIf="start">
+        <div [ngClass]="{ circle: start, 'circle-3': start }" [@circleFadeInAnimation3]></div>
+        <p [@textFadeInAnimation3]>
+          Je vais te demander des informations sur le template <br />afin de le
+          construire à ta convenance
+        </p>
+      </div>
+  
+      <div class="display-flex flex-wrap bot-message readyDiv" *ngIf="start">
+        <div [ngClass]="{ circle: start, 'circle-4': start }" [@circleFadeInAnimation4] #answer1></div>
+        <p [@textFadeInAnimation4]>Alors on peut commencer ?</p>
+        <div class="bot-btn">
+          <button [@textFadeInAnimation4] class="ready-btn" (click)="isReady()" *ngIf="start">
+            Oui Build'o
+          </button>
+        </div>
+      </div>
     <div class="display-flex gap-1" *ngIf="ready">
       <p class="user-style">Oui Build'o</p>
       <span></span>
@@ -86,9 +86,9 @@
     <div
       *ngIf="themeStep && !hasEnteredTheme"
       class="user-message"
-      [@textFadeInAnimation2]="animation"
+      [@textFadeInAnimation2]="input1Animation"
     >
-      <div class="display-flex">
+      <div class="display-flex"> 
         <input class="bot-input" #text1 type="text" (change)="getTheme($event)" />
         <button class="send-btn" (click)="getTheme($event)">
           <span class="send-icon fa-solid fa-paper-plane"></span>
@@ -126,7 +126,7 @@
     <div
       *ngIf="siteNameStep && !hasEnteredSiteName"
       class="user-message"
-      [@textFadeInAnimation3]="animation"
+      [@textFadeInAnimation3]="input2Animation"
     >
       <div class="display-flex align-items-end">
         <input #text2 class="bot-input" type="text" (change)="getSiteName($event)" />
@@ -166,7 +166,7 @@
     <!-- Carousel de templates -->
     <div
       class="user-message carousel-div"
-      [@textFadeInAnimation4]="animation"
+      [@textFadeInAnimation4]
       *ngIf="templateStep"
     >
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide">

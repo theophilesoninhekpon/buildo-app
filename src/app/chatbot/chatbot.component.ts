@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild , Input} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild , Input, TemplateRef} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
@@ -73,8 +73,8 @@ export class ChatbotComponent {
   primaryColors !: Color[] ;
   secondaryColors !: Color[] | undefined;
   tertiaryColors !: Color[] | undefined;
-  
 
+  @ViewChild('answer1') answer!: ElementRef;
   constructor(
     private chatService : ChatService
   ) {}
@@ -124,13 +124,22 @@ export class ChatbotComponent {
 
   ngOnChanges(){
 
-    this.onAnime();
-    this.increaseHeight(2000);
-    // if(this.start){
-    //   setInterval(() => {
-    //     this.onHeight()
-    //   }, 1000/60)
-    // }
+    setTimeout(()=>{ 
+      let a = this.answer.nativeElement;
+      console.log(a)
+      this.onAnime();
+   
+      if(this.start){
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= (a.offsetTop - 15 * 16)) {
+            this.canvasHeight++;
+          } else {
+            clearInterval(interval)
+          }
+        }, 1000/60)
+      }
+    }, 10)
+   
   }
 
 
@@ -138,7 +147,8 @@ export class ChatbotComponent {
     this.ready = true;
     this.categoryStep = true;
     let selectInput: any;
-
+   
+    
     // Focus de l'input après un délai
     setTimeout(()=>{ 
       selectInput = this.select.nativeElement; 
