@@ -1,266 +1,266 @@
-
-    
 /* ******************************************************************************
 RESET
 ********************************************************************************/
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    line-height: 1.5;
-    
-    background-color: #e3e3e3;
-}
+  margin: 0;
+  line-height: 1.5;
 
+  background-color: #e3e3e3;
+}
 
 /* ******************************************************************************
 VARIABLES
 ********************************************************************************/
 /* :root { */
-    /* --clr-body-backgroud : #e3e3e3; */
-    /* --clr-container-backgroud : #f9f9f9; */
-    /* --clr-chat-text-backgroud : #d9d9d9; */
-    /* --clr-blue : #0119ff; */
+/* --clr-body-backgroud : #e3e3e3; */
+/* --clr-container-backgroud : #f9f9f9; */
+/* --clr-chat-text-backgroud : #d9d9d9; */
+/* --clr-blue : #0119ff; */
 /* } */
-
 
 /* ******************************************************************************
 TYPOGRAPHIE
 ********************************************************************************/
 
-
-
 /* ******************************************************************************
 CLASSES UTILITAIRES
 ********************************************************************************/
 .display-flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.bot-message{
-    margin-left: 1rem;
-    margin-bottom: -3rem;
+.bot-message {
+  margin-left: 1rem;
+  margin-bottom: -3rem;
 }
 
-.prev-long-message{
-    margin-bottom: -6rem;
+.prev-long-message {
+  margin-bottom: -6rem;
 }
 
-.ready-btn{
-    
-    padding: .7rem 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-left: 18.7rem;
-    box-shadow: 0 1px 3px 2.5px rgba(0, 0, 0, 0.12);
-    background-color: #ff9e00;;
-    color: black;
-
+.ready-btn {
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 18.7rem;
+  box-shadow: 0 1px 3px 2.5px rgba(0, 0, 0, 0.12);
+  background-color: #ff9e00;
+  color: black;
 }
 
-.color-choices-btn button{
-    font-size: 1.5rem;
+.color-choices-btn button {
+  font-size: 1.5rem;
 }
 
-.color-choices-btn{
-    margin-top: 8rem;
+.color-choices-btn {
+  margin-top: 8rem;
 }
 
-.max-width{
-    max-width: 50rem;
-    word-break: break-all;
+.max-width {
+  max-width: 50rem;
+  word-break: break-all;
 }
 
-.send-btn{
-    padding: 1rem 3rem;
-    border-radius: 20px;
-    background-color:#0119ff;
-    cursor: pointer;
-    
-    margin-top: 8rem;
+.send-btn {
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  background-color: #0119ff;
+  cursor: pointer;
+
+  margin-top: 8rem;
 }
 
-.send-icon{
-    color: white;
+.send-icon {
+  color: white;
 }
 
-.user-message select, 
-.user-message input[type=text] {
-    display: block;
-    padding: 1rem 1.7rem;
-    background-color: #fff;
-    margin-left: auto;
-    border-radius: 50px;
-    font-family: Manrope;
-    width: 400px;
-    margin-top: 8rem;
+.user-message select,
+.user-message input[type="text"] {
+  display: block;
+  padding: 1rem 1.7rem;
+  background-color: #fff;
+  margin-left: auto;
+  border-radius: 50px;
+  font-family: Manrope;
+  width: 400px;
+  margin-top: 8rem;
 }
 
-input[type=text]:focus, 
-select:focus{
-    outline: 2px solid #0119ff;
+input[type="text"]:focus,
+select:focus {
+  outline: 2px solid #0119ff;
 }
 
-.user-icon{
-    border-radius: 50px;
-    background-color:#0119ff;
-    color: white;
-    padding: 0.7rem 0.8rem;
+.user-icon {
+  border-radius: 50px;
+  background-color: #0119ff;
+  color: white;
+  padding: 0.7rem 0.8rem;
 }
 
-.bot-input{
-    width: 50% !important;
-    margin-right: 1rem;
+.bot-input {
+  width: 50% !important;
+  margin-right: 1rem;
 }
 
-.user{
-    margin-bottom: -12rem;
+.user {
+  margin-bottom: -12rem;
 }
 
 .user-message > div {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 /* Paragraphe contenant le choix ou le message de l'utilisateur */
 .user-style {
-    color: white;
-    background-color:#0119ff;
-    margin-left: auto;
-    font-size: 1.5rem;
-    padding: 1rem 1.7rem;
-    border-radius: 40px 40px 10px 40px;
-    margin-top: 8rem;
+  color: white;
+  background-color: #0119ff;
+  margin-left: auto;
+  font-size: 1.5rem;
+  padding: 1rem 1.7rem;
+  border-radius: 40px 40px 10px 40px;
+  margin-top: 8rem;
 }
 
-.bot-btn{
-    flex-basis: 100%;
+.bot-btn {
+  flex-basis: 100%;
 }
 
-
-button{
-    font-family: Manrope;
-    border: none;
+button {
+  font-family: Manrope;
+  border: none;
 }
 
-select{
-    margin-left: auto;
+select {
+  margin-left: auto;
 }
 
-.pen-icon{
-    cursor: pointer;
-    margin-left: .3rem;
+.pen-icon {
+  cursor: pointer;
+  margin-left: 0.3rem;
 }
 
 .color_title {
-    width: fit-content;
+  width: fit-content;
 }
 
 /* ******************************************************************************
 CONTAINER
 ********************************************************************************/
 
-.message-container{
-    position: absolute;
-    padding-top: 20rem;
-    top: 1rem;
-    z-index: 1;
-    margin-left: -2rem;
-    width: 100%;
+.message-container {
+  position: absolute;
+  padding-top: 20rem;
+  top: 1rem;
+  z-index: 1;
+  margin-left: -2rem;
+  width: 100%;
 }
 
 .chat-container {
-    padding-top: 15rem;
-    position: relative;
-    margin-top: -20rem;
-    width: 67.1%;
-    height: 375rem;
-    margin-inline: auto;
-    background-image: linear-gradient(to right, #e3e3e3 .5%, #f9f9f9 1%, #f9f9f9 90%, #f9f9f9 99%, #e3e3e3 100% );
-    background-color:#f9f9f9;
-    font-family: Manrope;
+  padding-top: 15rem;
+  position: relative;
+  margin-top: -20rem;
+  width: 67.1%;
+  height: 375rem;
+  margin-inline: auto;
+  background-image: linear-gradient(
+    to right,
+    #e3e3e3 0.5%,
+    #f9f9f9 1%,
+    #f9f9f9 90%,
+    #f9f9f9 99%,
+    #e3e3e3 100%
+  );
+  background-color: #f9f9f9;
+  font-family: Manrope;
 }
-
 
 /* ******************************************************************************
 MAIN CONTENT
 ********************************************************************************/
 
 input {
-    padding : 1rem 7rem;
-    border: none;
-    border-radius: 15px;
+  padding: 1rem 7rem;
+  border: none;
+  border-radius: 15px;
 }
 
 /* Définission du style des cercles */
 div.circle {
-    width: 50px;
-    aspect-ratio: 1;
-    border: 7.5px dashed blue;
-    background-color: white;
-    border-radius: 50%;
+  width: 50px;
+  aspect-ratio: 1;
+  border: 7.5px dashed blue;
+  background-color: white;
+  border-radius: 50%;
 }
-    
+
 /* Définition de l'animation de chaque cercle */
-div.circle-1{
-    animation: rotation 2s linear 2s;
+div.circle-1 {
+  animation: rotation 2s linear 2s;
 }
-div.circle-2{
-    animation: rotation 2s linear 4s;
+div.circle-2 {
+  animation: rotation 2s linear 4s;
 }
-div.circle-3{
-    animation: rotation 2s linear 6s;
+div.circle-3 {
+  animation: rotation 2s linear 6s;
 }
-div.circle-4{
-    animation: rotation 2s linear 8s;
+div.circle-4 {
+  animation: rotation 2s linear 8s;
 }
 
 @keyframes rotation {
-0% {transform: rotate(0deg);}
-100% {transform: rotate(306deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(306deg);
+  }
 }
-
 
 /* Les bulles de discussion du chat */
 div.circle ~ p {
-    background-color:#d9d9d9;
-    border-radius: 10px 40px 40px 40px;
-    background-color: rgb(217, 217, 217);
-    margin-left: .5rem;
-    margin-top: 5rem;
-    font-size: 1.5rem;
-    padding: 1rem 1.7rem;
+  background-color: #d9d9d9;
+  border-radius: 10px 40px 40px 40px;
+  background-color: rgb(217, 217, 217);
+  margin-left: 0.5rem;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+  padding: 1rem 1.7rem;
 }
 
-.long-message > p{
-    margin-top: 8rem !important;
+.long-message > p {
+  margin-top: 8rem !important;
 }
 
-
-.carousel-indicators{
-    margin-bottom: -2rem !important;
+.carousel-indicators {
+  margin-bottom: -2rem !important;
 }
 
-.choice-btn{
-    padding: .7rem 1rem;
-    border-radius: 30px;
-    cursor: pointer;
+.choice-btn {
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px 2.5px rgba(0, 0, 0, 0.12);
+  background-color: #ff9e00;
+  color: black;
 }
 
-.carousel-div{
-    margin-top: 8rem;
+.carousel-div {
+  margin-top: 8rem;
+  margin-left: 4rem;
 }
-
-
-
 
 /* *************************************************
 SECTION CHAT-CHOIX DE LA CATEGORIE 
@@ -292,7 +292,6 @@ button.choix-categorie {
     right: 8rem;
 } */
 
-
 /* **************************************************
 SECTION CHAT-CHOIX DU THEME
 ************************************************** */
@@ -317,7 +316,6 @@ div.theme-2 div {
     top: 89rem;
 } */
 
-
 /* ****************************************************
 SECTION CHAT-CHOIX DU NOM DU SITE WEB 
 **************************************************** */
@@ -337,7 +335,6 @@ div.nom_site2 div {
     right: 0;
     margin-top: 3rem;
 } */
-
 
 /* ******************************************************
 SECTION CHAT-CHOIX DU TEMPLATE 
@@ -405,7 +402,8 @@ button.choix_couleur_button_1 {
     top: 182rem;
     left: 14rem;
     column-gap: 3rem;
-} */ */
+} */
+*/
 
 
 /* Case à choix de couleur personnel*/
@@ -435,175 +433,164 @@ div.formulaire_3 {
 SECTION CHOIX DES COULEURS
 *********************************************** */
 .boxColorParent {
- justify-content: space-around;
- border: 1px solid aqua;
- margin-left: 20rem;
- margin-right: 0;
+  justify-content: space-around;
+  border: 1px solid aqua;
+  margin-left: 20rem;
+  margin-right: 0;
 }
 
-input[type=radio] {
-    width: 2rem;
-    height: 2rem;
+.box-title-style {
+  color: white;
+  background-color: #0119ff;
+  font-size: 1.5rem;
+  padding: 1rem 1.7rem;
+  border-radius: 40px;
+  margin-top: 2rem;
 }
 
-.boxPrimaryColor, 
-.boxSecondaryColor, 
+input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
+}
+
+.boxPrimaryColor,
+.boxSecondaryColor,
 .boxTertiaryColor {
-    border: 1px solid red;
-    flex-direction: column;
-    align-items: center;
-} 
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Couleurs primaires */
 .boxPrimaryColor div:nth-of-type(1) {
-    background-color: #f95568;
+  background-color: #f95568;
 }
 .boxPrimaryColor div:nth-of-type(2) {
-    background-color: #452636;
+  background-color: #452636;
 }
 .boxPrimaryColor div:nth-of-type(3) {
-    background-color: #563258;
+  background-color: #563258;
 }
 
 /* Couleurs secondaires */
 .boxSecondaryColor div:nth-of-type(1) {
-    background-color: #666e61;
+  background-color: #666e61;
 }
 .boxSecondaryColor div:nth-of-type(2) {
-    background-color: #f4dd13;
+  background-color: #f4dd13;
 }
 .boxSecondaryColor div:nth-of-type(3) {
-    background-color: #236eff;
+  background-color: #236eff;
 }
 
 /* Couleurs tertiaires */
 .boxTertiaryColor div:nth-of-type(1) {
-    background-color: #666e61;
+  background-color: #666e61;
 }
 .boxTertiaryColor div:nth-of-type(2) {
-    background-color: #f4dd13;
+  background-color: #f4dd13;
 }
 .boxTertiaryColor div:nth-of-type(3) {
-    background-color: #236eff;
+  background-color: #236eff;
 }
 
 .boxPrimaryColor div,
 .boxSecondaryColor div,
 .boxTertiaryColor div {
-    width: 5rem;
-    aspect-ratio: 1;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+  width: 7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 div.formulaire_4 {
-    top: 224rem;
+  top: 224rem;
 }
 
 /* Section du choix des couleurs personnalisées */
 .boxOwnColorParent {
-    width: 40rem;
-    margin-inline: auto;
-    margin-bottom: 2rem;
+  width: 40rem;
+  margin-inline: auto;
+  margin-bottom: 2rem;
 }
 .boxOwnColorParent p {
-    flex-basis: 100%;
-    text-align: center;
+  flex-basis: 100%;
+  text-align: center;
 }
 
-
-input[type=color] {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    padding: 0;
+input[type="color"] {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  padding: 0;
 }
 
 .boxOwnColor {
-    column-gap: 2.2rem;
+  column-gap: 2.2rem;
 }
 
 /* ***********************************************
 SECTION FORMULAIRE
 *********************************************** */
 form {
-    position: relative;
-    width: 35rem;
-    background-color: #0119ff;
-    border-radius: 20px;
-    margin-top: 8rem;
-    margin-inline: auto;
+  position: relative;
+  width: 35rem;
+  background-color: #0119ff;
+  border-radius: 20px;
+  margin-top: 8rem;
+  margin-inline: auto;
 }
 
 form input {
-    outline: #0119ff;
-    height: 4rem;
-    padding-left: 1rem;
+  outline: #0119ff;
+  height: 4rem;
+  padding-left: 1rem;
 }
 
 .containButton {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -3rem;
-    padding-block: 1.3rem;
-    text-align: center;
-    background-color: #58ce20;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3rem;
+  padding-block: 1.3rem;
+  text-align: center;
+  background-color: #58ce20;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 form label {
-    font-size: 1.3rem;
-    color: white;
+  font-size: 1.3rem;
+  color: white;
 }
 
 form button {
-    font-size: 1.5rem;
-    font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: 900;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* *****************************************************************************************************
 MOBILE MEDIA-QUERY
 ***************************************************************************************************** */
 
-@media screen and (max-width : 780px) {
-    .chat-container {
-        width: 90%;
-        height: 360rem;
-        margin-top: -37rem;
-    }
+@media screen and (max-width: 780px) {
+  .chat-container {
+    width: 90%;
+    height: 360rem;
+    margin-top: -37rem;
+  }
 
-    form {
-        width: 30rem;
-    }
+  form {
+    width: 30rem;
+  }
 }
-
-
-
 
 /* *************************************************************************************************************
 MEDIA QUERY TABLETTE
 ************************************************************************************************************* */
-@media screen and (max-width : 980px) {
-
-    .chat-container {
-        width: 90%;
-        height: 360rem;
-        margin-top: -30rem;
-    }
-
+@media screen and (max-width: 980px) {
+  .chat-container {
+    width: 90%;
+    height: 360rem;
+    margin-top: -30rem;
+  }
 }
-
-

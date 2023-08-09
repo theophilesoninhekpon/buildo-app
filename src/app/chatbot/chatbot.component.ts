@@ -229,6 +229,9 @@ export class ChatbotComponent {
     } else {
       this.colorStep = false;
       this.chooseOwnColors = 'Non';
+      this.primaryColor = 'defaultColor';
+      this.secondaryColor = 'defaultColor';
+      this.tertiaryColor = 'defaultColor';
     }
 
   }
