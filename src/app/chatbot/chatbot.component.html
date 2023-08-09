@@ -522,10 +522,10 @@
     <div
       class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"
       *ngIf="colorStep"
-    >
+      [@textFadeInAnimation2]>
       <p class="box-title-style color_title">Couleurs personnalisées</p>
-      <div class="display-flex boxOwnColor justify-content-center">
-        <div>
+      <div class="display-flex boxOwnColor">
+        <div class="mx-4">
           <input
             type="color"
             name=""
@@ -534,7 +534,7 @@
             (change)="getOwnPrimaryColor($event)"
           />
         </div>
-        <div>
+        <div class="mx-4">
           <input
             type="color"
             name=""
@@ -543,7 +543,7 @@
             (change)="getOwnSecondaryColor($event)"
           />
         </div>
-        <div>
+        <div class="mx-4">
           <input
             type="color"
             name=""
@@ -590,7 +590,7 @@
         [ngClass]="{ circle: start, 'circle-3': start }"
         [@circleFadeInAnimation3]
       ></div>
-      <p [@textFadeInAnimation3]>Template généré avec succès</p>
+      <p [@textFadeInAnimation3]>Template généré avec succès <span class="check-icon fas fa-check-circle"></span></p>
     </div>
 
     <div
@@ -611,7 +611,7 @@
       *ngIf="primaryColor && secondaryColor && tertiaryColor"
       [@textFadeInAnimation4]
     >
-      <div class="cird-flex justify-content-center">
+      <div class="d-flex justify-content-center">
         <div
           [ngClass]="{ circle: start, 'circle-1': start }"
           [@circleFadeInAnimation1]
