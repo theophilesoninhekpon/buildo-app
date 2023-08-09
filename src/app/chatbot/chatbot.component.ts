@@ -47,24 +47,26 @@ export class ChatbotComponent {
   hasSelectTemplate: boolean = false;
   isReadyForColorStep: boolean = false;
   chooseOwnColors: string = '';
-  animation:boolean = true;
+  selectAnimation:boolean = true;
+  input1Animation:boolean = true;
+  input2Animation:boolean = true;
   invalidThemeInput: boolean = false;
   invalidSiteNameInput: boolean = false;
 
-  ready!: boolean;
+  ready: boolean = false;
 
-  categoryStep!: boolean;
-  showCategory!: boolean;
+  categoryStep: boolean = false;
+  showCategory: boolean = false;
 
-  themeStep!: boolean;
-  showTheme!: boolean;
+  themeStep: boolean = false;
+  showTheme: boolean = false;
 
-  siteNameStep!: boolean;
-  showSiteName!: boolean;
+  siteNameStep: boolean = false;
+  showSiteName: boolean = false;
 
-  templateStep!: boolean;
+  templateStep: boolean = false;
   
-  colorStep!: boolean;
+  colorStep: boolean = false;
 
   /** Variables de récupération des couleurs */
   primaryColorId !: string;
@@ -135,7 +137,6 @@ export class ChatbotComponent {
   isReady(){
     this.ready = true;
     this.categoryStep = true;
-    this.animation = true;
     let selectInput: any;
 
     // Focus de l'input après un délai
@@ -164,13 +165,15 @@ export class ChatbotComponent {
   modifyCategory(){
     this.showCategory = false; 
     this.hasSelectCategory = false;
-    this.animation = false;
+    this.selectAnimation = false;
   }
 
-  getTheme(event: any = null){
+  getTheme(event: any){
 
-    if(event && typeof event.target.value !== 'string'){
+    // Vérification de l'entrée de l'utilisateur
+    if(!(isNaN(Number(event.target.value))) || event.target.value === ''){
       this.invalidThemeInput = true;
+    
     } else {
       this.theme = event.target.value;
       this.invalidThemeInput = false;
@@ -190,26 +193,36 @@ export class ChatbotComponent {
    modifyTheme(){
     this.showTheme = false; 
     this.hasEnteredTheme = false;
-    this.animation = false;
+    this.input1Animation = false;
+    console.log(this.input1Animation)
   }
 
-  getSiteName(event: any = null){
+  getSiteName(event: any){
 
-    if(event && typeof event.target.value !== 'string'){
+    // Vérification de l'entrée de l'utilisateur
+    if(!(isNaN(Number(event.target.value))) || event.target.value === ''){
       this.invalidSiteNameInput = true;
+    
     } else {
       this.siteName = event.target.value;
       this.invalidSiteNameInput = false;
-      this.hasEnteredSiteName = true;
+      this.hasEnteredSiteName= true;
       this.showSiteName = true;
       this.templateStep = true;
-    }
+      let input: any;
+
+      // Focus de l'input après un délai
+      setTimeout(()=>{ 
+        input = this.input2.nativeElement; 
+        input.focus()}, 2000)
+      }
+
   }
 
   modifySiteName(){
     this.showSiteName = false; 
     this.hasEnteredSiteName = false;
-    this.animation = false;
+    this.input2Animation = false;
   }
 
   // Selection du template

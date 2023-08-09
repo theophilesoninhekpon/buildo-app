@@ -75,7 +75,7 @@
     <div
       *ngIf="categoryStep && !hasSelectCategory"
       class="user-message"
-      [@textFadeInAnimation3]="animation"
+      [@textFadeInAnimation3]="selectAnimation"
     >
       <select name="" #select (change)="getOption($event)">
         <!-- Action utilisateur -->
@@ -110,9 +110,9 @@
     </div>
 
     <div
-      *ngIf="themeStep && !hasEnteredTheme"
       class="user-message"
-      [@textFadeInAnimation2]="animation"
+      [@textFadeInAnimation2]="input1Animation"
+      *ngIf="themeStep && !hasEnteredTheme"
     >
       <div class="display-flex">
         <input
@@ -125,7 +125,7 @@
           <span class="send-icon fa-solid fa-paper-plane"></span>
         </button>
       </div>
-      <p *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
+      <p class="invalid-input" *ngIf="invalidThemeInput">Veuillez renseigner un thème valide !</p>
     </div>
 
     <div class="display-flex" *ngIf="showTheme && !invalidThemeInput">
@@ -141,14 +141,14 @@
     </div>
 
     <!-- Nom du site -->
-    <div class="display-flex bot-message" *ngIf="siteNameStep">
+    <div class="display-flex bot-message" *ngIf="siteNameStep ">
       <div
         [ngClass]="{ circle: start, 'circle-1': start }"
         [@circleFadeInAnimation1]
       ></div>
       <p [@textFadeInAnimation1]>Thème enregistré !</p>
     </div>
-    <div class="display-flex bot-message" *ngIf="siteNameStep">
+    <div class="display-flex bot-message" *ngIf="siteNameStep ">
       <div
         [ngClass]="{ circle: start, 'circle-2': start }"
         [@circleFadeInAnimation2]
@@ -159,7 +159,7 @@
     <div
       *ngIf="siteNameStep && !hasEnteredSiteName"
       class="user-message"
-      [@textFadeInAnimation3]="animation"
+      [@textFadeInAnimation3]="input2Animation"
     >
       <div class="display-flex align-items-end">
         <input
@@ -172,8 +172,8 @@
           <span class="send-icon fa-solid fa-paper-plane"></span>
         </button>
       </div>
+      <p class="invalid-input" *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
     </div>
-    <p *ngIf="invalidSiteNameInput">Veuillez renseigner un nom valide !</p>
 
     <div
       class="display-flex gap-1"
@@ -218,7 +218,7 @@
     <!-- Carousel de templates -->
     <div
       class="user-message carousel-div"
-      [@textFadeInAnimation4]="animation"
+      [@textFadeInAnimation4]
       *ngIf="templateStep"
     >
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
@@ -613,7 +613,7 @@
     >
       <div class="d-flex justify-content-center">
         <div
-          [ngClass]="{ circle: start, 'circle-1': start }"
+          [ngClass]="{ circle: start, 'circle-1': start , 'form-circle': true}"
           [@circleFadeInAnimation1]
         ></div>
       </div>
