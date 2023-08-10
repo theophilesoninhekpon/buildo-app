@@ -14,7 +14,7 @@ import { ChatService } from '../chat.service';
     circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4]
 })
 
-export class ChatbotComponent implements AfterViewInit{
+export class ChatbotComponent{
 
   increase : boolean = false;
   count : number = 0;
@@ -105,11 +105,6 @@ export class ChatbotComponent implements AfterViewInit{
    * @param 
    * @return 
    */
-  
-  ngAfterViewInit(): void {
-      this.scrollToBottom()
-  }
-
   scrollToBottom(){
     let chatWrapper = this.chatWrapper.nativeElement;
     let messageWrapper = this.messageWrapper.nativeElement
