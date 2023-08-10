@@ -518,7 +518,7 @@ export class ChatbotComponent{
       console.log('last', a);
       this.onAnime();
       let messageWrapper = this.messageWrapper.nativeElement;
-      messageWrapper.style.paddingBottom = "0rem";
+      messageWrapper.style.paddingBottom = "5rem";
 
       if(this.start){
         let interval = setInterval(() => {

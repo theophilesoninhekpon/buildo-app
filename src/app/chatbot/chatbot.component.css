@@ -558,15 +558,20 @@ form input {
   outline: #0119ff;
   height: 4rem;
   padding-left: 1rem;
+  border-radius: 40px;
 }
 
 .containButton {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -3rem;
+  bottom: -4.5rem;
   padding-block: 1.3rem;
   text-align: center;
+  color: white;
+  font-family: Poppins;
+  font-weight: 900;
+  font-size: 2rem !important;
   background-color: #58ce20;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
