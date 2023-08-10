@@ -9,13 +9,13 @@ TEXTE ANIMATION
 export const textFadeInAnimation1 = trigger ('textFadeInAnimation1', [  //(+2.5s)
     transition(':enter', [
         style({ opacity : 0}),
-        animate('1000ms 2s', style({opacity : 1})),
+        animate('1000ms 1.5s', style({opacity : 1})),
     ])
 ]);
 export const textFadeInAnimation2 = trigger ('textFadeInAnimation2', [
     transition(':enter', [
         style({ opacity : 0}),
-        animate('1000ms 4s', style({opacity : 1})),
+        animate('1000ms 3s', style({opacity : 1})),
     ])
 ]);
 export const textFadeInAnimation3 = trigger ('textFadeInAnimation3', [
