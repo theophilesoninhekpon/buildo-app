@@ -167,7 +167,7 @@ export class ChatbotComponent{
           } else {
             clearInterval(interval);
           }
-        }, 1000/60)
+        }, 10/6)
       }
      
       this.scrollToBottom()
@@ -417,25 +417,31 @@ export class ChatbotComponent{
       this.secondaryColor = 'defaultColor';
       this.tertiaryColor = 'defaultColor';
 
-       // Augmentation de la hauteur du chatbot jusqu'au dernier message de la septième réponse
-
-     setTimeout(()=>{ 
-      let a = this.botEigththAnswerLimit.nativeElement;
-      console.log(a);
-      this.onAnime();
-   
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 50/6)
-      }
-
-      this.scrollToBottom()
-    }, 10)
+      setTimeout(()=>{ 
+        let a = this.botEigththAnswerLimit.nativeElement;
+        console.log('last', a);
+        this.onAnime();
+        let messageWrapper = this.messageWrapper.nativeElement;
+        messageWrapper.style.paddingBottom = "0rem";
+  
+        if(this.start){
+          let interval = setInterval(() => {
+            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+              this.canvasHeight++;
+              console.log('marche')
+              setTimeout(()=>{
+                this.displayForm = true;
+                this.scrollToBottom()
+              }, 1000)
+            } else {
+  
+              clearInterval(interval);
+            }
+          }, 50/6)
+        }
+  
+        this.scrollToBottom()
+      }, 10)
     }
 
   }

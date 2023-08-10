@@ -39,24 +39,24 @@ CIRCULE ANIMATION
 export const circleFadeInAnimation1 = trigger ('circleFadeInAnimation1', [
     transition(':enter', [
         style({ opacity : 0}),
-        animate('500ms 1000ms', style({opacity : 1})),
+        animate('500ms 1500ms', style({opacity : 1})),
     ])
 ]); 
 export const circleFadeInAnimation2 = trigger ('circleFadeInAnimation2', [
     transition(':enter', [
         style({ opacity : 0}),
-        animate('500ms 2000ms', style({opacity : 1})),
+        animate('500ms 2500ms', style({opacity : 1})),
     ])
 ]); 
 export const circleFadeInAnimation3 = trigger ('circleFadeInAnimation3', [
     transition(':enter', [
         style({ opacity : 0}),
-        animate('500ms 3000ms', style({opacity : 1})),
+        animate('500ms 3500ms', style({opacity : 1})),
     ])
 ]); 
 export const circleFadeInAnimation4 = trigger ('circleFadeInAnimation4', [
     transition(':enter', [
         style({ opacity : 0}),
-        animate('500ms 4000ms', style({opacity : 1})),
+        animate('500ms 4500ms', style({opacity : 1})),
     ])
 ]); 
