@@ -287,11 +287,11 @@
         </p>
       </div>
   
-       <div class="display-flex justify-content-center mt-5" *ngIf="colorStep" [@textFadeInAnimation2]>
-        <div class="boxColorParent display-flex gap-4">
-          <div class="boxPrimaryColor display-flex">
+       <div class="display-flex justify-content-center mt-5"  [@textFadeInAnimation2]>
+        <div class="display-flex">
+        
             <p class="box-title-style color_title">Primaire</p>
-            <div>
+            
               <input
                 type="color"
                 name=""
@@ -299,12 +299,12 @@
                 value="#d9d9d9"
                 (change)="getOwnPrimaryColor($event)"
               />
-            </div>
+          
           </div>
   
-          <div class="boxSecondaryColor display-flex" *ngIf="primaryColor">
+          <div class="display-flex">
             <p class="box-title-style color_title">Secondaire</p>
-            <div>
+      
               <input
                 type="color"
                 name=""
@@ -312,12 +312,11 @@
                 value="#d9d9d9"
                 (change)="getOwnSecondaryColor($event)"
               />
-            </div>
+    
           </div>
   
-          <div class="boxTertiaryColor display-flex" *ngIf="secondaryColor">
+          <div class="display-flex">
             <p class="box-title-style color_title">Tertiaire</p>
-            <div>
               <input
                 type="color"
                 name=""
@@ -325,10 +324,9 @@
                 value="#d9d9d9"
                 (change)="getOwnTertiaryColor($event)"
               />
-            </div>
           </div>
         </div>
-      </div> 
+   
   
       <!-- Message d'introduction au formulaire de fin-->
       <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
