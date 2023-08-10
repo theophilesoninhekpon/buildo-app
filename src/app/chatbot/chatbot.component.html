@@ -1,9 +1,9 @@
 <div class="wrapper" #wrapper>
 
-  <div id="chatbot" class="chat-container">
+  <div class="chat-container">
     <canvas #canvas width="20px" [height]="canvasHeight"></canvas>
   
-    <div class="message-container">
+    <div class="message-container" #messageContainer>
       <!-- Variable d'état start pour la première réponse (ensemble de messages) du bot -->
         <div class="display-flex bot-message" *ngIf="start">
           <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
@@ -287,96 +287,46 @@
         </p>
       </div>
   
-      <!-- <div class="display-flex justify-content-center mt-5" *ngIf="colorStep" [@textFadeInAnimation2]>
-        <div class="boxColorParent display-flex gap-4">
-          <div class="boxPrimaryColor display-flex">
+       <div class="display-flex justify-content-center mt-5"  [@textFadeInAnimation2]>
+        <div class="display-flex">
+        
             <p class="box-title-style color_title">Primaire</p>
-            <div *ngFor="let primaryColor of primaryColors" [ngStyle]="{ 'background-color': primaryColor.hexCode }">
-              <input type="radio" name="primaryColor" [value]="primaryColor.id" id="firstPrimaryColor"
-                (change)="getPrimaryColor($event)" />
-            </div>
+            
+              <input
+                type="color"
+                name=""
+                id=""
+                value="#d9d9d9"
+                (change)="getOwnPrimaryColor($event)"
+              />
+          
           </div>
   
-          <div class="boxSecondaryColor display-flex" *ngIf="primaryColor">
+          <div class="display-flex">
             <p class="box-title-style color_title">Secondaire</p>
-            <div *ngFor="let secondaryColor of secondaryColors"
-              [ngStyle]="{ 'background-color': secondaryColor.hexCode }">
-              <input type="radio" name="secondaryColor" [value]="secondaryColor.id" id="firstSecondaryColor"
-                (change)="getSecondaryColor($event)" />
-            </div>
+      
+              <input
+                type="color"
+                name=""
+                id=""
+                value="#d9d9d9"
+                (change)="getOwnSecondaryColor($event)"
+              />
+    
           </div>
   
-          <div class="boxSecondaryColor display-flex" *ngIf="!primaryColor">
-            <p class="box-title-style color_title">Secondaire</p>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
-          </div>
-  
-          <div class="boxTertiaryColor display-flex" *ngIf="secondaryColor">
+          <div class="display-flex">
             <p class="box-title-style color_title">Tertiaire</p>
-            <div *ngFor="let tertiaryColor of tertiaryColors" [ngStyle]="{ 'background-color': tertiaryColor.hexCode }">
-              <input type="radio" name="tertiaryColor" [value]="tertiaryColor.hexCode" id="firstTertiaryColor"
-                (change)="getTertiaryColor($event)" />
-            </div>
-          </div>
-  
-          <div class="boxTertiaryColor display-flex" *ngIf="!secondaryColor">
-            <p class="box-title-style color_title">Tertiaire</p>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
-            <div [ngStyle]="{ backgroundColor: '#d9d9d9' }">
-              <input type="radio" name="secondaryColor" value="" id="" />
-            </div>
+              <input
+                type="color"
+                name=""
+                id=""
+                value="#d9d9d9"
+                (change)="getOwnTertiaryColor($event)"
+              />
           </div>
         </div>
-      </div> -->
-  
-      <div
-        class="display-flex justify-content-center flex-wrap mt-5 boxOwnColorParent"
-        *ngIf="colorStep"
-      >
-        <p class="box-title-style color_title">Couleurs personnalisées</p>
-        <div class="display-flex boxOwnColor justify-content-center">
-          <div>
-            <input
-              type="color"
-              name=""
-              id=""
-              value="#d9d9d9"
-              (change)="getOwnPrimaryColor($event)"
-            />
-          </div>
-          <div>
-            <input
-              type="color"
-              name=""
-              id=""
-              value="#d9d9d9"
-              (change)="getOwnSecondaryColor($event)"
-            />
-          </div>
-          <div>
-            <input
-              type="color"
-              name=""
-              id=""
-              value="#d9d9d9"
-              (change)="getOwnTertiaryColor($event)"
-            />
-          </div>
-        </div>
-      </div>
+   
   
       <!-- Message d'introduction au formulaire de fin-->
       <div class="display-flex bot-message" *ngIf="primaryColor && secondaryColor && tertiaryColor">
@@ -413,25 +363,28 @@
   
       <form
         action=""
-        *ngIf="primaryColor && secondaryColor && tertiaryColor"
+        *ngIf="primaryColor && secondaryColor && tertiaryColor && displayForm"
         [@textFadeInAnimation4]
       >
-        <div class="cird-flex justify-content-center">
+        <div class="d-flex justify-content-center">
           <div
             [ngClass]="{ circle: start, 'circle-1': start }"
             [@circleFadeInAnimation1]
           ></div>
         </div>
-        <div class="d-flex justify-content-center flex-column p-5">
-          <div><label for="lastname">Nom</label></div>
-          <br /><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" />
-          <br />
-          <div><label for="firstname">Prénom</label></div>
-          <br /><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" />
-          <br />
-          <div><label for="mail">Email</label></div>
-          <br /><input type="email" name="mail" id="mail" [(ngModel)]="mail" />
-          <br />
+        <div class="d-flex justify-content-center flex-column p-sm-5">
+          <div class="d-flex flex-column mb-4">
+              <label for="lastname" class="ms-3 mb-1">Nom</label>
+              <input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" class="form-control"/>
+          </div>
+          <div class="d-flex flex-column mb-4">
+            <label for="firstname" class="ms-3 mb-1">Prénom</label>
+            <input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" class="form-control"/>
+          </div>
+          <div class="d-flex flex-column mb-4">
+            <label for="mail" class="ms-3 mb-1">Email</label>
+            <input type="email" name="mail" id="mail" [(ngModel)]="mail" class="form-control"/>
+          </div>
         </div>
   
         <div>

@@ -14,7 +14,7 @@ import { ChatService } from '../chat.service';
     circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4]
 })
 
-export class ChatbotComponent implements AfterViewInit{
+export class ChatbotComponent{
 
   increase : boolean = false;
   count : number = 0;
@@ -67,6 +67,7 @@ export class ChatbotComponent implements AfterViewInit{
   templateStep: boolean = false;
   
   colorStep: boolean = false;
+  displayForm: boolean = false;
 
   /** Variables de récupération des couleurs */
   primaryColorId !: string;
@@ -85,6 +86,7 @@ export class ChatbotComponent implements AfterViewInit{
   @ViewChild('botEigththAnswerLimit') botEigththAnswerLimit!: ElementRef;
 
   @ViewChild('wrapper') chatWrapper !: ElementRef;
+  @ViewChild('messageContainer') messageWrapper !: ElementRef;
 
   constructor(
     private chatService : ChatService
@@ -103,13 +105,10 @@ export class ChatbotComponent implements AfterViewInit{
    * @param 
    * @return 
    */
-  
-  ngAfterViewInit(): void {
-      this.scrollToBottom()
-  }
   scrollToBottom(){
     let chatWrapper = this.chatWrapper.nativeElement;
-    chatWrapper.scrollTop = chatWrapper.scrollHeight
+    let messageWrapper = this.messageWrapper.nativeElement
+    window.scroll(0, chatWrapper.scrollHeight)
   }
 
   onAnime() {
@@ -128,13 +127,13 @@ export class ChatbotComponent implements AfterViewInit{
     console.log('icimaintenant');
   }
 
+  // Fonction de dessin continuel de la ligne en tiret
   #drawRectangle(context : CanvasRenderingContext2D) {
     if (this.count < this.canvasHeight) {
       this.count++;
       context.beginPath();
       context.setLineDash([10, 10]);
       context.clearRect(0, 0, 20, this.canvasHeight);
-      console.log('valeur : ', this.canvasHeight);
       
       context.strokeStyle = "blue";
       context.moveTo(10, this.count);
@@ -158,8 +157,9 @@ export class ChatbotComponent implements AfterViewInit{
       this.onAnime();
       
       let chatWrapper = this.chatWrapper.nativeElement;
-      chatWrapper.style.paddingBottom = "15rem";
-      
+      let messageWrapper = this.messageWrapper.nativeElement;
+      messageWrapper.style.paddingBottom = "5rem";
+
       if(this.start){
         let interval = setInterval(() => {
           if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
@@ -167,9 +167,10 @@ export class ChatbotComponent implements AfterViewInit{
           } else {
             clearInterval(interval);
           }
-        }, 1000/60)
+        }, 10/6)
       }
      
+      this.scrollToBottom()
     }, 10)
    
   }
@@ -196,6 +197,8 @@ export class ChatbotComponent implements AfterViewInit{
           }
         }, 50/6)
       }
+
+      this.scrollToBottom()
     }, 10)
 
 
@@ -231,6 +234,8 @@ export class ChatbotComponent implements AfterViewInit{
             }
           }, 50/6)
         }
+
+        this.scrollToBottom()
       }, 10)
 
       
@@ -278,6 +283,8 @@ export class ChatbotComponent implements AfterViewInit{
             }
           }, 50/6)
         }
+
+        this.scrollToBottom()
       }, 10)
 
 
@@ -311,6 +318,9 @@ export class ChatbotComponent implements AfterViewInit{
       this.templateStep = true;
       let input: any;
 
+      let messageWrapper = this.messageWrapper.nativeElement;
+      messageWrapper.style.paddingBottom = "15rem";
+
        // Augmentation de la hauteur du chatbot jusqu'au dernier message de la cinquième réponse
 
        setTimeout(()=>{ 
@@ -325,8 +335,10 @@ export class ChatbotComponent implements AfterViewInit{
             } else {
               clearInterval(interval);
             }
-          }, 100/6)
+          }, 50/6)
         }
+
+        this.scrollToBottom()
       }, 10)
 
       // Focus de l'input après un délai
@@ -365,6 +377,8 @@ export class ChatbotComponent implements AfterViewInit{
           }
         }, 50/6)
       }
+
+      this.scrollToBottom()
     }, 10)
 
   }
@@ -392,6 +406,8 @@ export class ChatbotComponent implements AfterViewInit{
           }
         }, 50/6)
       }
+
+      this.scrollToBottom()
     }, 10)
 
     } else {
@@ -401,23 +417,31 @@ export class ChatbotComponent implements AfterViewInit{
       this.secondaryColor = 'defaultColor';
       this.tertiaryColor = 'defaultColor';
 
-       // Augmentation de la hauteur du chatbot jusqu'au dernier message de la septième réponse
-
-     setTimeout(()=>{ 
-      let a = this.botEigththAnswerLimit.nativeElement;
-      console.log(a);
-      this.onAnime();
-   
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 50/6)
-      }
-    }, 10)
+      setTimeout(()=>{ 
+        let a = this.botEigththAnswerLimit.nativeElement;
+        console.log('last', a);
+        this.onAnime();
+        let messageWrapper = this.messageWrapper.nativeElement;
+        messageWrapper.style.paddingBottom = "0rem";
+  
+        if(this.start){
+          let interval = setInterval(() => {
+            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+              this.canvasHeight++;
+              console.log('marche')
+              setTimeout(()=>{
+                this.displayForm = true;
+                this.scrollToBottom()
+              }, 1000)
+            } else {
+  
+              clearInterval(interval);
+            }
+          }, 50/6)
+        }
+  
+        this.scrollToBottom()
+      }, 10)
     }
 
   }
@@ -487,23 +511,32 @@ export class ChatbotComponent implements AfterViewInit{
   getOwnTertiaryColor(event : any) {
     this.tertiaryColor = event.target.value;
 
-
     // Augmentation de la hauteur du chatbot jusqu'au dernier message de la dernière réponse
 
     setTimeout(()=>{ 
       let a = this.botEigththAnswerLimit.nativeElement;
-      console.log(a);
+      console.log('last', a);
       this.onAnime();
-   
+      let messageWrapper = this.messageWrapper.nativeElement;
+      messageWrapper.style.paddingBottom = "5rem";
+
       if(this.start){
         let interval = setInterval(() => {
           if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
             this.canvasHeight++;
+            console.log('marche')
+            setTimeout(()=>{
+              this.displayForm = true;
+              this.scrollToBottom()
+            }, 1000)
           } else {
+
             clearInterval(interval);
           }
         }, 50/6)
       }
+
+      this.scrollToBottom()
     }, 10)
     
   }
