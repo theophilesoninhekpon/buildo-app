@@ -15,7 +15,6 @@ body {
   margin: 0;
   line-height: 1.5;
 
-  background-color: #e3e3e3;
 }
 
 /* ******************************************************************************
@@ -172,25 +171,25 @@ CONTAINER
   z-index: 1;
   margin-left: -2rem;
   width: 100%;
-  
 
+  
 }
 
 .chat-container {
   padding-top: 15rem;
   width: 100%;
   margin-inline: auto;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   font-family: Manrope;
 }
 
 .wrapper{
   position: relative;
   margin-top: -20rem;
- 
+  
   width: 67.1%;
   margin-inline: auto;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #e3e3e3 0.5%,
     #f9f9f9 1%,
@@ -198,7 +197,7 @@ CONTAINER
     #f9f9f9 99%,
     #e3e3e3 100%
   );
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; */
   
 }
 

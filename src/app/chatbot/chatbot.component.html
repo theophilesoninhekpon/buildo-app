@@ -1,9 +1,9 @@
 <div class="wrapper" #wrapper>
 
-  <div id="chatbot" class="chat-container">
+  <div class="chat-container">
     <canvas #canvas width="20px" [height]="canvasHeight"></canvas>
   
-    <div class="message-container">
+    <div class="message-container" #messageContainer>
       <!-- Variable d'état start pour la première réponse (ensemble de messages) du bot -->
         <div class="display-flex bot-message" *ngIf="start">
           <div [ngClass]="{ circle: start, 'circle-1': start }" [@circleFadeInAnimation1]></div>
@@ -413,7 +413,7 @@
   
       <form
         action=""
-        *ngIf="primaryColor && secondaryColor && tertiaryColor"
+        *ngIf="primaryColor && secondaryColor && tertiaryColor && displayForm"
         [@textFadeInAnimation4]
       >
         <div class="cird-flex justify-content-center">
@@ -422,16 +422,15 @@
             [@circleFadeInAnimation1]
           ></div>
         </div>
-        <div class="d-flex justify-content-center flex-column p-5">
+        <div class="d-flex justify-content-center flex-column p-sm-5">
           <div><label for="lastname">Nom</label></div>
-          <br /><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" />
-          <br />
+          <input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" />
           <div><label for="firstname">Prénom</label></div>
-          <br /><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" />
-          <br />
+          <input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" />
+          
           <div><label for="mail">Email</label></div>
-          <br /><input type="email" name="mail" id="mail" [(ngModel)]="mail" />
-          <br />
+          <input type="email" name="mail" id="mail" [(ngModel)]="mail" />
+          
         </div>
   
         <div>
