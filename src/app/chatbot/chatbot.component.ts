@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild , Input, AfterViewInit} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild , Input, Renderer2} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
@@ -16,6 +16,7 @@ import { ChatService } from '../chat.service';
 
 export class ChatbotComponent{
 
+  renderer!: Renderer2;
   increase : boolean = false;
   count : number = 0;
   canvasHeight : number = 0;
@@ -26,7 +27,10 @@ export class ChatbotComponent{
   context !: CanvasRenderingContext2D | null;
   canvas !: HTMLCanvasElement;
 
+  // Prop reçu du composant parent App indiquant l'amorcage de la conversation
   @Input() start!: boolean;
+  // Prop reçu du composant parent App indiquant le changement de mode
+  @Input() displayMode!: boolean;
 
   // Variables des entrées de l'utilisateur
   category!: string;
@@ -88,6 +92,14 @@ export class ChatbotComponent{
   @ViewChild('wrapper') chatWrapper !: ElementRef;
   @ViewChild('messageContainer') messageWrapper !: ElementRef;
 
+  @ViewChild('html') rootElement !: ElementRef;
+  
+  stylePrimaryColor!: string; 
+  styleSecondaryColor!: string; 
+  styleHeaderColor!: string;
+  styleHeaderParagraphColor!: string;
+
+
   constructor(
     private chatService : ChatService
   ) {}
@@ -95,8 +107,6 @@ export class ChatbotComponent{
   ngOnInit(): void {
       this.canvas = this.myCanvas.nativeElement;
       this.context = this.canvas.getContext('2d');
-
-      // this.primaryColors = this.chatService.getPrimaryColors();
 
   }
 
@@ -106,9 +116,13 @@ export class ChatbotComponent{
    * @return 
    */
   scrollToBottom(){
-    let chatWrapper = this.chatWrapper.nativeElement;
-    let messageWrapper = this.messageWrapper.nativeElement
+    let chatWrapper = this.messageWrapper.nativeElement;
+    let wrapper = this.chatWrapper.nativeElement;
+    wrapper.style.width='100%';
+    wrapper.style.height = '5000px';
+    wrapper.style.backgroundColor = "rgb(58, 58, 58)";
     window.scroll(0, chatWrapper.scrollHeight)
+
   }
 
   onAnime() {
@@ -135,7 +149,8 @@ export class ChatbotComponent{
       context.setLineDash([10, 10]);
       context.clearRect(0, 0, 20, this.canvasHeight);
       
-      context.strokeStyle = "blue";
+      context.strokeStyle = "#f6ca0c";
+      context.lineWidth = 2;
       context.moveTo(10, this.count);
       context.lineTo(10, 0);
       context.stroke();
@@ -147,8 +162,34 @@ export class ChatbotComponent{
     requestAnimationFrame(() => this.#drawRectangle(context!));
   }
 
+  /**
+   * Fonction appliquant le style d'affichage des éléments en fonction du mode
+   */
+
+  changeDisplayMode(){
+
+    let rootElement = this.rootElement.nativeElement;
+
+    if(this.displayMode) {
+      rootElement.style.setProperty("--color-primary", "#f6ca0c");
+      rootElement.style.setProperty("--color-secondary", "#e59802");
+      rootElement.style.setProperty("--header-color", "#ffffff");
+      rootElement.style.setProperty("--header-p-color", "rgba(255, 255, 255, 0.634)");
+
+      // --color-primary: #f6ca0c; 
+      // --color-secondary: #e59802;
+      // --header-color: white;
+      // --header-p-color: rgba(255, 255, 255, 0.634);
+    } else {
+      rootElement.style.setProperty("--header-color", "#0000009f");
+      rootElement.style.setProperty("--header-p-color", "rgba(0, 0, 0, 0.634)");
+
+    }
+  }
+
   ngOnChanges(){
 
+    // this.changeDisplayMode();
 
     // Augmentation de la hauteur du chatbot jusqu'au dernier message de la première réponse
     setTimeout(()=>{ 

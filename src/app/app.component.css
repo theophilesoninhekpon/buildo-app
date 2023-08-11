@@ -31,7 +31,7 @@ GENERALITIES
 }
 
 .pricipale {
-    background-color: #ff9e00;
+    background-color: var(--color-secondary);
 }
 
 /* *****************************************************************
@@ -45,10 +45,11 @@ CONTAINER
     z-index: 1;
     width: 100%;
     padding: 2rem 8rem 20rem;
-    background: url(../assets/Banner.png);
+    background-color: var(--color-primary);
+    /* background: url(../assets/Banner.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 
 }
 
@@ -98,7 +99,7 @@ MAIN LAYOUT
 }
 
 .hero span {
-    color: #ff9e00;
+    color: var(--color-secondary);
 }
 
 .hero {
@@ -116,6 +117,7 @@ MAIN LAYOUT
     font-family: 'Poppins';
     font-size: 5.5rem;
     font-weight: 950;
+    color: var(--header-color);
 }
 
 .hero-container {
@@ -125,7 +127,7 @@ MAIN LAYOUT
 .hero-container p {
     line-height: 3rem;
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.591);
+    color: var(--header-p-color);
     font-family: Manrope;
     margin-inline: 8rem;
     margin-bottom: 3rem;

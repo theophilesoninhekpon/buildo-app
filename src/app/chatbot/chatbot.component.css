@@ -108,7 +108,7 @@ select:focus {
 
 .user-icon {
   border-radius: 50px;
-  background-color: #0119ff;
+  background-color: var(--color-primary);
   color: white;
   padding: 0.7rem 0.8rem;
 }
@@ -129,7 +129,7 @@ select:focus {
 /* Paragraphe contenant le choix ou le message de l'utilisateur */
 .user-style {
   color: white;
-  background-color: #0119ff;
+  background-color:  var(--color-primary);
   margin-left: auto;
   font-size: 1.5rem;
   padding: 1rem 1.7rem;
@@ -183,10 +183,19 @@ CONTAINER
   font-family: Manrope;
 }
 
-.wrapper{
+.main-container{
   position: relative;
   margin-top: -20rem;
   
+
+  width: 100%;
+  margin-inline: auto;
+}
+
+.wrapper{
+  position: relative;
+  margin-top: -20rem;
+
   width: 67.1%;
   margin-inline: auto;
   /* background-image: linear-gradient(
@@ -215,8 +224,8 @@ input {
 div.circle {
   width: 50px;
   aspect-ratio: 1;
-  border: 7.5px dashed blue;
-  background-color: white;
+  border: 7.5px dashed  var(--color-primary);
+  background-color: #fff;
   border-radius: 50%;
 }
 
@@ -455,7 +464,7 @@ SECTION CHOIX DES COULEURS
 
 .box-title-style {
   color: white;
-  background-color: #0119ff;
+  background-color:  var(--color-primary);
   font-size: 1.5rem;
   padding: 1rem 1.7rem;
   border-radius: 40px;

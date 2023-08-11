@@ -4,9 +4,16 @@ html{
     
 }
 
+:root{
+    --color-primary: #f6ca0c; 
+    --color-secondary: #e59802;
+    --header-color: white;
+    --header-p-color: rgba(255, 255, 255, 0.634);
+  }
+
 body{
     margin: 0;
     padding: 0;
 
-    /* background-color: #e3e3e3 !important; */
+    background-color: var(--header-color) !important;
 }
