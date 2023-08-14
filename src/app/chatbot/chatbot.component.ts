@@ -2,8 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild , Input, Renderer2} from '@ang
 import { NgForm } from '@angular/forms';
 import { textFadeInAnimation1, textFadeInAnimation2, textFadeInAnimation3, textFadeInAnimation4,
          circleFadeInAnimation1, circleFadeInAnimation2, circleFadeInAnimation3, circleFadeInAnimation4 } from "../animation.module"; 
-import { Color, SecondaryColorList, TertiaryColorList } from "../category";
-import { primaryColors, secondaryColors, tertiaryColors } from "../chat-data";
+import { Color } from "../category";
 import { ChatService } from '../chat.service';
 
 @Component({
@@ -110,6 +109,25 @@ export class ChatbotComponent{
 
   }
 
+
+  /**
+   * Fonction d'agrandissement de la hauteur du canvas
+   */
+
+  increaseCanvasHeight(a: HTMLElement): void{
+
+    this.onAnime();
+  
+        let interval = setInterval(() => {
+          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+            this.canvasHeight++; 
+          }
+        })
+
+      this.scrollToBottom()
+  }
+
+
   /**
    * Fonction d'ajustement de la fenêtre en fonction de la hauteur du conteneur principal wrapper
    * @param 
@@ -119,7 +137,6 @@ export class ChatbotComponent{
     let chatWrapper = this.messageWrapper.nativeElement;
     let wrapper = this.chatWrapper.nativeElement;
     wrapper.style.width='100%';
-    wrapper.style.height = '5000px';
     wrapper.style.backgroundColor = "rgb(58, 58, 58)";
     window.scroll(0, chatWrapper.scrollHeight)
 
@@ -144,7 +161,7 @@ export class ChatbotComponent{
   // Fonction de dessin continuel de la ligne en tiret
   #drawRectangle(context : CanvasRenderingContext2D) {
     if (this.count < this.canvasHeight) {
-      this.count++;
+      this.count+= 1.5;
       context.beginPath();
       context.setLineDash([10, 10]);
       context.clearRect(0, 0, 20, this.canvasHeight);
@@ -195,23 +212,13 @@ export class ChatbotComponent{
     setTimeout(()=>{ 
       let a = this.botFirstAnswerLimit.nativeElement;
       console.log(a);
-      this.onAnime();
       
       let chatWrapper = this.chatWrapper.nativeElement;
       let messageWrapper = this.messageWrapper.nativeElement;
       messageWrapper.style.paddingBottom = "5rem";
 
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 10/6)
-      }
-     
-      this.scrollToBottom()
+      this.increaseCanvasHeight(a);
+    
     }, 10)
    
   }
@@ -227,19 +234,8 @@ export class ChatbotComponent{
     setTimeout(()=>{ 
       let a = this.botSecondAnswerLimit.nativeElement;
       console.log(a);
-      this.onAnime();
    
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 50/6)
-      }
-
-      this.scrollToBottom()
+      this.increaseCanvasHeight(a);
     }, 10)
 
 
@@ -264,19 +260,9 @@ export class ChatbotComponent{
       setTimeout(()=>{ 
         let a = this.botThirdAnswerLimit.nativeElement;
         console.log(a);
-        this.onAnime();
      
-        if(this.start){
-          let interval = setInterval(() => {
-            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-              this.canvasHeight++;
-            } else {
-              clearInterval(interval);
-            }
-          }, 50/6)
-        }
+        this.increaseCanvasHeight(a);
 
-        this.scrollToBottom()
       }, 10)
 
       
@@ -313,19 +299,8 @@ export class ChatbotComponent{
       setTimeout(()=>{ 
         let a = this.botFourthAnswerLimit.nativeElement;
         console.log(a);
-        this.onAnime();
-     
-        if(this.start){
-          let interval = setInterval(() => {
-            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-              this.canvasHeight++;
-            } else {
-              clearInterval(interval);
-            }
-          }, 50/6)
-        }
+        this.increaseCanvasHeight(a);
 
-        this.scrollToBottom()
       }, 10)
 
 
@@ -367,19 +342,7 @@ export class ChatbotComponent{
        setTimeout(()=>{ 
         let a = this.botFifthAnswerLimit.nativeElement;
         console.log(a);
-        this.onAnime();
-     
-        if(this.start){
-          let interval = setInterval(() => {
-            if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-              this.canvasHeight++;
-            } else {
-              clearInterval(interval);
-            }
-          }, 50/6)
-        }
-
-        this.scrollToBottom()
+        this.increaseCanvasHeight(a);
       }, 10)
 
       // Focus de l'input après un délai
@@ -407,19 +370,7 @@ export class ChatbotComponent{
      setTimeout(()=>{ 
       let a = this.botSixthAnswerLimit.nativeElement;
       console.log(a);
-      this.onAnime();
-   
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 50/6)
-      }
-
-      this.scrollToBottom()
+      this.increaseCanvasHeight(a);
     }, 10)
 
   }
@@ -436,19 +387,7 @@ export class ChatbotComponent{
      setTimeout(()=>{ 
       let a = this.botSeventhAnswerLimit.nativeElement;
       console.log(a);
-      this.onAnime();
-   
-      if(this.start){
-        let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
-            this.canvasHeight++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 50/6)
-      }
-
-      this.scrollToBottom()
+      this.increaseCanvasHeight(a);
     }, 10)
 
     } else {
@@ -486,47 +425,6 @@ export class ChatbotComponent{
     }
 
   }
-
-  // A la modification du choix
-  modifyOwnColorsChoice(){
-
-  }
-  // /**
-  //  * Méthode de récupération de la couleur primaire
-  //  * @param event identifiant de la couleur primaire
-  //  */
-  // getPrimaryColor(event : any) {
-  //   this.primaryColorId = event.target.value;
-  //   this.primaryColor = this.primaryColors.find((element) => this.primaryColorId === element.id)?.hexCode;
-
-  //   this.secondaryColors = this.chatService.getSecondaryColors(this.primaryColorId);
-  // }
-
-  // /**
-  //  * Méthode de récupération de la couleur secondaire
-  //  * @param event identifiant de la couleur secondaire
-  //  */
-  // getSecondaryColor(event : any) {
-  //   let secondaryId = event.target.value;
-   
-  //   secondaryColors.forEach(element => {
-  //     if (element.primaryId === this.primaryColorId) {
-  //       this.secondaryColor = element.list.find( color => color.id == secondaryId)?.hexCode
-  //     }
-  //   })
-
-  //   this.tertiaryColors = this.chatService.getTertiaryColors(this.primaryColorId, secondaryId);
-  // }
-
-  // /**
-  //  * Méthode de récupération de la couleur tertiarire
-  //  * @param event Code couleur de la couleur tertiare
-  //  */
-  // getTertiaryColor(event : any) {
-  //   this.tertiaryColor = event.target.value;
-  //   console.log(this.tertiaryColor);
-    
-  // }
 
 
   /**
@@ -593,11 +491,4 @@ export class ChatbotComponent{
 
 }
 
-
-
-// import { ElementRef, Renderer, ViewChild,AfterViewInit}
-
-// implements AfterViewInit
-
-// @ViewChild('chatContainer') chatContainer :  ElementRef
 
