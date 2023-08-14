@@ -90,7 +90,7 @@ MAIN LAYOUT
 
 .hero {
   color: white;
-  margin-block: 5rem;
+  margin-block: 11rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,9 +99,9 @@ MAIN LAYOUT
 
 .hero h1 {
   font-family: "Poppins";
-  font-size: 5.5rem;
+  font-size: 5rem;
   font-weight: 950;
-  color: var(--header-color);
+  color: var(--display-color);
 }
 
 .hero-container {
@@ -148,111 +148,7 @@ span:focus {
   color: #ff9e00;
 }
 
-/* 
-@media screen and (max-width:1525px) {
-    
-    .hero h1 {
-        font-size: 5rem;
-    }
-    .hero-container {
-        margin-inline: 10rem;
-    }
-    .hero-container p {
-        margin-block: 1.5rem 2rem;
-        padding-inline: 3rem;
-        line-height: 1.5rem;
-        font-size: 1rem;
-       
-    }
-}
 
-@media screen and (max-width:1370px) {
-    .hero h1 {
-        font-size: 4rem;
-    }
-    .hero-container {
-        margin-inline: 3rem;
-    }
-
-    .button {
-        padding: .8rem 1.5rem;
-        margin-top: 1rem;
-        border-radius: 50px;
-    
-        font-size: 2rem;
-     
-    
-    }
-
-
-    .button {
-        padding: .8rem 1rem;
-        margin-top: 1.3rem;
-        border-radius: 50px;
-    
-        font-size: 1.5rem;
-     
-    
-    }
-    
-}
-
--Mobile-
-@media screen and (max-width:780px) {
-    .logo{
-        width: 400px;
-        height: 50px
-    }
-    .flex-gap .icon{
-        font-size: 1.5rem;
-    }
-   
-     .logo{
-        margin-block: .5rem;
-     }
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-    .hero-container {
-        margin-inline: 1rem;
-    }
-
-    .button {
-        padding: .5rem 1rem;
-        margin-top: 1rem;
-        border-radius: 50px;
-    
-        font-size: 1.5rem;
-     
-    
-    }
-    .flex{
-        flex-direction: column;
-    }
-    .logo{
-          
-        padding-left: 30%;
-    }
-}
-
-@media screen and (max-width:480px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero{
-        margin-inline:0;
-    }
-    .hero-container {
-        margin-inline: 0;
-    }
-
-    .hero-container p {
-        margin: 0;
-       padding: 0 0 1.5rem 0;
-    }
-
-   
-} */
 
 /* *************************************************************************************************************
 MEDIA QUERY MOBILE

@@ -34,6 +34,7 @@
               </button>
             </div>
           </div>
+
         <div class="display-flex gap-1" *ngIf="ready">
           <p class="user-style">Oui Build'o</p>
           <span></span>
@@ -56,7 +57,7 @@
         <div
           *ngIf="categoryStep && !hasSelectCategory"
           class="user-message"
-          [@textFadeInAnimation3]="selectAnimation"
+          [@textFadeInAnimation3]="false"
         >
           <select name="" #select (change)="getOption($event)">
             <!-- Action utilisateur -->
@@ -72,7 +73,7 @@
         <div class="display-flex gap-1" *ngIf="showCategory">
           <p class="user-style">
             {{ category }}
-            <span (click)="modifyCategory()" class="pen-icon fas fa-pen"></span>
+            <span (click)="modifyCategory(); selectAnimation = false" class="pen-icon fas fa-pen"></span>
           </p>
           <div class="d-flex align-item-end user">
             <span class="user-icon fas fa-user"></span>
@@ -289,7 +290,7 @@
           </p>
         </div>
     
-         <div class="display-flex justify-content-center gap-4 mt-5"  [@textFadeInAnimation2] *ngIf="colorStep">
+         <div class="display-flex justify-content-center gap-4 mt-5" [@textFadeInAnimation2] *ngIf="colorStep">
           <div class="display-flex flex-column justify-content-center">
           
               <p class="box-title-style color_title">Primaire</p>

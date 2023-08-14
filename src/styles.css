@@ -1,19 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-    scroll-behavior: smooth;
-    
-}
 
 :root{
     --color-primary: #f6ca0c; 
     --color-secondary: #e59802;
-    --header-color: white;
+    --display-color: white;
     --header-p-color: rgba(255, 255, 255, 0.634);
+    --dark-color: rgb(58, 58, 58);
   }
+
+html{
+    scroll-behavior: smooth;
+    background-color: var(--display-color);
+}
+
 
 body{
     margin: 0;
     padding: 0;
-
-    background-color: var(--header-color) !important;
 }

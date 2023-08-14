@@ -15,7 +15,6 @@ import { ChatService } from '../chat.service';
 
 export class ChatbotComponent{
 
-  renderer!: Renderer2;
   increase : boolean = false;
   count : number = 0;
   canvasHeight : number = 0;
@@ -32,16 +31,13 @@ export class ChatbotComponent{
   @Input() displayMode!: boolean;
 
   // Variables des entrées de l'utilisateur
-  category!: string;
-  theme!: string;
-  siteName!: string;
-  template!: string;
-  primaryColor!: string | undefined;
-  secondaryColor!: string | undefined;
-  tertiaryColor!: string;
-  // ownPrimaryColor !: string;
-  // ownSecondaryColor !: string;
-  // ownTertiaryColor !: string;
+  category: string = '';
+  theme: string = '';
+  siteName: string = '';
+  template: string = '';
+  primaryColor: string = '';
+  secondaryColor: string = '';
+  tertiaryColor: string = '';
 
   // Valeurs d'états des réponses de l'utilisateur
   hasSelectCategory: boolean = false;
@@ -72,12 +68,6 @@ export class ChatbotComponent{
   colorStep: boolean = false;
   displayForm: boolean = false;
 
-  /** Variables de récupération des couleurs */
-  primaryColorId !: string;
-  primaryColors !: Color[] ;
-  secondaryColors !: Color[] | undefined;
-  tertiaryColors !: Color[] | undefined;
-
   // Récupération des éléments du DOM correspondant aux derniers cercles de chaque réponse du bot
   @ViewChild('botFirstAnswerLimit') botFirstAnswerLimit!: ElementRef;
   @ViewChild('botSecondAnswerLimit') botSecondAnswerLimit!: ElementRef;
@@ -90,8 +80,6 @@ export class ChatbotComponent{
 
   @ViewChild('wrapper') chatWrapper !: ElementRef;
   @ViewChild('messageContainer') messageWrapper !: ElementRef;
-
-  @ViewChild('html') rootElement !: ElementRef;
   
   stylePrimaryColor!: string; 
   styleSecondaryColor!: string; 
@@ -119,7 +107,7 @@ export class ChatbotComponent{
     this.onAnime();
   
         let interval = setInterval(() => {
-          if (this.canvasHeight <= ((a.offsetTop - 15 * 16 )+ 12)) {
+          if (this.canvasHeight <= ((a.offsetTop - 10 * 16 ) + 12)) { // Soustrait le rembourrage supérieur de la hauteur du conteneur du chat
             this.canvasHeight++; 
           }
         })
@@ -136,8 +124,7 @@ export class ChatbotComponent{
   scrollToBottom(){
     let chatWrapper = this.messageWrapper.nativeElement;
     let wrapper = this.chatWrapper.nativeElement;
-    wrapper.style.width='100%';
-    wrapper.style.backgroundColor = "rgb(58, 58, 58)";
+
     window.scroll(0, chatWrapper.scrollHeight)
 
   }
@@ -155,7 +142,6 @@ export class ChatbotComponent{
     if (this.canvasHeight <= height) {
       this.canvasHeight = height;
     }
-    console.log('icimaintenant');
   }
 
   // Fonction de dessin continuel de la ligne en tiret
@@ -185,33 +171,33 @@ export class ChatbotComponent{
 
   changeDisplayMode(){
 
-    let rootElement = this.rootElement.nativeElement;
+    let rootElement: HTMLHtmlElement | null = document.querySelector('html');
+    let botCircles: NodeList = document.querySelectorAll('.circle');
 
-    if(this.displayMode) {
-      rootElement.style.setProperty("--color-primary", "#f6ca0c");
-      rootElement.style.setProperty("--color-secondary", "#e59802");
-      rootElement.style.setProperty("--header-color", "#ffffff");
-      rootElement.style.setProperty("--header-p-color", "rgba(255, 255, 255, 0.634)");
+    if (rootElement !== null) {
 
-      // --color-primary: #f6ca0c; 
-      // --color-secondary: #e59802;
-      // --header-color: white;
-      // --header-p-color: rgba(255, 255, 255, 0.634);
-    } else {
-      rootElement.style.setProperty("--header-color", "#0000009f");
-      rootElement.style.setProperty("--header-p-color", "rgba(0, 0, 0, 0.634)");
+        if(this.displayMode) { // Dark mode
+          botCircles.forEach((element) => console.log(element))
+          rootElement.style.setProperty("--display-color", "rgba(0, 0, 0, 0.8)");
+          rootElement.style.setProperty("--header-p-color", "rgba(0, 0, 0, 0.8)");
+    
+        } else {              // Light mode
 
+          rootElement.style.setProperty("--display-color", "#ffffff");
+          rootElement.style.setProperty("--header-p-color", "rgba(255, 255, 255, 0.5)");
+         
+        }
     }
+
   }
 
   ngOnChanges(){
 
-    // this.changeDisplayMode();
+    this.changeDisplayMode();
 
     // Augmentation de la hauteur du chatbot jusqu'au dernier message de la première réponse
     setTimeout(()=>{ 
       let a = this.botFirstAnswerLimit.nativeElement;
-      console.log(a);
       
       let chatWrapper = this.chatWrapper.nativeElement;
       let messageWrapper = this.messageWrapper.nativeElement;
@@ -236,6 +222,7 @@ export class ChatbotComponent{
       console.log(a);
    
       this.increaseCanvasHeight(a);
+
     }, 10)
 
 

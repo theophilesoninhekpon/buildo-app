@@ -52,14 +52,14 @@ CLASSES UTILITAIRES
   padding: 0.7rem 1rem;
   border-radius: 50px;
   cursor: pointer;
-  margin-left: 18.7rem;
+  margin-left: 16.7rem;
   box-shadow: 0 1px 3px 2.5px rgba(0, 0, 0, 0.12);
-  background-color: #ff9e00;
+  background-color: var(--color-secondary);
   color: black;
 }
 
 .color-choices-btn button {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 /* Icone de succès */
@@ -79,7 +79,7 @@ CLASSES UTILITAIRES
 .send-btn {
   padding: 1.2rem 3rem;
   border-radius: 50px;
-  background-color: #0119ff;
+  background-color: var(--color-secondary);
   cursor: pointer;
 
   margin-top: 8rem;
@@ -103,13 +103,13 @@ CLASSES UTILITAIRES
 
 input[type="text"]:focus,
 select:focus {
-  outline: 2px solid #0119ff;
+  outline: 2px solid var(--color-primary);
 }
 
 .user-icon {
   border-radius: 50px;
   background-color: var(--color-primary);
-  color: white;
+  color: black;
   padding: 0.7rem 0.8rem;
 }
 
@@ -128,10 +128,10 @@ select:focus {
 
 /* Paragraphe contenant le choix ou le message de l'utilisateur */
 .user-style {
-  color: white;
+  color: black;
   background-color:  var(--color-primary);
   margin-left: auto;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 1rem 1.7rem;
   border-radius: 40px 40px 10px 40px;
   margin-top: 8rem;
@@ -167,27 +167,29 @@ CONTAINER
 .message-container {
   position: absolute;
   padding-top: 20rem;
+  padding-right: 2rem;
   top: 1rem;
   z-index: 1;
   margin-left: -2rem;
   width: 100%;
-
-  
+  background-color: rgba(255, 255, 255, 0);
+  border-right: 10px dotted var(--color-primary);
 }
 
 .chat-container {
-  padding-top: 15rem;
+  padding-top: 10rem;
   width: 100%;
   margin-inline: auto;
   /* background-color: #f9f9f9; */
   font-family: Manrope;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .main-container{
   position: relative;
   margin-top: -20rem;
   
-
+  background-color: var(--display-color);
   width: 100%;
   margin-inline: auto;
 }
@@ -198,6 +200,7 @@ CONTAINER
 
   width: 67.1%;
   margin-inline: auto;
+  background-color: rgba(255, 255, 255, 0);
   /* background-image: linear-gradient(
     to right,
     #e3e3e3 0.5%,
@@ -254,12 +257,11 @@ div.circle-4 {
 
 /* Les bulles de discussion du chat */
 div.circle ~ p {
-  background-color: #d9d9d9;
   border-radius: 10px 40px 40px 40px;
-  background-color: rgb(217, 217, 217);
+  background-color: rgba(217, 217, 217, 0.534);
   margin-left: 0.5rem;
   margin-top: 5rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 1rem 1.7rem;
 }
 
@@ -463,9 +465,9 @@ SECTION CHOIX DES COULEURS
 }
 
 .box-title-style {
-  color: white;
+  color: black;
   background-color:  var(--color-primary);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 1rem 1.7rem;
   border-radius: 40px;
   margin-top: 2rem;
