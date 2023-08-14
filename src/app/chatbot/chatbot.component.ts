@@ -213,6 +213,10 @@ export class ChatbotComponent{
   isReady(){
     this.ready = true;
     this.categoryStep = true;
+
+    localStorage.setItem('_ready', `present`);
+    localStorage.setItem('_categoryStep', `present`);
+
     let selectInput: any;
    
     // Augmentation de la hauteur du chatbot jusqu'au dernier message de la deuxième réponse
